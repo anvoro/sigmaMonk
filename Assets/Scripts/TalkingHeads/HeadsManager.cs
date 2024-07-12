@@ -14,10 +14,17 @@ namespace TalkingHeads
     [Serializable]
     public struct ChatItem
     {
+        [Serializable]
+        public struct TalkingHeadItem
+        {
+            public HeadPosition HeadPosition;
+            public TalkSpriteContainer SpriteContainer;
+        }
+        
         [TextArea]
         public string Text;
-        public HeadPosition HeadPosition;
-        public Sprite Sprite;
+        public float Duration;
+        public TalkingHeadItem[] TalkingHeads;
     }
     
     public class HeadsManager : MonoBehaviour
@@ -26,27 +33,27 @@ namespace TalkingHeads
         private ChatItem[] _chatItems;
 
         [SerializeField]
-        private SpriteRenderer _leftHead;
+        private CharacterTalkView _leftHead;
         [SerializeField]
-        private SpriteRenderer _rightHead;
+        private CharacterTalkView _rightHead;
 
         [SerializeField]
         private TextMeshProUGUI _chatText;
 
-        public void SetHead(Sprite sprite, HeadPosition headPosition)
+        private void SetHead(ChatItem.TalkingHeadItem headItem)
         {
-            switch (headPosition)
+            switch (headItem.HeadPosition)
             {
                 case HeadPosition.Left:
-                    _leftHead.sprite = sprite;
+                    _leftHead.SetSpritesContainer(headItem.SpriteContainer);
                     break;
                 
                 case HeadPosition.Right:
-                    _rightHead.sprite = sprite;
+                    _rightHead.SetSpritesContainer(headItem.SpriteContainer);
                     break;
                 
                 default:
-                    throw new ArgumentOutOfRangeException(nameof(headPosition), headPosition, null);
+                    throw new ArgumentOutOfRangeException(nameof(HeadPosition), headItem.HeadPosition, null);
             }
         }
 
@@ -60,12 +67,15 @@ namespace TalkingHeads
             for (int i = 0; i < _chatItems.Length; i++)
             {
                 ChatItem currentItem = _chatItems[i];
-                
-                SetHead(currentItem.Sprite, currentItem.HeadPosition);
+
+                foreach (var head in currentItem.TalkingHeads)
+                {
+                    SetHead(head);
+                }
 
                 _chatText.text = currentItem.Text;
                 
-                yield return new WaitForSeconds(1f);
+                yield return new WaitForSeconds(currentItem.Duration);
             }
         }
     }

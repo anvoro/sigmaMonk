@@ -113,12 +113,12 @@ TextureImporter:
       name: PhoenixWright_0
       rect:
         serializedVersion: 2
-        x: 10
-        y: 2279
-        width: 131
-        height: 149
+        x: 586
+        y: 2282
+        width: 140
+        height: 140
       alignment: 9
-      pivot: {x: 0.67299914, y: 0.030473338}
+      pivot: {x: 0.76752275, y: 0.002}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -134,12 +134,12 @@ TextureImporter:
       name: PhoenixWright_1
       rect:
         serializedVersion: 2
-        x: 822
-        y: 1773
-        width: 127
-        height: 148
+        x: 734
+        y: 2282
+        width: 128
+        height: 141
       alignment: 9
-      pivot: {x: 0.67700726, y: 0.051075704}
+      pivot: {x: 0.74789953, y: 0.002}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -155,12 +155,12 @@ TextureImporter:
       name: PhoenixWright_2
       rect:
         serializedVersion: 2
-        x: 723
-        y: 1270
-        width: 253
-        height: 148
+        x: 871
+        y: 2282
+        width: 127
+        height: 143
       alignment: 9
-      pivot: {x: 0.26849246, y: 0.031190615}
+      pivot: {x: 0.7457559, y: 0.002}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -168,6 +168,195 @@ TextureImporter:
       bones: []
       spriteID: dca10e566fcf3aa49926fd7e48eec860
       internalID: -855762554
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PhoenixWright_3
+      rect:
+        serializedVersion: 2
+        x: 1009
+        y: 2283
+        width: 126
+        height: 140
+      alignment: 9
+      pivot: {x: 0.7435777, y: 0.002}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fc83d9e07605cc74a90a5d90acd0be78
+      internalID: 1829405180
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PhoenixWright_4
+      rect:
+        serializedVersion: 2
+        x: 988
+        y: 2127
+        width: 112
+        height: 136
+      alignment: 9
+      pivot: {x: 0.6288605, y: 0.0065}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6c01be16423cd8040b59db87243e1644
+      internalID: 1082950952
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PhoenixWright_5
+      rect:
+        serializedVersion: 2
+        x: 1105
+        y: 2126
+        width: 107
+        height: 137
+      alignment: 9
+      pivot: {x: 0.6247661, y: 0.0065}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 95ebc2c4ff89ec64597242aefe99d5a7
+      internalID: 443474324
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PhoenixWright_6
+      rect:
+        serializedVersion: 2
+        x: 1217
+        y: 2127
+        width: 106
+        height: 136
+      alignment: 9
+      pivot: {x: 0.6225402, y: 0.0065}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6a33e2ef1edb31c419795cee160d2494
+      internalID: -1251556277
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PhoenixWright_7
+      rect:
+        serializedVersion: 2
+        x: 1327
+        y: 2127
+        width: 108
+        height: 137
+      alignment: 9
+      pivot: {x: 0.63029313, y: 0.0065}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a4a38c7e62009364f8d150c79082b309
+      internalID: -1029940778
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PhoenixWright_8
+      rect:
+        serializedVersion: 2
+        x: 461
+        y: 1271
+        width: 250
+        height: 148
+      alignment: 9
+      pivot: {x: 0.18711437, y: 0.0055}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a5ea88bb36b2fe64baf5dea4cbf07d37
+      internalID: 1169319330
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PhoenixWright_9
+      rect:
+        serializedVersion: 2
+        x: 724
+        y: 1271
+        width: 253
+        height: 147
+      alignment: 9
+      pivot: {x: 0.18277086, y: 0.0055}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e9dda18b47a2c894aac4b4fd07f221e4
+      internalID: -70405232
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PhoenixWright_10
+      rect:
+        serializedVersion: 2
+        x: 982
+        y: 1272
+        width: 250
+        height: 145
+      alignment: 9
+      pivot: {x: 0.17687745, y: 0.0055}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 99ac4cf319c329f4980bd4bc8e454a4c
+      internalID: 1878453889
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PhoenixWright_11
+      rect:
+        serializedVersion: 2
+        x: 1242
+        y: 1272
+        width: 249
+        height: 145
+      alignment: 9
+      pivot: {x: 0.18004063, y: 0.0055}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e6b540ed70310044ba290ea323a26ef9
+      internalID: 74366156
       vertices: []
       indices: 
       edges: []
@@ -185,7 +374,16 @@ TextureImporter:
     nameFileIdTable:
       PhoenixWright_0: -94109551
       PhoenixWright_1: -573793393
+      PhoenixWright_10: 1878453889
+      PhoenixWright_11: 74366156
       PhoenixWright_2: -855762554
+      PhoenixWright_3: 1829405180
+      PhoenixWright_4: 1082950952
+      PhoenixWright_5: 443474324
+      PhoenixWright_6: -1251556277
+      PhoenixWright_7: -1029940778
+      PhoenixWright_8: 1169319330
+      PhoenixWright_9: -70405232
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

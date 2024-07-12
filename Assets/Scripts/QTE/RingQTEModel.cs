@@ -28,15 +28,8 @@ namespace QTE
             _ringView.OnQTEAnimationBegin += () => StartCoroutine(ProcessQTEInput());
         }
 
-        private void Start()
+        public void ShowQTE()
         {
-            StartCoroutine(foo());
-        }
-
-        private IEnumerator foo()
-        {
-            yield return new WaitForSeconds(2f);
-            
             _ringView.Play(_qteTime);
         }
 
