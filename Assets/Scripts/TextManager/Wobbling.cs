@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.XR;
@@ -25,9 +23,7 @@ public class Wobbling : MonoBehaviour
             for (int j = 0; j < 4; ++j)
             {
                 var orig = verts[charInfo.vertexIndex + j];
-                //verts[charInfo.vertexIndex + j] = orig + new Vector3(0, Mathf.Sin(Time.time*2f + orig.x*0.01f) * 10f, 0);
                 verts[charInfo.vertexIndex + j] = orig + new Vector3(0, Mathf.PerlinNoise1D(Time.time * 2f + orig.x * 0.1f) * 10f, 0);
-
             }
 
         }
@@ -36,7 +32,6 @@ public class Wobbling : MonoBehaviour
             var meshInfo = textInfo.meshInfo[i];
             meshInfo.mesh.vertices = meshInfo.vertices;
             textComponent.UpdateGeometry(meshInfo.mesh, i);
-
         }
     }
 }

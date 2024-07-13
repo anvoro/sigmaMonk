@@ -3,34 +3,33 @@ using UnityEngine;
 
 public class GameManager : SingletonBase<GameManager>
 {
-    public static readonly WaitForEndOfFrame WaitEndOfFrame = new();
-    
-    //public event Action OnPlayerInput;
+	public static readonly WaitForEndOfFrame WaitEndOfFrame = new();
 
-    [SerializeField]
-    private float _inputDelay = 0.05f;
+	//public event Action OnPlayerInput;
 
-    private float _timeSinceLastInput;
+	[SerializeField] private float _inputDelay = 0.05f;
 
-    public bool HasInput { get; private set; }
-    
-    private void Update()
-    {
-        _timeSinceLastInput += Time.deltaTime;
-        
-        if (_timeSinceLastInput > _inputDelay
-            && Input.GetKeyDown(KeyCode.Space) == true)
-        {
-            _timeSinceLastInput = 0f;
-            //OnPlayerInput?.Invoke();
+	private float _timeSinceLastInput;
 
-            HasInput = true;
-            
-            //Debug.Log("OnPlayerInput");
-        }
-        else
-        {
-            HasInput = false;
-        }
-    }
+	public bool HasInput { get; private set; }
+
+	private void Update()
+	{
+		_timeSinceLastInput += Time.deltaTime;
+
+		if (_timeSinceLastInput > _inputDelay
+		    && Input.GetKeyDown(KeyCode.Space) == true)
+		{
+			_timeSinceLastInput = 0f;
+			//OnPlayerInput?.Invoke();
+
+			HasInput = true;
+
+			//Debug.Log("OnPlayerInput");
+		}
+		else
+		{
+			HasInput = false;
+		}
+	}
 }

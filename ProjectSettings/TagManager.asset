@@ -47,6 +47,9 @@ TagManager:
   - name: Character
     uniqueID: 3127492667
     locked: 0
+  - name: FrontPlane
+    uniqueID: 56896309
+    locked: 0
   - name: VFX
     uniqueID: 2891242073
     locked: 0
