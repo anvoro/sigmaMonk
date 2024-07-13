@@ -883,22 +883,22 @@ MonoBehaviour:
   - Main:
       Text: "<color=\"red\"><link=\"shake\">\u0421\u0442\u0443\u043A</link></color>
         \u0432 \u0434\u0432\u0435\u0440\u044C"
-      Duration: 0
+      TypeSpeed: 0
       TalkingHeads:
       - HeadPosition: 0
         SpriteContainer: {fileID: 11400000, guid: 286207dc12a2be14183d752b8a3c9198, type: 2}
     QTEPrefab: {fileID: 0}
     Success:
       Text: 
-      Duration: 0
+      TypeSpeed: 0
       TalkingHeads: []
     Fail:
       Text: 
-      Duration: 0
+      TypeSpeed: 0
       TalkingHeads: []
   - Main:
       Text: "\u2014 \u0412\u043E\u0439\u0434\u0438\u0442\u0435!"
-      Duration: 0
+      TypeSpeed: 2
       TalkingHeads:
       - HeadPosition: 0
         SpriteContainer: {fileID: 11400000, guid: 286207dc12a2be14183d752b8a3c9198, type: 2}
@@ -907,16 +907,16 @@ MonoBehaviour:
     QTEPrefab: {fileID: 0}
     Success:
       Text: 
-      Duration: 0
+      TypeSpeed: 0
       TalkingHeads: []
     Fail:
       Text: 
-      Duration: 0
+      TypeSpeed: 0
       TalkingHeads: []
   - Main:
       Text: "\u2014 \u0422\u043E\u0432\u0430\u0440\u0438\u0449 \u043A\u0430\u043F\u0438\u0442\u0430\u043D,
         \u0437\u0432\u0430\u043B\u0438?"
-      Duration: 0
+      TypeSpeed: 3
       TalkingHeads:
       - HeadPosition: 0
         SpriteContainer: {fileID: 11400000, guid: c96d75512a7da4343bdbcc142d279f00, type: 2}
@@ -925,16 +925,16 @@ MonoBehaviour:
     QTEPrefab: {fileID: 0}
     Success:
       Text: 
-      Duration: 0
+      TypeSpeed: 0
       TalkingHeads: []
     Fail:
       Text: 
-      Duration: 0
+      TypeSpeed: 0
       TalkingHeads: []
   - Main:
       Text: "\u2014 \u0412\u044B\u0437\u044B\u0432\u0430\u043B! \u041F\u0440\u0438\u0431\u044B\u043B\u0438
         \u0442\u0443\u0442 \u0434\u0432\u043E\u0435"
-      Duration: 0
+      TypeSpeed: 1
       TalkingHeads:
       - HeadPosition: 0
         SpriteContainer: {fileID: 11400000, guid: 286207dc12a2be14183d752b8a3c9198, type: 2}
@@ -944,7 +944,7 @@ MonoBehaviour:
     Success:
       Text: "\u2014 \u041E\u0444\u043E\u0440\u043C\u0438\u0442\u044C \u043A\u0430\u043A
         \u043D\u0430\u0434\u043E"
-      Duration: 0
+      TypeSpeed: 1
       TalkingHeads:
       - HeadPosition: 0
         SpriteContainer: {fileID: 11400000, guid: 4ca94cdff34ab7547b6a0fe1eabbe34b, type: 2}
@@ -952,7 +952,7 @@ MonoBehaviour:
         SpriteContainer: {fileID: 11400000, guid: cca77e6de7ba8344baea1b2f7f0a470f, type: 2}
     Fail:
       Text: "\u2014 \u041D\u0443 \u0434\u0430\u0432\u0430\u0439, \u0441\u0432\u043E\u0431\u043E\u0434\u0435\u043D!"
-      Duration: 0
+      TypeSpeed: 1
       TalkingHeads:
       - HeadPosition: 0
         SpriteContainer: {fileID: 11400000, guid: c96d75512a7da4343bdbcc142d279f00, type: 2}
@@ -964,7 +964,7 @@ MonoBehaviour:
         \u0442\u044B \u043D\u0435 \u0437\u043D\u0430\u0435\u0448\u044C? \u0422\u0430\u043A,
         \u043F\u0440\u0438\u043C\u0435\u0440\u043D\u043E, \u043C\u043E\u0436\u0435\u0448\u044C
         \u043F\u043E\u0447\u0443\u0432\u0441\u0442\u0432\u043E\u0432\u0430\u0442\u044C?"
-      Duration: 0
+      TypeSpeed: 3
       TalkingHeads:
       - HeadPosition: 0
         SpriteContainer: {fileID: 11400000, guid: 286207dc12a2be14183d752b8a3c9198, type: 2}
@@ -973,11 +973,11 @@ MonoBehaviour:
     QTEPrefab: {fileID: 0}
     Success:
       Text: 
-      Duration: 0
+      TypeSpeed: 0
       TalkingHeads: []
     Fail:
       Text: 
-      Duration: 0
+      TypeSpeed: 0
       TalkingHeads: []
   _leftHead: {fileID: 551678157}
   _rightHead: {fileID: 1931089291}

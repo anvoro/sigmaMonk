@@ -25,7 +25,7 @@ namespace TalkingHeads
 		public struct DialogueItem
 		{
 			[TextArea] public string Text;
-			public float Duration;
+			public TypeSpeed TypeSpeed;
 			public TalkingHeadItem[] TalkingHeads;
 		}
 
@@ -125,7 +125,7 @@ namespace TalkingHeads
 					SetHead(head);
 				}
 
-				_chatText.PlayText(item.Text, TypeSpeed.Medium);
+				_chatText.PlayText(item.Text, item.TypeSpeed);
 			}
 
 			IEnumerator processQTE(ChatItem currentChatItem)
