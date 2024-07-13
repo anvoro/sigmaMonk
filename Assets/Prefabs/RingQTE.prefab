@@ -379,7 +379,7 @@ SortingGroup:
   m_GameObject: {fileID: 4441321900812218683}
   m_Enabled: 1
   m_SortingLayerID: -1403725223
-  m_SortingLayer: 3
+  m_SortingLayer: 4
   m_SortingOrder: 0
   m_SortAtRoot: 0
 --- !u!114 &1057202298374877237
@@ -423,7 +423,7 @@ MonoBehaviour:
   _winPunchScale: 0.4
   _winPunchForce: {x: 1, y: 1, z: 0}
   _losePunchPosition: 0.4
-  _losePunch: {x: 1, y: 1, z: 0}
+  _losePunch: {x: 0.25, y: 0.25, z: 0}
   _flashTime: 0.05
   _resultTime: 1
   _winFlashColor: {r: 0, g: 0.88235295, b: 0, a: 1}

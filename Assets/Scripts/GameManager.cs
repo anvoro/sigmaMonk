@@ -5,8 +5,6 @@ public class GameManager : SingletonBase<GameManager>
 {
 	public static readonly WaitForEndOfFrame WaitEndOfFrame = new();
 
-	//public event Action OnPlayerInput;
-
 	[SerializeField] private float _inputDelay = 0.05f;
 
 	private float _timeSinceLastInput;
@@ -21,11 +19,8 @@ public class GameManager : SingletonBase<GameManager>
 		    && Input.GetKeyDown(KeyCode.Space) == true)
 		{
 			_timeSinceLastInput = 0f;
-			//OnPlayerInput?.Invoke();
 
 			HasInput = true;
-
-			//Debug.Log("OnPlayerInput");
 		}
 		else
 		{

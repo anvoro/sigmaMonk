@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections;
+using QTE;
 using TMPro;
 using UnityEngine;
 
@@ -24,9 +25,10 @@ namespace TalkingHeads
 		[TextArea] public string Text;
 		public float Duration;
 		public TalkingHeadItem[] TalkingHeads;
+		public GameObject QTEPrefab;
 	}
 
-	public class HeadsManager : MonoBehaviour
+	public class ChatManager : MonoBehaviour
 	{
 		[SerializeField] private ChatItem[] _chatItems;
 
@@ -34,7 +36,7 @@ namespace TalkingHeads
 		[SerializeField] private CharacterTalkView _rightHead;
 
 		[SerializeField] private TextMeshProUGUI _chatText;
-
+		
 		private void SetHead(ChatItem.TalkingHeadItem headItem)
 		{
 			switch (headItem.HeadPosition)
@@ -57,17 +59,40 @@ namespace TalkingHeads
 			StartCoroutine(PlayChat());
 		}
 
+		private QTEHolder _currentQTE;
 		private IEnumerator PlayChat()
 		{
 			for (var i = 0; i < _chatItems.Length; i++)
 			{
 				var currentItem = _chatItems[i];
 
-				foreach (var head in currentItem.TalkingHeads) SetHead(head);
+				foreach (var head in currentItem.TalkingHeads)
+				{
+					SetHead(head);
+				}
 
 				_chatText.text = currentItem.Text;
 
-				yield return new WaitForSeconds(currentItem.Duration);
+				if (currentItem.QTEPrefab != null)
+				{
+					_currentQTE = Instantiate(currentItem.QTEPrefab).GetComponent<QTEHolder>();
+
+					while (_currentQTE.IsComplete == false)
+					{
+						yield return GameManager.WaitEndOfFrame;
+					}
+					
+					yield return new WaitForSeconds(currentItem.Duration);
+				}
+				else
+				{
+					while (GameManager.I.HasInput == false)
+					{
+						yield return GameManager.WaitEndOfFrame;
+					}
+					
+					yield return GameManager.WaitEndOfFrame;
+				}
 			}
 		}
 	}

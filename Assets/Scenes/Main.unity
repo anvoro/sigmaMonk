@@ -709,6 +709,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1573989991}
+  - {fileID: 1910365421}
   m_Father: {fileID: 2013186024}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -990,7 +991,7 @@ GameObject:
   - component: {fileID: 1908028749}
   - component: {fileID: 1908028750}
   m_Layer: 0
-  m_Name: TalkingHeads
+  m_Name: ChatManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1042,6 +1043,7 @@ MonoBehaviour:
       SpriteContainer: {fileID: 11400000, guid: 286207dc12a2be14183d752b8a3c9198, type: 2}
     - HeadPosition: 1
       SpriteContainer: {fileID: 11400000, guid: 228cead2e4263f14baa82f3761e6e4e8, type: 2}
+    QTEPrefab: {fileID: 0}
   - Text: "\u0418 \u043E\u0442\u0435\u0446 \u0435\u043C\u0443 \u043E\u0442\u0432\u0435\u0447\u0430\u0435\u0442:
       \xAB\u041C\u043E\u043B\u043E\u0434\u0435\u0446! \u0427\u0442\u043E \u0436\u0435
       \u043C\u043D\u0435 \u0442\u0435\u0431\u0435 \u043F\u043E\u0434\u0430\u0440\u0438\u0442\u044C?\xBB\n\u0410
@@ -1053,6 +1055,7 @@ MonoBehaviour:
       SpriteContainer: {fileID: 11400000, guid: 286207dc12a2be14183d752b8a3c9198, type: 2}
     - HeadPosition: 1
       SpriteContainer: {fileID: 11400000, guid: 6435344ef02bc704c8540122f9ed143c, type: 2}
+    QTEPrefab: {fileID: 0}
   - Text: ...
     Duration: 1
     TalkingHeads:
@@ -1060,6 +1063,7 @@ MonoBehaviour:
       SpriteContainer: {fileID: 11400000, guid: 4ca94cdff34ab7547b6a0fe1eabbe34b, type: 2}
     - HeadPosition: 1
       SpriteContainer: {fileID: 11400000, guid: cca77e6de7ba8344baea1b2f7f0a470f, type: 2}
+    QTEPrefab: {fileID: 483872715056854214, guid: 2242485fb7b1e5a4792bdc942e534e76, type: 3}
   - Text: "\u0418 \u043E\u0442\u0435\u0446 \u0443\u0434\u0438\u0432\u043B\u0451\u043D\u043D\u043E
       \u0441\u043F\u0440\u0430\u0448\u0438\u0432\u0430\u0435\u0442: \xAB\u0422\u043E\u0447\u043D\u043E
       \u043F\u0430\u0440\u0442\u0443???\n\u042F \u043C\u043E\u0433\u0443 \u043A\u0443\u043F\u0438\u0442\u044C
@@ -1072,6 +1076,7 @@ MonoBehaviour:
       SpriteContainer: {fileID: 11400000, guid: c96d75512a7da4343bdbcc142d279f00, type: 2}
     - HeadPosition: 1
       SpriteContainer: {fileID: 11400000, guid: cca77e6de7ba8344baea1b2f7f0a470f, type: 2}
+    QTEPrefab: {fileID: 0}
   - Text: ...
     Duration: 1
     TalkingHeads:
@@ -1079,6 +1084,7 @@ MonoBehaviour:
       SpriteContainer: {fileID: 11400000, guid: 286207dc12a2be14183d752b8a3c9198, type: 2}
     - HeadPosition: 1
       SpriteContainer: {fileID: 11400000, guid: bbae3699c4fd8bd469b10c547e2526b2, type: 2}
+    QTEPrefab: {fileID: 483872715056854214, guid: 2242485fb7b1e5a4792bdc942e534e76, type: 3}
   - Text: "\u041D\u043E \u0441\u044B\u043D \u043D\u0435\u0434\u043E\u0441\u043B\u0443\u0448\u0430\u0432
       \u043E\u0442\u0432\u0435\u0442\u0438\u043B: \xAB\u041D\u0435\u0442! \u041C\u043D\u0435
       \u043D\u0443\u0436\u043D\u0430 \u043F\u0430\u0440\u0442\u0430\xBB.\n\u041D\u0430
@@ -1091,9 +1097,85 @@ MonoBehaviour:
       SpriteContainer: {fileID: 11400000, guid: 286207dc12a2be14183d752b8a3c9198, type: 2}
     - HeadPosition: 1
       SpriteContainer: {fileID: 11400000, guid: 6435344ef02bc704c8540122f9ed143c, type: 2}
+    QTEPrefab: {fileID: 0}
   _leftHead: {fileID: 551678157}
   _rightHead: {fileID: 1931089291}
   _chatText: {fileID: 1573989992}
+--- !u!1 &1910365420
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1910365421}
+  - component: {fileID: 1910365423}
+  - component: {fileID: 1910365422}
+  m_Layer: 5
+  m_Name: NextDialogueMark
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1910365421
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1910365420}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1492425647}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 884, y: -65}
+  m_SizeDelta: {x: 50, y: 50}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1910365422
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1910365420}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.34509805, g: 0.5529412, b: 0.6627451, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 0}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &1910365423
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1910365420}
+  m_CullTransparentMesh: 1
 --- !u!1 &1931089289
 GameObject:
   m_ObjectHideFlags: 0

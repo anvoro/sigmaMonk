@@ -1,14 +1,14 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using UnityEngine;
 
 namespace QTE
 {
 	public enum QTEResult
 	{
-		Success = 0,
-		LoseByInput = 1,
-		LoseByTimer = 2
+		None = 0,
+		Success = 1,
+		LoseByInput = 2,
+		LoseByTimer = 3,
 	}
 
 	[RequireComponent(typeof(RingQTEView))]
@@ -20,44 +20,55 @@ namespace QTE
 		[SerializeField] private float _qteSuccessOffsetBefore = .2f;
 		[SerializeField] private float _qteSuccessOffsetAfter = .2f;
 
+		public bool IsProcessing { get; private set; }
+		public bool IsComplete { get; private set; }
+		
+		public QTEResult Result { get; private set; } = QTEResult.None;
+		
 		private void Awake()
 		{
 			_ringView = GetComponent<RingQTEView>();
 			_ringView.OnQTEAnimationBegin += () => StartCoroutine(ProcessQTEInput());
 		}
 
-		// private IEnumerator Start()
-		// {
-		//     yield return new WaitForSeconds(2f);
-		//     
-		//     ShowQTE();
-		// }
-
 		public void ShowQTE()
 		{
+			IsProcessing = false;
+			IsComplete = false;
+			
 			_ringView.Play(_qteTime);
 		}
 
+		public void SetInput()
+		{
+			_hasInput = true;
+		}
+
+		private bool _hasInput = false;
 		private IEnumerator ProcessQTEInput()
 		{
+			IsProcessing = true;
+			
 			var maxQteTime = _qteTime + _qteSuccessOffsetAfter;
 			var failQteTime = _qteTime - _qteSuccessOffsetBefore;
 			float currentQteTime = 0;
 
 			while (currentQteTime < maxQteTime)
 			{
-				if (GameManager.I.HasInput == true)
+				if (_hasInput == true)
 				{
 					if (currentQteTime < failQteTime)
 					{
-						_ringView.PlayResult(QTEResult.LoseByInput);
-						Debug.Log("[QTE: FAIL]");
+						Result = QTEResult.LoseByInput;
 					}
 					else
 					{
-						_ringView.PlayResult(QTEResult.Success);
-						Debug.Log("[QTE: SUCCESS]");
+						Result = QTEResult.Success;
 					}
+
+					IsComplete = true;
+					IsProcessing = false;
+					_ringView.PlayResult(Result);
 
 					yield break;
 				}
@@ -66,9 +77,12 @@ namespace QTE
 
 				yield return GameManager.WaitEndOfFrame;
 			}
-
-			_ringView.PlayResult(QTEResult.LoseByTimer);
-			Debug.Log("[QTE: FAIL BY TIMER]");
+			
+			IsComplete = true;
+			IsProcessing = false;
+			
+			Result = QTEResult.LoseByTimer;
+			_ringView.PlayResult(Result);
 		}
 	}
 }

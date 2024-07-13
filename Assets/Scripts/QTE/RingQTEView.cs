@@ -268,8 +268,6 @@ public class RingQTEView : MonoBehaviour
 
 		Tween.Scale(transform, transform.localScale, Vector3.zero, _endingScale);
 		yield return new WaitForSeconds(_endingScale);
-
-		Destroy(gameObject);
 	}
 
 	private IEnumerator ProcessColorLerp(float processTime, Color a, Color b, Material material)
