@@ -45,7 +45,7 @@ namespace TalkingHeads
 		[SerializeField] private CharacterTalkView _leftHead;
 		[SerializeField] private CharacterTalkView _rightHead;
 
-		[SerializeField] private TextMeshProUGUI _chatText;
+		[SerializeField] private TextTypeWriter _chatText;
 		[SerializeField] private GameObject _nextDialogueMark;
 		[SerializeField] private float _markFlickerDelay;
 
@@ -121,7 +121,7 @@ namespace TalkingHeads
 					SetHead(head);
 				}
 
-				_chatText.text = item.Text;
+				_chatText.PlayText(item.Text, TypeSpeed.Medium);
 			}
 
 			IEnumerator processQTE(ChatItem currentChatItem)
@@ -146,10 +146,15 @@ namespace TalkingHeads
 
 			IEnumerator processAwaitDialogue()
 			{
+				yield return new WaitForSeconds(_minDialogueDuration);
+				
+				while (_chatText.PlayComplete == false)
+				{
+					yield return GameManager.WaitEndOfFrame;
+				}
+				
 				_nextDialogueMarkCoroutine = StartCoroutine(processNextDialogueMark());
 				
-				yield return new WaitForSeconds(_minDialogueDuration);
-					
 				while (GameManager.I.HasInput == false)
 				{
 					yield return GameManager.WaitEndOfFrame;
