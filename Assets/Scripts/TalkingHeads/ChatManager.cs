@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections;
 using QTE;
-using TMPro;
 using UnityEngine;
 
 namespace TalkingHeads
@@ -77,8 +76,15 @@ namespace TalkingHeads
 			}
 		}
 
-		private void Start()
+		private IEnumerator Start()
 		{
+			while (GameManager.I.HasInput == true)
+			{
+				yield return null;
+			}
+			
+			yield return new WaitForSeconds(1f);
+			
 			StartCoroutine(PlayChat());
 		}
 		
