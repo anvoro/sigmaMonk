@@ -19,27 +19,31 @@ public class TextLinkProcessor : MonoBehaviour
     {
         _text.ForceMeshUpdate();
         var textInfo = _text.textInfo;
-        
-        foreach (TMP_LinkInfo link in textInfo.linkInfo)
+
+        for (var index = 0; index < textInfo.linkCount; index++)
         {
+            var link = textInfo.linkInfo[index];
             if (link.GetLinkID() == "wobble")
             {
-                for (int i = link.linkTextfirstCharacterIndex; i < link.linkTextfirstCharacterIndex + link.linkTextLength; i++)
+                for (int i = link.linkTextfirstCharacterIndex;
+                     i < link.linkTextfirstCharacterIndex + link.linkTextLength;
+                     i++)
                 {
                     var charInfo = textInfo.characterInfo[i];
                     if (!charInfo.isVisible)
                     {
                         continue;
                     }
-            
+
                     var verts = textInfo.meshInfo[charInfo.materialReferenceIndex].vertices;
                     for (int j = 0; j < 4; ++j)
                     {
                         var orig = verts[charInfo.vertexIndex + j];
-                        verts[charInfo.vertexIndex + j] = orig + new Vector3(0, Mathf.PerlinNoise1D(Time.time * 2f + orig.x * 0.1f) * 10f, 0);
+                        verts[charInfo.vertexIndex + j] = orig + new Vector3(0,
+                            Mathf.PerlinNoise1D(Time.time * 2f + orig.x * 0.1f) * 10f, 0);
                     }
                 }
-        
+
                 for (int i = 0; i < textInfo.meshInfo.Length; ++i)
                 {
                     var meshInfo = textInfo.meshInfo[i];
@@ -50,7 +54,9 @@ public class TextLinkProcessor : MonoBehaviour
 
             if (link.GetLinkID() == "shake")
             {
-                for (int i = link.linkTextfirstCharacterIndex; i < link.linkTextfirstCharacterIndex + link.linkTextLength; i++)
+                for (int i = link.linkTextfirstCharacterIndex;
+                     i < link.linkTextfirstCharacterIndex + link.linkTextLength;
+                     i++)
                 {
                     if (!textInfo.characterInfo[i].isVisible)
                         continue;
@@ -75,14 +81,6 @@ public class TextLinkProcessor : MonoBehaviour
                     textInfo.meshInfo[i].mesh.vertices = textInfo.meshInfo[i].vertices;
                     _text.UpdateGeometry(textInfo.meshInfo[i].mesh, i);
                 }
-            }
-
-            if (link.GetLinkID() == "fast")
-            {
-            }
-            
-            if (link.GetLinkID() == "pause")
-            {
             }
         }
     }

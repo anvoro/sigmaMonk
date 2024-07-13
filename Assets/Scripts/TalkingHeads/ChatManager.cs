@@ -76,20 +76,18 @@ namespace TalkingHeads
 			}
 		}
 
-		private IEnumerator Start()
+		private void Start()
 		{
-			while (GameManager.I.HasInput == true)
-			{
-				yield return null;
-			}
-			
-			yield return new WaitForSeconds(1f);
-			
 			StartCoroutine(PlayChat());
 		}
 		
 		private IEnumerator PlayChat()
 		{
+			while (GameManager.I.HasInput == false)
+			{
+				yield return null;
+			}
+			
 			for (var i = 0; i < _chatItems.Length; i++)
 			{
 				var currentChatItem = _chatItems[i];

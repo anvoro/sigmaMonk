@@ -29,7 +29,6 @@ public class TextTypeWriter : MonoBehaviour
 	private void Awake()
 	{
 		_text = GetComponent<TMP_Text>();
-		//var fabula = CSVParser.LoadFromPath("/plot.csv");
 	}
 
 	public void PlayText(string text, TypeSpeed typeSpeed)
