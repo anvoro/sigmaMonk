@@ -148,12 +148,11 @@ Transform:
   m_GameObject: {fileID: 277403820}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.0919, y: 0.05, z: 0}
-  m_LocalScale: {x: 4.4259443, y: 4.4259443, z: 4.4259443}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 551678159}
-  - {fileID: 1931089290}
+  - {fileID: 1207467977}
   m_Father: {fileID: 1908028749}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &277403822
@@ -197,12 +196,12 @@ SpriteRenderer:
   m_SortingLayerID: -1083778313
   m_SortingLayer: 1
   m_SortingOrder: 0
-  m_Sprite: {fileID: -901316325, guid: d7ccdf9a77db926469b1d40c5ccfd7b9, type: 3}
+  m_Sprite: {fileID: 1893790878, guid: 59aaf396ffa53f04ea24a57a7f3eead0, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 19.16, y: 10.850728}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -391,12 +390,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 551678156}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.376, y: -0.471, z: 0}
-  m_LocalScale: {x: 0.65170276, y: 0.65170276, z: 0.32585138}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -3.41, y: -3.16, z: 0}
+  m_LocalScale: {x: 4.36671, y: 4.36671, z: 4.36671}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 277403821}
+  m_Father: {fileID: 1908028749}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &798616616
 GameObject:
@@ -511,6 +510,90 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1207467976
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1207467977}
+  - component: {fileID: 1207467978}
+  m_Layer: 0
+  m_Name: courthouse_3
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1207467977
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1207467976}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.02, y: 0.98, z: 0}
+  m_LocalScale: {x: 1.5834455, y: 1.1734, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 277403821}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!212 &1207467978
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1207467976}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 56896309
+  m_SortingLayer: 3
+  m_SortingOrder: 0
+  m_Sprite: {fileID: 1341280165, guid: 59aaf396ffa53f04ea24a57a7f3eead0, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 19.17, y: 10.800724}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
+  m_SpriteSortPoint: 0
 --- !u!1 &1258315748
 GameObject:
   m_ObjectHideFlags: 0
@@ -630,8 +713,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -380}
-  m_SizeDelta: {x: 1400, y: 240}
+  m_AnchoredPosition: {x: 0, y: -370}
+  m_SizeDelta: {x: 2000, y: 260}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1492425648
 MonoBehaviour:
@@ -646,7 +729,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.21509439, g: 0.21509439, b: 0.21509439, a: 1}
+  m_Color: {r: 0.050980393, g: 0.07450981, b: 0.13333334, a: 0.98039216}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -705,8 +788,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: -80, y: -40}
+  m_AnchoredPosition: {x: 0, y: -0.000045776367}
+  m_SizeDelta: {x: -760, y: -80.0001}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1573989992
 MonoBehaviour:
@@ -728,20 +811,24 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'TextNew TextNew TextNew TextNew TextNew TextNew TextNew TextNew TextNew
-    TextNew TextNew TextNew TextNew TextNew TextNew TextNew TextNew TextNew TextNew
-    TextNew TextNew TextNew TextNew TextNew TextNew TextNew TextNew TextNew TextNew
-    TextNew TextNew TextNew TextNew TextNew TextNew TextNew TextNew TextNew '
+  m_text: "\u0426\u0435\u043B\u044B\u0439 \u0433\u043E\u0434 \u0441\u044B\u043D \u0445\u043E\u0434\u0438\u043B
+    \u0432 \u0434\u0435\u0442\u0441\u043A\u0438\u0439 \u0441\u0430\u0434\u0438\u043A,
+    \u0432\u0441\u0451 \u0445\u043E\u0440\u043E\u0448\u043E \u0442\u0430\u043C \u0441\u0434\u0430\u0432\u0430\u043B,
+    \u0440\u0438\u0441\u043E\u0432\u0430\u043B \u043A\u0430\u0440\u0442\u0438\u043D\u043A\u0438.
+    \u0412 \u043A\u043E\u043D\u0446\u0435 \u0433\u043E\u0434\u0430 \u043E\u043D \u043F\u0440\u0438\u0445\u043E\u0434\u0438\u0442
+    \u043A \u043E\u0442\u0446\u0443 \u0438 \u0433\u043E\u0432\u043E\u0440\u0438\u0442:
+    \xAB\u041E\u0442\u0435\u0446, \u044F \u0432\u0441\u0451 \u0445\u043E\u0440\u043E\u0448\u043E
+    \u0441\u0434\u0430\u043B\xBB"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8e0d4e5bbef43eb45b382fd0eb591c1a, type: 2}
+  m_sharedMaterial: {fileID: -715150806732911788, guid: 8e0d4e5bbef43eb45b382fd0eb591c1a, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4289301848
+  m_fontColor: {r: 0.34509805, g: 0.5529412, b: 0.6627451, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -758,8 +845,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 48
+  m_fontSizeBase: 48
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -923,6 +1010,8 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 277403821}
+  - {fileID: 551678159}
+  - {fileID: 1931089290}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1908028750
@@ -938,34 +1027,70 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _chatItems:
-  - Text: Text 1
-    Duration: 3
-    TalkingHeads:
-    - HeadPosition: 0
-      SpriteContainer: {fileID: 11400000, guid: 0079ebac828a776408e2fdf49058abfc, type: 2}
-    - HeadPosition: 1
-      SpriteContainer: {fileID: 11400000, guid: 228cead2e4263f14baa82f3761e6e4e8, type: 2}
-  - Text: Text 2
+  - Text: "\u0426\u0435\u043B\u044B\u0439 \u0433\u043E\u0434 \u0441\u044B\u043D \u0445\u043E\u0434\u0438\u043B
+      \u0432 \u0434\u0435\u0442\u0441\u043A\u0438\u0439 \u0441\u0430\u0434\u0438\u043A,
+      \u0432\u0441\u0451 \u0445\u043E\u0440\u043E\u0448\u043E \u0442\u0430\u043C
+      \u0441\u0434\u0430\u0432\u0430\u043B, \u0440\u0438\u0441\u043E\u0432\u0430\u043B
+      \u043A\u0430\u0440\u0442\u0438\u043D\u043A\u0438. \u0412 \u043A\u043E\u043D\u0446\u0435
+      \u0433\u043E\u0434\u0430 \u043E\u043D \u043F\u0440\u0438\u0445\u043E\u0434\u0438\u0442
+      \u043A \u043E\u0442\u0446\u0443 \u0438 \u0433\u043E\u0432\u043E\u0440\u0438\u0442:
+      \xAB\u041E\u0442\u0435\u0446, \u044F \u0432\u0441\u0451 \u0445\u043E\u0440\u043E\u0448\u043E
+      \u0441\u0434\u0430\u043B\xBB"
     Duration: 4
     TalkingHeads:
     - HeadPosition: 0
-      SpriteContainer: {fileID: 11400000, guid: 0079ebac828a776408e2fdf49058abfc, type: 2}
+      SpriteContainer: {fileID: 11400000, guid: 286207dc12a2be14183d752b8a3c9198, type: 2}
+    - HeadPosition: 1
+      SpriteContainer: {fileID: 11400000, guid: 228cead2e4263f14baa82f3761e6e4e8, type: 2}
+  - Text: "\u0418 \u043E\u0442\u0435\u0446 \u0435\u043C\u0443 \u043E\u0442\u0432\u0435\u0447\u0430\u0435\u0442:
+      \xAB\u041C\u043E\u043B\u043E\u0434\u0435\u0446! \u0427\u0442\u043E \u0436\u0435
+      \u043C\u043D\u0435 \u0442\u0435\u0431\u0435 \u043F\u043E\u0434\u0430\u0440\u0438\u0442\u044C?\xBB\n\u0410
+      \u0441\u044B\u043D \u0442\u0430\u043A\u043E\u0439: \xAB\u041F\u0430\u0440\u0442\u0443,
+      \u043E\u0442\u0435\u0446! \u041A\u0443\u043F\u0438 \u043C\u043D\u0435 \u043F\u0430\u0440\u0442\u0443!\xBB"
+    Duration: 4
+    TalkingHeads:
+    - HeadPosition: 0
+      SpriteContainer: {fileID: 11400000, guid: 286207dc12a2be14183d752b8a3c9198, type: 2}
     - HeadPosition: 1
       SpriteContainer: {fileID: 11400000, guid: 6435344ef02bc704c8540122f9ed143c, type: 2}
-  - Text: Text 3
-    Duration: 3
+  - Text: ...
+    Duration: 1
     TalkingHeads:
     - HeadPosition: 0
       SpriteContainer: {fileID: 11400000, guid: 4ca94cdff34ab7547b6a0fe1eabbe34b, type: 2}
     - HeadPosition: 1
-      SpriteContainer: {fileID: 11400000, guid: 6435344ef02bc704c8540122f9ed143c, type: 2}
-  - Text: Text 4
-    Duration: 3
+      SpriteContainer: {fileID: 11400000, guid: cca77e6de7ba8344baea1b2f7f0a470f, type: 2}
+  - Text: "\u0418 \u043E\u0442\u0435\u0446 \u0443\u0434\u0438\u0432\u043B\u0451\u043D\u043D\u043E
+      \u0441\u043F\u0440\u0430\u0448\u0438\u0432\u0430\u0435\u0442: \xAB\u0422\u043E\u0447\u043D\u043E
+      \u043F\u0430\u0440\u0442\u0443???\n\u042F \u043C\u043E\u0433\u0443 \u043A\u0443\u043F\u0438\u0442\u044C
+      \u0442\u0435\u0431\u0435 \u043C\u0430\u0448\u0438 \u0438\u0433\u0440\u0443\u0448\u0435\u0447\u043D\u0443\u044E
+      \u0438\u043B\u0438 \u043A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440
+      \u041B\u0435\u0433\u043E..\xBB"
+    Duration: 4
     TalkingHeads:
     - HeadPosition: 0
       SpriteContainer: {fileID: 11400000, guid: c96d75512a7da4343bdbcc142d279f00, type: 2}
     - HeadPosition: 1
+      SpriteContainer: {fileID: 11400000, guid: cca77e6de7ba8344baea1b2f7f0a470f, type: 2}
+  - Text: ...
+    Duration: 1
+    TalkingHeads:
+    - HeadPosition: 0
+      SpriteContainer: {fileID: 11400000, guid: 286207dc12a2be14183d752b8a3c9198, type: 2}
+    - HeadPosition: 1
       SpriteContainer: {fileID: 11400000, guid: bbae3699c4fd8bd469b10c547e2526b2, type: 2}
+  - Text: "\u041D\u043E \u0441\u044B\u043D \u043D\u0435\u0434\u043E\u0441\u043B\u0443\u0448\u0430\u0432
+      \u043E\u0442\u0432\u0435\u0442\u0438\u043B: \xAB\u041D\u0435\u0442! \u041C\u043D\u0435
+      \u043D\u0443\u0436\u043D\u0430 \u043F\u0430\u0440\u0442\u0430\xBB.\n\u041D\u0430
+      \u0447\u0442\u043E \u043E\u0442\u0435\u0446 \u0441\u043A\u0430\u0437\u0430\u043B:
+      \xAB\u041B\u0430\u0434\u043D\u043E, \u0433\u043E\u0432\u043D\u043E \u0432\u043E\u043F\u0440\u043E\u0441,
+      \u043A\u0443\u043F\u043B\u044E \u0442\u0435\u0431\u0435 \u043F\u0430\u0440\u0442\u0443\xBB"
+    Duration: 4
+    TalkingHeads:
+    - HeadPosition: 0
+      SpriteContainer: {fileID: 11400000, guid: 286207dc12a2be14183d752b8a3c9198, type: 2}
+    - HeadPosition: 1
+      SpriteContainer: {fileID: 11400000, guid: 6435344ef02bc704c8540122f9ed143c, type: 2}
   _leftHead: {fileID: 551678157}
   _rightHead: {fileID: 1931089291}
   _chatText: {fileID: 1573989992}
@@ -995,12 +1120,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1931089289}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.593, y: -0.417, z: 0}
-  m_LocalScale: {x: 0.65170276, y: 0.65170276, z: 0.32585138}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 4.2, y: -3.16, z: 0}
+  m_LocalScale: {x: 4.36671, y: 4.36671, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 277403821}
+  m_Father: {fileID: 1908028749}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1931089291
 MonoBehaviour:

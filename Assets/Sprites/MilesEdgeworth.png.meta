@@ -361,6 +361,27 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: MilesEdgeworth_12
+      rect:
+        serializedVersion: 2
+        x: 135
+        y: 612
+        width: 112
+        height: 145
+      alignment: 9
+      pivot: {x: 0.2850407, y: 0.0050810715}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e4d6adc12036eca43b8d7f0f9a585808
+      internalID: -1639641918
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -376,6 +397,7 @@ TextureImporter:
       MilesEdgeworth_1: 1946104838
       MilesEdgeworth_10: 912610274
       MilesEdgeworth_11: 463484835
+      MilesEdgeworth_12: -1639641918
       MilesEdgeworth_2: 650816627
       MilesEdgeworth_3: -1372309204
       MilesEdgeworth_4: 1112633034

@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using UnityEngine;
 
 namespace QTE
@@ -27,6 +28,13 @@ namespace QTE
             _ringView = GetComponent<RingQTEView>();
             _ringView.OnQTEAnimationBegin += () => StartCoroutine(ProcessQTEInput());
         }
+
+        // private IEnumerator Start()
+        // {
+        //     yield return new WaitForSeconds(2f);
+        //     
+        //     ShowQTE();
+        // }
 
         public void ShowQTE()
         {

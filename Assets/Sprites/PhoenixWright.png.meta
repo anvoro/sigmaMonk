@@ -361,6 +361,27 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: PhoenixWright_12
+      rect:
+        serializedVersion: 2
+        x: 27
+        y: 584
+        width: 125
+        height: 144
+      alignment: 9
+      pivot: {x: 0.76100504, y: -0.0003352695}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c8c175a8c67ea2349b4479af30cd66ca
+      internalID: -2000353034
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -376,6 +397,7 @@ TextureImporter:
       PhoenixWright_1: -573793393
       PhoenixWright_10: 1878453889
       PhoenixWright_11: 74366156
+      PhoenixWright_12: -2000353034
       PhoenixWright_2: -855762554
       PhoenixWright_3: 1829405180
       PhoenixWright_4: 1082950952
