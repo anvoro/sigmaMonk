@@ -1,4 +1,6 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
+using System.Linq;
 using UnityEngine;
 
 namespace QTE
@@ -14,6 +16,16 @@ namespace QTE
 		private RingQTEModel _currentQte;
 		
 		public bool IsComplete { get; private set; }
+
+		public bool IsSuccessful()
+		{
+			if (IsComplete == false)
+			{
+				throw new InvalidOperationException("Not all QTEs is completed");
+			}
+			
+			return _qtes.All(e => e.Result == QTEResult.Success);
+		}
 		
 		private void Start()
 		{

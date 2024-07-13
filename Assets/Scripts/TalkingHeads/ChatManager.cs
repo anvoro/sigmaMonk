@@ -21,11 +21,21 @@ namespace TalkingHeads
 			public HeadPosition HeadPosition;
 			public TalkSpriteContainer SpriteContainer;
 		}
+		
+		[Serializable]
+		public struct DialogueItem
+		{
+			[TextArea] public string Text;
+			public float Duration;
+			public TalkingHeadItem[] TalkingHeads;
+		}
 
-		[TextArea] public string Text;
-		public float Duration;
-		public TalkingHeadItem[] TalkingHeads;
+		public DialogueItem Main;
+		
+		[Header("QTE")]
 		public GameObject QTEPrefab;
+		public DialogueItem Success;
+		public DialogueItem Fail;
 	}
 
 	public class ChatManager : MonoBehaviour
@@ -36,6 +46,19 @@ namespace TalkingHeads
 		[SerializeField] private CharacterTalkView _rightHead;
 
 		[SerializeField] private TextMeshProUGUI _chatText;
+		[SerializeField] private GameObject _nextDialogueMark;
+		[SerializeField] private float _markFlickerDelay;
+
+		[Header("Dialogue Timings")]
+		[SerializeField]
+		private float _minDialogueDuration;
+		[SerializeField]
+		private float _preQTEDelay;
+		[SerializeField]
+		private float _postQTEDelay;
+		
+		private QTEHolder _currentQTE;
+		private Coroutine _nextDialogueMarkCoroutine;
 		
 		private void SetHead(ChatItem.TalkingHeadItem headItem)
 		{
@@ -58,41 +81,84 @@ namespace TalkingHeads
 		{
 			StartCoroutine(PlayChat());
 		}
-
-		private QTEHolder _currentQTE;
+		
 		private IEnumerator PlayChat()
 		{
 			for (var i = 0; i < _chatItems.Length; i++)
 			{
-				var currentItem = _chatItems[i];
+				var currentChatItem = _chatItems[i];
 
-				foreach (var head in currentItem.TalkingHeads)
+				ShowDialogueItem(currentChatItem.Main);
+
+				if (currentChatItem.QTEPrefab != null)
+				{
+					yield return processAwaitDialogue();
+					yield return processQTE(currentChatItem);
+				}
+				else
+				{
+					yield return processAwaitDialogue();
+				}
+			}
+
+			IEnumerator processNextDialogueMark()
+			{
+				while (true)
+				{
+					_nextDialogueMark.SetActive(!_nextDialogueMark.activeSelf);
+
+					yield return new WaitForSeconds(_markFlickerDelay);
+				}
+			}
+
+			void ShowDialogueItem(ChatItem.DialogueItem item)
+			{
+				_leftHead.SetSpritesContainer(null);
+				_rightHead.SetSpritesContainer(null);
+				
+				foreach (var head in item.TalkingHeads)
 				{
 					SetHead(head);
 				}
 
-				_chatText.text = currentItem.Text;
+				_chatText.text = item.Text;
+			}
 
-				if (currentItem.QTEPrefab != null)
-				{
-					_currentQTE = Instantiate(currentItem.QTEPrefab).GetComponent<QTEHolder>();
+			IEnumerator processQTE(ChatItem currentChatItem)
+			{
+				yield return new WaitForSeconds(_preQTEDelay);
+					
+				_currentQTE = Instantiate(currentChatItem.QTEPrefab).GetComponent<QTEHolder>();
 
-					while (_currentQTE.IsComplete == false)
-					{
-						yield return GameManager.WaitEndOfFrame;
-					}
-					
-					yield return new WaitForSeconds(currentItem.Duration);
-				}
-				else
+				while (_currentQTE.IsComplete == false)
 				{
-					while (GameManager.I.HasInput == false)
-					{
-						yield return GameManager.WaitEndOfFrame;
-					}
-					
 					yield return GameManager.WaitEndOfFrame;
 				}
+					
+				yield return new WaitForSeconds(_postQTEDelay);
+
+				ShowDialogueItem(_currentQTE.IsSuccessful() == true 
+					? currentChatItem.Success 
+					: currentChatItem.Fail);
+				
+				yield return processAwaitDialogue();
+			}
+
+			IEnumerator processAwaitDialogue()
+			{
+				_nextDialogueMarkCoroutine = StartCoroutine(processNextDialogueMark());
+				
+				yield return new WaitForSeconds(_minDialogueDuration);
+					
+				while (GameManager.I.HasInput == false)
+				{
+					yield return GameManager.WaitEndOfFrame;
+				}
+					
+				StopCoroutine(_nextDialogueMarkCoroutine);
+				_nextDialogueMark.SetActive(false);
+					
+				yield return new WaitForSeconds(.1f);
 			}
 		}
 	}

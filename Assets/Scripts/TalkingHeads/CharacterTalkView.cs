@@ -20,18 +20,25 @@ namespace TalkingHeads
 
 		public void SetSpritesContainer(TalkSpriteContainer spriteContainer)
 		{
-			_spriteContainer = spriteContainer;
-
 			if (_coroutine != null)
 			{
 				StopCoroutine(_coroutine);
 				_coroutine = null;
 			}
-
-			if (_spriteContainer.TalkSprites.Count > 1)
-				_coroutine = StartCoroutine(ProcessTalkSprites());
+			
+			_spriteContainer = spriteContainer;
+			
+			if (_spriteContainer == null)
+			{
+				_sr.sprite = null;
+			}
 			else
-				_sr.sprite = _spriteContainer.TalkSprites[0];
+			{
+				if (_spriteContainer.TalkSprites.Count > 1)
+					_coroutine = StartCoroutine(ProcessTalkSprites());
+				else
+					_sr.sprite = _spriteContainer.TalkSprites[0];
+			}
 		}
 
 		private IEnumerator ProcessTalkSprites()
