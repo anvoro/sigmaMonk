@@ -1105,6 +1105,27 @@ MonoBehaviour:
         SpriteContainer: {fileID: 11400000, guid: c96d75512a7da4343bdbcc142d279f00, type: 2}
       - HeadPosition: 1
         SpriteContainer: {fileID: 11400000, guid: bbae3699c4fd8bd469b10c547e2526b2, type: 2}
+  - Main:
+      Text: "\u2014 \u0421\u043B\u0443\u0448\u0430\u0439, \u0430\u2026 \u0441\u043A\u043E\u043B\u044C\u043A\u043E
+        \u0441\u0435\u0439\u0447\u0430\u0441 \u0432\u0440\u0435\u043C\u0435\u043D\u0438,
+        \u0442\u044B \u043D\u0435 \u0437\u043D\u0430\u0435\u0448\u044C? \u0422\u0430\u043A,
+        \u043F\u0440\u0438\u043C\u0435\u0440\u043D\u043E, \u043C\u043E\u0436\u0435\u0448\u044C
+        \u043F\u043E\u0447\u0443\u0432\u0441\u0442\u0432\u043E\u0432\u0430\u0442\u044C?"
+      Duration: 0
+      TalkingHeads:
+      - HeadPosition: 0
+        SpriteContainer: {fileID: 11400000, guid: 286207dc12a2be14183d752b8a3c9198, type: 2}
+      - HeadPosition: 1
+        SpriteContainer: {fileID: 11400000, guid: 6435344ef02bc704c8540122f9ed143c, type: 2}
+    QTEPrefab: {fileID: 0}
+    Success:
+      Text: 
+      Duration: 0
+      TalkingHeads: []
+    Fail:
+      Text: 
+      Duration: 0
+      TalkingHeads: []
   _leftHead: {fileID: 551678157}
   _rightHead: {fileID: 1931089291}
   _chatText: {fileID: 1573989992}
