@@ -12,7 +12,7 @@ namespace TalkingHeads
 		public struct DialogueItem
 		{
 			[TextArea] public string Text;
-			public bool IsPlayerSpeaks;
+			public bool IsOpponentSpeaks;
 			public TypeSpeed TypeSpeed;
 		}
 		
@@ -40,6 +40,8 @@ namespace TalkingHeads
 
 		[Header("Dialogue Timings")]
 		[SerializeField]
+		private float _startDialogueDelay = 1f;
+		[SerializeField]
 		private float _minDialogueDuration;
 		[SerializeField]
 		private float _preQTEDelay;
@@ -51,20 +53,18 @@ namespace TalkingHeads
 		private QTEHolder _currentQTE;
 		private Coroutine _nextDialogueMarkCoroutine;
 
-		private void Start()
+		public void StartChat()
 		{
 			StartCoroutine(PlayChat());
 		}
 		
 		private IEnumerator PlayChat()
 		{
-			_leftHead.SetEmpty();
-			_rightHead.SetEmpty();
-			
-			while (GameManager.I.HasInput == false)
-			{
-				yield return null;
-			}
+			setInitialSprites();
+
+			_chatText.ClearText();
+
+			yield return new WaitForSeconds(_startDialogueDelay);
 			
 			for (var i = 0; i < _chatItems.Length; i++)
 			{
@@ -107,7 +107,7 @@ namespace TalkingHeads
 			{
 				_currentDialogueItem = item;
 				
-				if (_currentDialogueItem.IsPlayerSpeaks == true)
+				if (_currentDialogueItem.IsOpponentSpeaks == true)
 				{
 					_leftHead.SetActiveAndTalking();
 					_rightHead.Deactivate();
@@ -150,7 +150,7 @@ namespace TalkingHeads
 					yield return GameManager.WaitEndOfFrame;
 				}
 				
-				if (_currentDialogueItem.IsPlayerSpeaks == true)
+				if (_currentDialogueItem.IsOpponentSpeaks == true)
 				{
 					_leftHead.StopTalking();
 				}
@@ -170,6 +170,29 @@ namespace TalkingHeads
 				_nextDialogueMark.SetActive(false);
 					
 				yield return new WaitForSeconds(.1f);
+			}
+
+			void setInitialSprites()
+			{
+				if (_chatItems[0].LeftSpeaker != null)
+				{
+					_leftHead.SetSpriteContainer(_chatItems[0].LeftSpeaker);
+					_leftHead.Deactivate();
+				}
+				else
+				{
+					_leftHead.SetEmpty();
+				}
+
+				if (_chatItems[0].RightSpeaker != null)
+				{
+					_rightHead.SetSpriteContainer(_chatItems[0].RightSpeaker);
+					_rightHead.Deactivate();
+				}
+				else
+				{
+					_rightHead.SetEmpty();
+				}
 			}
 		}
 	}

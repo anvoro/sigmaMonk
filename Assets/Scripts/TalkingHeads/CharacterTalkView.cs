@@ -67,8 +67,11 @@ namespace TalkingHeads
 		public void StopTalking()
 		{
 			StopTalkCoroutine();
-
-			_sr.sprite = _spriteContainer.SilenceSprite;
+			
+			if (_spriteContainer != null)
+			{
+				_sr.sprite = _spriteContainer.SilenceSprite;
+			}
 		}
 
 		public void Deactivate()

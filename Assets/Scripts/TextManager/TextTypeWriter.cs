@@ -31,6 +31,11 @@ public class TextTypeWriter : MonoBehaviour
 		_text = GetComponent<TMP_Text>();
 	}
 
+	public void ClearText()
+	{
+		_text.text = string.Empty;
+	}
+
 	public void PlayText(string text, TypeSpeed typeSpeed)
 	{
 		StartCoroutine(ProcessText(text, typeSpeed));
@@ -40,7 +45,7 @@ public class TextTypeWriter : MonoBehaviour
 	{
 		PlayComplete = false;
 
-		_text.text = string.Empty;
+		ClearText();
 		
 		for (var i = 0; i < text.Length; i++)
 		{

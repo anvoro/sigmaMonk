@@ -67,6 +67,7 @@ namespace QTE
 			if (completeCounter == _qtes.Length)
 			{
 				IsComplete = true;
+				GameManager.I.ChangeKarma(IsSuccessful() == true ? 1 : -1);
 			}
 		}
 

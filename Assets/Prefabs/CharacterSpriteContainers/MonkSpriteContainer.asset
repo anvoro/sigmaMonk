@@ -12,5 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 449d19f6f5fd4e9cb42cc4c9acbdb716, type: 3}
   m_Name: MonkSpriteContainer
   m_EditorClassIdentifier: 
-  _silinceSprite: {fileID: 0}
-  _talkSprites: []
+  _silinceSprite: {fileID: 21300000, guid: b38e63bf640db7b49951b7b193258a64, type: 3}
+  _talkSprites:
+  - {fileID: 21300000, guid: b38e63bf640db7b49951b7b193258a64, type: 3}
+  - {fileID: 21300000, guid: 080a3fdb9049bcd4f933c5b6c8ce9118, type: 3}
+  - {fileID: 21300000, guid: b38e63bf640db7b49951b7b193258a64, type: 3}
+  - {fileID: 21300000, guid: afde37bd326148744b309703e6a29ba5, type: 3}
