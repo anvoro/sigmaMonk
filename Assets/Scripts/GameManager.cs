@@ -1,15 +1,13 @@
 using System;
 using Core;
 using TalkingHeads;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 public class GameManager : SingletonBase<GameManager>
 {
 	public static readonly WaitForEndOfFrame WaitEndOfFrame = new();
 
-	public static event Action<int> OnKarmaChange;
+	public static event Action<int, int> OnKarmaChange;
 	
 	[SerializeField] private float _inputDelay = 0.05f;
 
@@ -24,7 +22,7 @@ public class GameManager : SingletonBase<GameManager>
 	{
 		_karma += value;
 		
-		OnKarmaChange?.Invoke(_karma);
+		OnKarmaChange?.Invoke(_karma, value);
 	}
 
 	public void StartGame()

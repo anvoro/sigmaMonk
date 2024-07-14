@@ -25,11 +25,11 @@ namespace UI
 
 		private void Start()
 		{
-			GameManager.OnKarmaChange += v =>
+			GameManager.OnKarmaChange += (k, d) =>
 			{
 				foreach (var item in _items)
 				{
-					if (item.KarmaToShow == v)
+					if (item.KarmaToShow == k)
 					{
 						_image.sprite = item.Sprite;
 						break;
