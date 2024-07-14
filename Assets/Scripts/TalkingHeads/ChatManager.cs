@@ -43,10 +43,18 @@ namespace TalkingHeads
 		private float _startDialogueDelay = 1f;
 		[SerializeField]
 		private float _minDialogueDuration;
+
+		[Header("QTE Settings")] 
+		[SerializeField]
+		private SpriteRenderer _qteFade;
 		[SerializeField]
 		private float _preQTEDelay;
 		[SerializeField]
+		private float _preQTEFadeDuraion;
+		[SerializeField]
 		private float _postQTEDelay;
+		[SerializeField]
+		private float _postQTEFadeDuraion;
 
 		private ChatItem _currentChatItem;
 		private ChatItem.DialogueItem _currentDialogueItem;
@@ -95,6 +103,8 @@ namespace TalkingHeads
 
 			IEnumerator processNextDialogueMark()
 			{
+				yield return new WaitForSeconds(.5f);
+				
 				while (true)
 				{
 					_nextDialogueMark.SetActive(!_nextDialogueMark.activeSelf);
@@ -123,15 +133,17 @@ namespace TalkingHeads
 
 			IEnumerator processQTE(ChatItem currentChatItem)
 			{
+				yield return FadeHepler.FadeIn(_preQTEFadeDuraion, _qteFade, 0f, .7f);
 				yield return new WaitForSeconds(_preQTEDelay);
-					
+				
 				_currentQTE = Instantiate(currentChatItem.QTEPrefab).GetComponent<QTEHolder>();
 
 				while (_currentQTE.IsComplete == false)
 				{
 					yield return GameManager.WaitEndOfFrame;
 				}
-					
+				
+				yield return FadeHepler.FadeOut(_postQTEFadeDuraion, _qteFade, .7f, 0f);
 				yield return new WaitForSeconds(_postQTEDelay);
 
 				ShowDialogueItem(_currentQTE.IsSuccessful() == true 
