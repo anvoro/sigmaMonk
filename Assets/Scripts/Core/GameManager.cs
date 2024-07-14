@@ -33,9 +33,21 @@ public class GameManager : SingletonBase<GameManager>
 		OnKarmaChange?.Invoke(_karma, value);
 	}
 
-	public void StartGame()
+	public void StartNewGame()
 	{
 		_chatManager.StartChat();
+	}
+
+	private void ResetGameState()
+	{
+		HasInput = false;
+		_karma = 0;
+		_timeSinceLastInput = 0f;
+		_inMenuState = false;
+		
+		Time.timeScale = 1f;
+		
+		_menu.SetActive(false);
 	}
 	
 	private void Update()
@@ -50,7 +62,9 @@ public class GameManager : SingletonBase<GameManager>
 			}
 			else
 			{
-				Application.Quit();
+				_inMenuState = false;
+				_menu.SetActive(false);
+				Time.timeScale = 1f;
 			}
 		}
 
@@ -75,13 +89,12 @@ public class GameManager : SingletonBase<GameManager>
 			if (Input.GetKeyDown(KeyCode.R))
 			{
 				SceneManager.LoadScene(0);
+				ResetGameState();
 			}
 
-			if (Input.GetKeyDown(KeyCode.Space))
+			if (Input.GetKeyDown(KeyCode.K))
 			{
-				_inMenuState = false;
-				_menu.SetActive(false);
-				Time.timeScale = 1f;
+				Application.Quit();
 			}
 		}
 	}

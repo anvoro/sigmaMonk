@@ -32,7 +32,7 @@ namespace UI
 			
 			_text.gameObject.SetActive(false);
 			
-			GameManager.I.StartGame();
+			GameManager.I.StartNewGame();
 
 			yield return FadeHepler.FadeOut(_fadeDuration, _canvasGroup);
 			
