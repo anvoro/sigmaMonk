@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using UnityEngine;
 
 namespace TalkingHeads
@@ -8,36 +9,100 @@ namespace TalkingHeads
 	{
 		private SpriteRenderer _sr;
 
-		private TalkSpriteContainer _spriteContainer;
-		private Coroutine _coroutine;
+		private CharacterSpriteContainer _spriteContainer;
+		private Coroutine _talkCoroutine;
 
-		[SerializeField] private float _spriteChangeDelay;
+		[SerializeField] private float _talkSpriteChangeDelay = .5f;
+		
+		[Header("Fade")]
+		[SerializeField] private float _fadeDuration = .2f;
+		[SerializeField] private Color _fadeSpriteColor = Color.gray;
 
 		private void Awake()
 		{
 			_sr = GetComponent<SpriteRenderer>();
 		}
 
-		public void SetSpritesContainer(TalkSpriteContainer spriteContainer)
+		public void SetSpriteContainer(CharacterSpriteContainer spriteContainer)
 		{
-			if (_coroutine != null)
+			if (spriteContainer == null)
 			{
-				StopCoroutine(_coroutine);
-				_coroutine = null;
+				throw new NullReferenceException(nameof(spriteContainer));
+			}
+			
+			if (spriteContainer.TalkSprites.Count <= 1)
+			{
+				throw new ArgumentOutOfRangeException($"{nameof(spriteContainer.TalkSprites.Count)} must be > 1");
 			}
 			
 			_spriteContainer = spriteContainer;
+		}
+		
+		public void SetEmpty()
+		{
+			StopTalkCoroutine();
 			
-			if (_spriteContainer == null)
+			_spriteContainer = null;
+			_sr.sprite = null;
+		}
+		
+		public void SetActiveAndTalking()
+		{
+			StopTalkCoroutine();
+
+			StartCoroutine(SetFade(false));
+			
+			_talkCoroutine = StartCoroutine(ProcessTalkSprites());
+		}
+		
+		private void StopTalkCoroutine()
+		{
+			if (_talkCoroutine != null)
 			{
-				_sr.sprite = null;
+				StopCoroutine(_talkCoroutine);
+				_talkCoroutine = null;
+			}
+		}
+
+		public void StopTalking()
+		{
+			StopTalkCoroutine();
+
+			_sr.sprite = _spriteContainer.SilenceSprite;
+		}
+
+		public void Deactivate()
+		{
+			StopTalking();
+			
+			StartCoroutine(SetFade(true));
+		}
+
+		private IEnumerator SetFade(bool fadeIn)
+		{
+			Color initColor;
+			Color endColor;
+			
+			if (fadeIn == true)
+			{
+				initColor = Color.white;
+				endColor = _fadeSpriteColor;
 			}
 			else
 			{
-				if (_spriteContainer.TalkSprites.Count > 1)
-					_coroutine = StartCoroutine(ProcessTalkSprites());
-				else
-					_sr.sprite = _spriteContainer.TalkSprites[0];
+				initColor = _fadeSpriteColor;
+				endColor = Color.white;
+			}
+			
+			var currentTime = 0f;
+			while (currentTime < _fadeDuration)
+			{
+				var t = currentTime / _fadeDuration;
+				_sr.color = Color.Lerp(initColor, endColor, t);
+
+				currentTime += Time.deltaTime;
+
+				yield return GameManager.WaitEndOfFrame;
 			}
 		}
 
@@ -51,7 +116,7 @@ namespace TalkingHeads
 
 				if (spriteIndex >= _spriteContainer.TalkSprites.Count) spriteIndex = 0;
 
-				yield return new WaitForSeconds(_spriteChangeDelay);
+				yield return new WaitForSeconds(_talkSpriteChangeDelay);
 			}
 		}
 	}

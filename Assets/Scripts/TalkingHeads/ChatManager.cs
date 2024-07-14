@@ -5,29 +5,19 @@ using UnityEngine;
 
 namespace TalkingHeads
 {
-	public enum HeadPosition
-	{
-		Left = 0,
-		Right = 1
-	}
-
 	[Serializable]
 	public struct ChatItem
 	{
 		[Serializable]
-		public struct TalkingHeadItem
-		{
-			public HeadPosition HeadPosition;
-			public TalkSpriteContainer SpriteContainer;
-		}
-		
-		[Serializable]
 		public struct DialogueItem
 		{
 			[TextArea] public string Text;
+			public bool IsPlayerSpeaks;
 			public TypeSpeed TypeSpeed;
-			public TalkingHeadItem[] TalkingHeads;
 		}
+		
+		public CharacterSpriteContainer LeftSpeaker;
+		public CharacterSpriteContainer RightSpeaker;
 
 		public DialogueItem Main;
 		
@@ -55,26 +45,11 @@ namespace TalkingHeads
 		private float _preQTEDelay;
 		[SerializeField]
 		private float _postQTEDelay;
-		
+
+		private ChatItem _currentChatItem;
+		private ChatItem.DialogueItem _currentDialogueItem;
 		private QTEHolder _currentQTE;
 		private Coroutine _nextDialogueMarkCoroutine;
-		
-		private void SetHead(ChatItem.TalkingHeadItem headItem)
-		{
-			switch (headItem.HeadPosition)
-			{
-				case HeadPosition.Left:
-					_leftHead.SetSpritesContainer(headItem.SpriteContainer);
-					break;
-
-				case HeadPosition.Right:
-					_rightHead.SetSpritesContainer(headItem.SpriteContainer);
-					break;
-
-				default:
-					throw new ArgumentOutOfRangeException(nameof(HeadPosition), headItem.HeadPosition, null);
-			}
-		}
 
 		private void Start()
 		{
@@ -83,6 +58,9 @@ namespace TalkingHeads
 		
 		private IEnumerator PlayChat()
 		{
+			_leftHead.SetEmpty();
+			_rightHead.SetEmpty();
+			
 			while (GameManager.I.HasInput == false)
 			{
 				yield return null;
@@ -90,14 +68,24 @@ namespace TalkingHeads
 			
 			for (var i = 0; i < _chatItems.Length; i++)
 			{
-				var currentChatItem = _chatItems[i];
+				_currentChatItem = _chatItems[i];
 
-				ShowDialogueItem(currentChatItem.Main);
+				if (_currentChatItem.LeftSpeaker != null)
+				{
+					_leftHead.SetSpriteContainer(_currentChatItem.LeftSpeaker);
+				}
+				
+				if (_currentChatItem.RightSpeaker != null)
+				{
+					_rightHead.SetSpriteContainer(_currentChatItem.RightSpeaker);
+				}
+				
+				ShowDialogueItem(_currentChatItem.Main);
 
-				if (currentChatItem.QTEPrefab != null)
+				if (_currentChatItem.QTEPrefab != null)
 				{
 					yield return processAwaitDialogue();
-					yield return processQTE(currentChatItem);
+					yield return processQTE(_currentChatItem);
 				}
 				else
 				{
@@ -117,15 +105,20 @@ namespace TalkingHeads
 
 			void ShowDialogueItem(ChatItem.DialogueItem item)
 			{
-				_leftHead.SetSpritesContainer(null);
-				_rightHead.SetSpritesContainer(null);
+				_currentDialogueItem = item;
 				
-				foreach (var head in item.TalkingHeads)
+				if (_currentDialogueItem.IsPlayerSpeaks == true)
 				{
-					SetHead(head);
+					_leftHead.SetActiveAndTalking();
+					_rightHead.Deactivate();
 				}
-
-				_chatText.PlayText(item.Text, item.TypeSpeed);
+				else
+				{
+					_leftHead.Deactivate();
+					_rightHead.SetActiveAndTalking();
+				}
+				
+				_chatText.PlayText(_currentDialogueItem.Text, _currentDialogueItem.TypeSpeed);
 			}
 
 			IEnumerator processQTE(ChatItem currentChatItem)
@@ -155,6 +148,15 @@ namespace TalkingHeads
 				while (_chatText.PlayComplete == false)
 				{
 					yield return GameManager.WaitEndOfFrame;
+				}
+				
+				if (_currentDialogueItem.IsPlayerSpeaks == true)
+				{
+					_leftHead.StopTalking();
+				}
+				else
+				{
+					_rightHead.StopTalking();
 				}
 				
 				_nextDialogueMarkCoroutine = StartCoroutine(processNextDialogueMark());
