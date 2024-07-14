@@ -33,6 +33,7 @@ Transform:
   - {fileID: 2504255935711214842}
   - {fileID: 6867509211956631988}
   - {fileID: 4086632683821313491}
+  - {fileID: 5913575565803049671}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &3363405584613271320
@@ -51,10 +52,12 @@ MonoBehaviour:
   - {fileID: 5143673430959100321}
   - {fileID: 4246704253771560175}
   - {fileID: 6708035765395243144}
+  - {fileID: 4012748635070185372}
   _apperanceDelay:
   - 0
   - 0.6
   - 0.4
+  - 0.6
 --- !u!1001 &3766342889960752346
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -63,9 +66,21 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 470636239483680872}
     m_Modifications:
+    - target: {fileID: 1057202298374877237, guid: abb15b565bce85e44963c644d30caa03, type: 3}
+      propertyPath: _qteSuccessOffsetBefore
+      value: 0.4
+      objectReference: {fileID: 0}
     - target: {fileID: 4441321900812218683, guid: abb15b565bce85e44963c644d30caa03, type: 3}
       propertyPath: m_Name
       value: RingQTE (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6782159378524390141, guid: abb15b565bce85e44963c644d30caa03, type: 3}
+      propertyPath: _staticRingSize
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6782159378524390141, guid: abb15b565bce85e44963c644d30caa03, type: 3}
+      propertyPath: _dynamicRingSize
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7713249824615177582, guid: abb15b565bce85e44963c644d30caa03, type: 3}
       propertyPath: m_LocalScale.x
@@ -136,6 +151,99 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7713249824615177582, guid: abb15b565bce85e44963c644d30caa03, type: 3}
   m_PrefabInstance: {fileID: 3766342889960752346}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &4115105318929092521
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 470636239483680872}
+    m_Modifications:
+    - target: {fileID: 1057202298374877237, guid: abb15b565bce85e44963c644d30caa03, type: 3}
+      propertyPath: _qteSuccessOffsetBefore
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4441321900812218683, guid: abb15b565bce85e44963c644d30caa03, type: 3}
+      propertyPath: m_Name
+      value: RingQTE (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6782159378524390141, guid: abb15b565bce85e44963c644d30caa03, type: 3}
+      propertyPath: _staticRingSize
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6782159378524390141, guid: abb15b565bce85e44963c644d30caa03, type: 3}
+      propertyPath: _dynamicRingSize
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7713249824615177582, guid: abb15b565bce85e44963c644d30caa03, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7713249824615177582, guid: abb15b565bce85e44963c644d30caa03, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7713249824615177582, guid: abb15b565bce85e44963c644d30caa03, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.95
+      objectReference: {fileID: 0}
+    - target: {fileID: 7713249824615177582, guid: abb15b565bce85e44963c644d30caa03, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.67
+      objectReference: {fileID: 0}
+    - target: {fileID: 7713249824615177582, guid: abb15b565bce85e44963c644d30caa03, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7713249824615177582, guid: abb15b565bce85e44963c644d30caa03, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7713249824615177582, guid: abb15b565bce85e44963c644d30caa03, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7713249824615177582, guid: abb15b565bce85e44963c644d30caa03, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7713249824615177582, guid: abb15b565bce85e44963c644d30caa03, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7713249824615177582, guid: abb15b565bce85e44963c644d30caa03, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7713249824615177582, guid: abb15b565bce85e44963c644d30caa03, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7713249824615177582, guid: abb15b565bce85e44963c644d30caa03, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: abb15b565bce85e44963c644d30caa03, type: 3}
+--- !u!114 &4012748635070185372 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1057202298374877237, guid: abb15b565bce85e44963c644d30caa03, type: 3}
+  m_PrefabInstance: {fileID: 4115105318929092521}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 91260e65b0404a2cb922658014e18c78, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &5913575565803049671 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7713249824615177582, guid: abb15b565bce85e44963c644d30caa03, type: 3}
+  m_PrefabInstance: {fileID: 4115105318929092521}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &5317080281125151124
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -144,6 +252,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 470636239483680872}
     m_Modifications:
+    - target: {fileID: 1057202298374877237, guid: abb15b565bce85e44963c644d30caa03, type: 3}
+      propertyPath: _qteSuccessOffsetBefore
+      value: 0.4
+      objectReference: {fileID: 0}
     - target: {fileID: 4441321900812218683, guid: abb15b565bce85e44963c644d30caa03, type: 3}
       propertyPath: m_Name
       value: RingQTE
@@ -225,9 +337,21 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 470636239483680872}
     m_Modifications:
+    - target: {fileID: 1057202298374877237, guid: abb15b565bce85e44963c644d30caa03, type: 3}
+      propertyPath: _qteSuccessOffsetBefore
+      value: 0.4
+      objectReference: {fileID: 0}
     - target: {fileID: 4441321900812218683, guid: abb15b565bce85e44963c644d30caa03, type: 3}
       propertyPath: m_Name
       value: RingQTE (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6782159378524390141, guid: abb15b565bce85e44963c644d30caa03, type: 3}
+      propertyPath: _staticRingSize
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6782159378524390141, guid: abb15b565bce85e44963c644d30caa03, type: 3}
+      propertyPath: _dynamicRingSize
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7713249824615177582, guid: abb15b565bce85e44963c644d30caa03, type: 3}
       propertyPath: m_LocalScale.x

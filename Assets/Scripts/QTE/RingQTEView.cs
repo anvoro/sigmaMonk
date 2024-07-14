@@ -173,8 +173,8 @@ public class RingQTEView : MonoBehaviour
 
 		_isPlaying = true;
 		
-		// SetFloatProperty(RingProperty.Radius, _dynamicRingMaterial, ringSizeCache[_dynamicRingSize]);
-		// SetFloatProperty(RingProperty.Radius, _staticRingMaterial, ringSizeCache[_staticRingSize]);
+		SetFloatProperty(RingProperty.Radius, _dynamicRingMaterial, ringSizeCache[_dynamicRingSize]);
+		SetFloatProperty(RingProperty.Radius, _staticRingMaterial, ringSizeCache[_staticRingSize]);
 		
 		var cachedScale = transform.localScale;
 		transform.localScale = Vector3.zero;
