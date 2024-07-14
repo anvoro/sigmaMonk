@@ -75,7 +75,10 @@ namespace QTE
 		{
 			for (int i = 0; i < _qtes.Length; i++)
 			{
-				yield return new WaitForSeconds(_apperanceDelay[i]);
+				if (_apperanceDelay.Length > i)
+				{
+					yield return new WaitForSeconds(_apperanceDelay[i]);
+				}
 				
 				_qtes[i].ShowQTE();
 			}

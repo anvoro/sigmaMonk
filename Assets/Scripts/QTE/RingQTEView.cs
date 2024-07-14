@@ -47,7 +47,8 @@ public class RingQTEView : MonoBehaviour
 	[SerializeField] private RingSize _staticRingSize;
 	[SerializeField] private RingSize _dynamicRingSize;
 
-	[Header("Appearance Timing")] [SerializeField]
+	[Header("Appearance Timing")]
+	[SerializeField]
 	private float _apperanceScale = .4f;
 
 	[SerializeField] private float _apperanceScaleDelay = .2f;
@@ -55,7 +56,8 @@ public class RingQTEView : MonoBehaviour
 	[SerializeField] private Vector3 _punchForce;
 	[SerializeField] private float _punchScaleDelay = .2f;
 
-	[Header("Result Timing")] [SerializeField]
+	[Header("Result Timing")]
+	[SerializeField]
 	private float _winPunchScale = .6f;
 
 	[SerializeField] private Vector3 _winPunchForce;
@@ -64,12 +66,14 @@ public class RingQTEView : MonoBehaviour
 	[SerializeField] private float _flashTime = .05f;
 	[SerializeField] private float _resultTime = 1f;
 
-	[Header("Colors")] [SerializeField] private Color _winFlashColor;
+	[Header("Colors")]
+	[SerializeField] private Color _winFlashColor;
 	[SerializeField] private Color _winColor;
 	[SerializeField] private Color _loseFlashColor;
 	[SerializeField] private Color _loseColor;
 
-	[Header("Ending Timing")] [SerializeField]
+	[Header("Ending Timing")]
+	[SerializeField]
 	private float _endingDelay = .2f;
 
 	[SerializeField] private float _endingScale = .2f;
@@ -84,7 +88,7 @@ public class RingQTEView : MonoBehaviour
 
 	public event Action OnQTEAnimationBegin;
 
-	private void Start()
+	private void Awake()
 	{
 		_staticRingMaterial = _staticRingRenderer.material;
 		_dynamicRingMaterial = _dynamicRingRenderer.material;
@@ -164,14 +168,22 @@ public class RingQTEView : MonoBehaviour
 
 	private IEnumerator PlayAppearanceAndBodyInternal(float qteTime)
 	{
-		if (_isPlaying == true) throw new Exception($"{gameObject.name} already playing");
+		if (_isPlaying == true) 
+			throw new Exception($"{gameObject.name} already playing");
 
 		_isPlaying = true;
-
+		
+		// SetFloatProperty(RingProperty.Radius, _dynamicRingMaterial, ringSizeCache[_dynamicRingSize]);
+		// SetFloatProperty(RingProperty.Radius, _staticRingMaterial, ringSizeCache[_staticRingSize]);
+		
+		var cachedScale = transform.localScale;
+		transform.localScale = Vector3.zero;
+		
 		ActivateStaticRing(true);
 		ActivateDynamicRing(true);
-
-		Tween.Scale(transform, Vector3.zero, transform.localScale, _apperanceScale);
+		
+		Tween.Scale(transform, Vector3.zero, cachedScale, _apperanceScale);
+		
 		yield return new WaitForSeconds(_apperanceScale + _apperanceScaleDelay);
 
 		Tween.PunchScale(transform, _punchForce, _punchScale);

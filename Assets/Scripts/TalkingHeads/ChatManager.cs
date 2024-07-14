@@ -70,6 +70,7 @@ namespace TalkingHeads
 		{
 			setInitialSprites();
 
+			_nextDialogueMark.SetActive(false);
 			_chatText.ClearText();
 
 			yield return new WaitForSeconds(_startDialogueDelay);
