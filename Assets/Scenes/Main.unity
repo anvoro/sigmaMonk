@@ -1292,7 +1292,7 @@ MonoBehaviour:
     Main:
       Text: "<link=\"shake\">\u0414\u044F\u0434\u044F! \u0414\u044F\u0434\u044F!</link>"
       IsOpponentSpeaks: 1
-      TypeSpeed: 2
+      TypeSpeed: 1
     QTEPrefab: {fileID: 0}
     Success:
       Text: 
@@ -1307,7 +1307,7 @@ MonoBehaviour:
     Main:
       Text: "\u0414\u0430, \u0441\u044B\u043D \u043C\u043E\u0439.."
       IsOpponentSpeaks: 0
-      TypeSpeed: 1
+      TypeSpeed: 0
     QTEPrefab: {fileID: 0}
     Success:
       Text: 
@@ -1323,7 +1323,7 @@ MonoBehaviour:
       Text: "\u041D\u0443\u0436\u043D\u043E \u0437\u0430\u0431\u0438\u0442\u044C
         <color=\"red\"><link=\"shake\">\u0433\u043E\u043B</link></color>"
       IsOpponentSpeaks: 1
-      TypeSpeed: 2
+      TypeSpeed: 1
     QTEPrefab: {fileID: 0}
     Success:
       Text: 
@@ -1338,7 +1338,7 @@ MonoBehaviour:
     Main:
       Text: "\u0427\u0442\u043E?"
       IsOpponentSpeaks: 0
-      TypeSpeed: 1
+      TypeSpeed: 0
     QTEPrefab: {fileID: 0}
     Success:
       Text: 
@@ -1353,7 +1353,7 @@ MonoBehaviour:
     Main:
       Text: "\u0414\u044F\u0434\u044F, \u0437\u0430\u0431\u0435\u0439 <color=\"red\"><link=\"shake\">\u0413\u041E\u041E\u041E\u041E\u041E\u041E\u041E\u041E\u041E\u041E\u041E\u041E\u041E\u041E\u041B</link></color>"
       IsOpponentSpeaks: 1
-      TypeSpeed: 2
+      TypeSpeed: 1
     QTEPrefab: {fileID: 0}
     Success:
       Text: 
@@ -1375,20 +1375,20 @@ MonoBehaviour:
     Success:
       Text: "<color=\"red\"><link=\"shake\">\u0413\u041E\u041E\u041E\u041E\u041E\u041E\u041E\u041E\u041E\u041E\u041E\u041E\u041E\u041E\u041E\u041E\u041E\u041E\u041E\u041E\u041E\u041E\u041E\u041E\u041E\u041E\u041E\u041E\u041E\u041B</link></color>"
       IsOpponentSpeaks: 1
-      TypeSpeed: 2
+      TypeSpeed: 1
     Fail:
       Text: "\u0422\u044B \u0441\u0435\u0440\u044C\u0435\u0437\u043D\u043E?...\n\u042D\u0445,
         \u043D\u0443 \u043D\u0438\u0447\u0435\u0433\u043E, \u0443 \u0442\u0435\u0431\u044F
         \u0435\u0449\u0451 \u0431\u0443\u0434\u0435\u0442 \u0432\u043E\u0437\u043C\u043E\u0436\u043D\u043E\u0441\u0442\u044C.."
       IsOpponentSpeaks: 1
-      TypeSpeed: 2
+      TypeSpeed: 1
   - LeftSpeaker: {fileID: 11400000, guid: dc7d811d39358154e8226b9083cab7ac, type: 2}
     RightSpeaker: {fileID: 11400000, guid: 45284cb5e18ab804c93a7a5fb554cc25, type: 2}
     Main:
       Text: "\u0413\u041E\u041E\u041E\u041E\u041E\u041E\u041E\u041E\u041B?...\n<color=\"yellow\">\u041A\u041E\u041D\u0415\u0426
         MVP</color>"
       IsOpponentSpeaks: 0
-      TypeSpeed: 1
+      TypeSpeed: 0
     QTEPrefab: {fileID: 0}
     Success:
       Text: 
