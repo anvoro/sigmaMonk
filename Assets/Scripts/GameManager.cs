@@ -2,6 +2,7 @@ using System;
 using Core;
 using TalkingHeads;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : SingletonBase<GameManager>
 {
@@ -44,6 +45,11 @@ public class GameManager : SingletonBase<GameManager>
 		else
 		{
 			HasInput = false;
+		}
+
+		if (Input.GetKeyDown(KeyCode.Escape))
+		{
+			SceneManager.LoadScene(0);
 		}
 	}
 }

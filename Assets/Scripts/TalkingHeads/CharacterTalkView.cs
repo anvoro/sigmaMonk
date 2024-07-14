@@ -7,17 +7,26 @@ namespace TalkingHeads
 	[RequireComponent(typeof(SpriteRenderer))]
 	public class CharacterTalkView : MonoBehaviour
 	{
+		private enum CharacterFadeType
+		{
+			None = 0,
+			Faded = 1,
+			Active = 2,
+		}
+		
 		private SpriteRenderer _sr;
 
 		private CharacterSpriteContainer _spriteContainer;
 		private Coroutine _talkCoroutine;
+
+		private CharacterFadeType _fadeType;
 
 		[SerializeField] private float _talkSpriteChangeDelay = .5f;
 		
 		[Header("Fade")]
 		[SerializeField] private float _fadeDuration = .2f;
 		[SerializeField] private Color _fadeSpriteColor = Color.gray;
-
+		
 		private void Awake()
 		{
 			_sr = GetComponent<SpriteRenderer>();
@@ -85,17 +94,27 @@ namespace TalkingHeads
 		{
 			Color initColor;
 			Color endColor;
+			CharacterFadeType fadeType;
 			
 			if (fadeIn == true)
 			{
 				initColor = Color.white;
 				endColor = _fadeSpriteColor;
+				fadeType = CharacterFadeType.Faded;
 			}
 			else
 			{
 				initColor = _fadeSpriteColor;
 				endColor = Color.white;
+				fadeType = CharacterFadeType.Active;
 			}
+
+			if (_fadeType == fadeType)
+			{
+				yield break;
+			}
+
+			_fadeType = fadeType;
 			
 			var currentTime = 0f;
 			while (currentTime < _fadeDuration)
