@@ -100,16 +100,11 @@ namespace TalkingHeads
 			{
 				_currentChatItem = _chatData.ChatItems[i];
 				
-				ShowDialogueItem(_currentChatItem.Main);
+				yield return ShowDialogueItemRecursively(_currentChatItem.Main);
 
 				if (_currentChatItem.QTEPrefab != null)
 				{
-					yield return processAwaitDialogue();
 					yield return processQTE(_currentChatItem);
-				}
-				else
-				{
-					yield return processAwaitDialogue();
 				}
 			}
 
@@ -125,32 +120,41 @@ namespace TalkingHeads
 				}
 			}
 
-			void ShowDialogueItem(ChatItem.DialogueLineItem item)
+			IEnumerator ShowDialogueItemRecursively(ChatItem.DialogueLineItem item)
 			{
-				if (item.LeftSpeaker != null)
-				{
-					_leftHead.SetSpriteContainer(item.LeftSpeaker);
-				}
+				var currentLineItem = item;
 				
-				if (item.RightSpeaker != null)
+				while (currentLineItem != null)
 				{
-					_rightHead.SetSpriteContainer(item.RightSpeaker);
-				}
+					if (currentLineItem.LeftSpeaker != null)
+					{
+						_leftHead.SetSpriteContainer(currentLineItem.LeftSpeaker);
+					}
 				
-				_currentDialogueItem = item;
+					if (currentLineItem.RightSpeaker != null)
+					{
+						_rightHead.SetSpriteContainer(currentLineItem.RightSpeaker);
+					}
 				
-				if (_currentDialogueItem.IsOpponentSpeaks == true)
-				{
-					_leftHead.SetActiveAndTalking();
-					_rightHead.Deactivate();
-				}
-				else
-				{
-					_leftHead.Deactivate();
-					_rightHead.SetActiveAndTalking();
-				}
+					_currentDialogueItem = currentLineItem;
 				
-				_chatText.PlayText(_currentDialogueItem.Text, _currentDialogueItem.textSpeed);
+					if (_currentDialogueItem.IsOpponentSpeaks == true)
+					{
+						_leftHead.SetActiveAndTalking();
+						_rightHead.Deactivate();
+					}
+					else
+					{
+						_leftHead.Deactivate();
+						_rightHead.SetActiveAndTalking();
+					}
+				
+					_chatText.PlayText(_currentDialogueItem.Text, _currentDialogueItem.textSpeed);
+				
+					yield return processAwaitDialogue();
+
+					currentLineItem = currentLineItem.NextDialogueLineItem;
+				}
 			}
 
 			IEnumerator processQTE(ChatItem currentChatItem)
@@ -169,11 +173,9 @@ namespace TalkingHeads
 				yield return FadeHepler.FadeOut(_postQTEFadeDuraion, _qteFade, .7f, 0f);
 				yield return new WaitForSeconds(_postQTEDelay);
 
-				ShowDialogueItem(_currentQTE.IsSuccessful() == true 
+				yield return ShowDialogueItemRecursively(_currentQTE.IsSuccessful() == true 
 					? currentChatItem.Success 
 					: currentChatItem.Fail);
-				
-				yield return processAwaitDialogue();
 			}
 
 			IEnumerator processAwaitDialogue()
