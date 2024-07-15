@@ -15,10 +15,11 @@ namespace TalkingHeads
 			[TextArea] public string Text;
 			public bool IsOpponentSpeaks;
 			public TextSpeed textSpeed;
-				
+			
 			public CharacterSpriteContainer LeftSpeaker;
 			public CharacterSpriteContainer RightSpeaker;
-				
+			
+			[SerializeReference]
 			public DialogueLineItem NextDialogueLineItem;
 
 			public void PushNextDialogueLine(DialogueLineItem lineItem)

@@ -4,6 +4,7 @@ using System.Linq;
 using QTE;
 using TalkingHeads;
 using TextManager;
+using UnityEditor;
 using UnityEngine;
 
 namespace yutokun
@@ -61,6 +62,8 @@ namespace yutokun
 				processQTE(row, result[^1]);
 				processKarma(row, result[^1]);
 			}
+			
+			EditorUtility.SetDirty(this.ChatItemsData);
 
 			void processBranchType(List<string> row, int rowIndex, ChatItem.DialogueLineItem currentDialogueLine)
 			{
