@@ -9,9 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7e3e949ad6ae44798f1ef876d88f7e08, type: 3}
-  m_Name: QTE Id Map
+  m_Script: {fileID: 11500000, guid: 449d19f6f5fd4e9cb42cc4c9acbdb716, type: 3}
+  m_Name: SinGrin
   m_EditorClassIdentifier: 
-  _items:
-  - Id: easy
-    QTEPrefab: {fileID: 483872715056854214, guid: 52b2de6e5da378c46809975cda6924ef, type: 3}
+  _silinceSprite: {fileID: 21300000, guid: eab7153b5fba4ce419f7fb69cd1fe287, type: 3}
+  _talkSprites: []

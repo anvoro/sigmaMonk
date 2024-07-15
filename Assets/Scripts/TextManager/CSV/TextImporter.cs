@@ -18,6 +18,8 @@ namespace yutokun
 		private CharacterSpritesIdMap _spritesMap;
 
 		public ChatItemsData ChatItemsData;
+
+		public string FilePath = "C:\\Users\\user\\Downloads\\Malenkiy plot - Лист1.csv";
 		
 		private const int CHARACTER_ID = 0;
 		private const int TEXT = 1;
@@ -41,7 +43,7 @@ namespace yutokun
 		
 		public void ImportText()
 		{
-			var csv = CSVParser.LoadFromPath("C:\\Users\\user\\Downloads\\Malenkiy plot - Лист1.csv");
+			var csv = CSVParser.LoadFromPath(FilePath);
 			csv = csv.Skip(1).ToList();
 			
 			var result = ChatItemsData.ChatItems;

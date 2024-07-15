@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 449d19f6f5fd4e9cb42cc4c9acbdb716, type: 3}
+  m_Name: MonkAmazed
+  m_EditorClassIdentifier: 
+  _silinceSprite: {fileID: 21300000, guid: 3b206bc02fd43874dac4fd71427479a2, type: 3}
+  _talkSprites:
+  - {fileID: 21300000, guid: 3b206bc02fd43874dac4fd71427479a2, type: 3}
+  - {fileID: 21300000, guid: b96fae921c551e44da4ee3c9d8da9f45, type: 3}
+  - {fileID: 21300000, guid: 3b206bc02fd43874dac4fd71427479a2, type: 3}
+  - {fileID: 21300000, guid: 457194cd9bef3d04aabf8813f861b6ac, type: 3}

@@ -1833,11 +1833,11 @@ MonoBehaviour:
       Text: "\u0411\u0430\u0442\u0435\u043D\u044C\u043A\u0430-\u0431\u0430\u0442\u0435\u043D\u044C\u043A\u0430,
         \u043A\u0430\u043A \u0432\u0430\u043C \u043D\u0435 \u0441\u0442\u044B\u0434\u043D\u043E?"
       IsOpponentSpeaks: 1
-      textSpeed: 1
+      textSpeed: 2
       LeftSpeaker: {fileID: 11400000, guid: dc7d811d39358154e8226b9083cab7ac, type: 2}
       RightSpeaker: {fileID: 11400000, guid: 45284cb5e18ab804c93a7a5fb554cc25, type: 2}
       NextDialogueLineItem:
-        rid: 8992705846906978304
+        rid: 8992705846906978313
     QTEPrefab: {fileID: 483872715056854214, guid: 52b2de6e5da378c46809975cda6924ef, type: 3}
     SuccessKarmaValue: 1
     Success:
@@ -1851,21 +1851,21 @@ MonoBehaviour:
         \u0441\u043F\u043E\u0441\u043E\u0431\u043D\u0430 \u043F\u043E\u0434\u0430\u0440\u0438\u0442\u044C
         \u043F\u0440\u043E\u0441\u0442\u0430\u044F \u0437\u0430\u0431\u043E\u0442\u0430"
       IsOpponentSpeaks: 0
-      textSpeed: 1
-      LeftSpeaker: {fileID: 0}
+      textSpeed: 2
+      LeftSpeaker: {fileID: 11400000, guid: 02f4ab6838f975c4599d77fcba3fff7a, type: 2}
       RightSpeaker: {fileID: 0}
       NextDialogueLineItem:
-        rid: 8992705846906978305
+        rid: 8992705846906978314
     Fail:
       Text: "\u0411\u043E\u044E\u0441\u044C, \u043D\u0430 \u044D\u0442\u043E\u0442
         \u0432\u043E\u043F\u0440\u043E\u0441 \u044F \u0438 \u0441\u0430\u043C \u043D\u0435
         \u043C\u043E\u0433\u0443 \u043D\u0430\u0439\u0442\u0438 \u043E\u0442\u0432\u0435\u0442"
       IsOpponentSpeaks: 0
-      textSpeed: 1
+      textSpeed: 2
       LeftSpeaker: {fileID: 0}
       RightSpeaker: {fileID: 0}
       NextDialogueLineItem:
-        rid: 8992705846906978306
+        rid: 8992705846906978315
   - Main:
       Text: "\u0423\u0440\u0430\u0430\u0430\u0430, \u0435\u0449\u0451 \u0431\u043E\u043B\u044C\u0448\u0435
         \u0437\u0435\u043C\u043B\u0438, \u0441 \u043A\u043E\u0442\u043E\u0440\u043E\u0439
@@ -1873,11 +1873,11 @@ MonoBehaviour:
         \u0447\u0442\u043E \u043C\u043E\u0436\u0435\u0442 \u0443\u0440\u043E\u0434\u0438\u0442\u044C\u0441\u044F
         -- \u0442\u0430\u043A \u044D\u0442\u043E \u0440\u043E\u0439 \u0441\u0430\u0440\u0430\u043D\u0447\u0438"
       IsOpponentSpeaks: 1
-      textSpeed: 1
+      textSpeed: 2
       LeftSpeaker: {fileID: 0}
       RightSpeaker: {fileID: 0}
       NextDialogueLineItem:
-        rid: 8992705846906978307
+        rid: 8992705846906978316
     QTEPrefab: {fileID: 0}
     SuccessKarmaValue: 0
     Success:
@@ -1901,19 +1901,19 @@ MonoBehaviour:
     RefIds:
     - rid: -2
       type: {class: , ns: , asm: }
-    - rid: 8992705846906978304
+    - rid: 8992705846906978313
       type: {class: ChatItem/DialogueLineItem, ns: TalkingHeads, asm: Assembly-CSharp}
       data:
         Text: "\u0417\u0430 \u0447\u0442\u043E \u044F \u0434\u043E\u043B\u0436\u0435\u043D
           \u0443\u0441\u0442\u044B\u0434\u0438\u0442\u044C\u0441\u044F, \u0441\u044B\u043D
           \u043C\u043E\u0439?"
         IsOpponentSpeaks: 0
-        textSpeed: 1
+        textSpeed: 2
         LeftSpeaker: {fileID: 0}
-        RightSpeaker: {fileID: 0}
+        RightSpeaker: {fileID: 11400000, guid: 5cc1d5ee3c41a734886dadd1daf324e2, type: 2}
         NextDialogueLineItem:
-          rid: 8992705846906978308
-    - rid: 8992705846906978305
+          rid: 8992705846906978317
+    - rid: 8992705846906978314
       type: {class: ChatItem/DialogueLineItem, ns: TalkingHeads, asm: Assembly-CSharp}
       data:
         Text: "\u042F \u043D\u0430\u043F\u0438\u0448\u0443 \u043F\u0440\u043E\u0448\u0435\u043D\u0438\u0435,
@@ -1922,12 +1922,12 @@ MonoBehaviour:
           \u0437\u0435\u043C\u043B\u0438 \u043E\u0442\u0434\u0430\u0442\u044C \u043F\u043E\u0434
           \u043D\u0443\u0436\u0434\u044B \u0434\u0435\u0440\u0435\u0432\u043D\u0438"
         IsOpponentSpeaks: 0
-        textSpeed: 1
+        textSpeed: 2
         LeftSpeaker: {fileID: 0}
         RightSpeaker: {fileID: 0}
         NextDialogueLineItem:
           rid: -2
-    - rid: 8992705846906978306
+    - rid: 8992705846906978315
       type: {class: ChatItem/DialogueLineItem, ns: TalkingHeads, asm: Assembly-CSharp}
       data:
         Text: "\u0421\u043B\u0438\u0448\u043A\u043E\u043C \u043C\u043D\u043E\u0433\u043E
@@ -1935,12 +1935,12 @@ MonoBehaviour:
           \u0431\u0440\u0430\u0442\u044C\u0435\u0432 \u043F\u043E\u0433\u0438\u0431\u043B\u0438
           \u0437\u0430 \u043F\u043E\u0441\u043B\u0435\u0434\u043D\u0435\u0435 \u0432\u0440\u0435\u043C\u044F"
         IsOpponentSpeaks: 0
-        textSpeed: 1
+        textSpeed: 2
         LeftSpeaker: {fileID: 0}
         RightSpeaker: {fileID: 0}
         NextDialogueLineItem:
-          rid: 8992705846906978309
-    - rid: 8992705846906978307
+          rid: 8992705846906978318
+    - rid: 8992705846906978316
       type: {class: ChatItem/DialogueLineItem, ns: TalkingHeads, asm: Assembly-CSharp}
       data:
         Text: "\u041D\u0435\u0442 \u043D\u0438\u0447\u0435\u0433\u043E, \u0441 \u0447\u0435\u043C
@@ -1948,12 +1948,12 @@ MonoBehaviour:
           \u043A\u0440\u0435\u043F\u043A\u0430\u044F \u0432\u0435\u0440\u0430 \u0438
           \u0441\u0438\u043B\u044C\u043D\u0430\u044F \u0441\u043F\u0438\u043D\u0430"
         IsOpponentSpeaks: 0
-        textSpeed: 1
+        textSpeed: 2
         LeftSpeaker: {fileID: 0}
         RightSpeaker: {fileID: 0}
         NextDialogueLineItem:
-          rid: 8992705846906978310
-    - rid: 8992705846906978308
+          rid: 8992705846906978319
+    - rid: 8992705846906978317
       type: {class: ChatItem/DialogueLineItem, ns: TalkingHeads, asm: Assembly-CSharp}
       data:
         Text: "\u0410 \u0412\u044B \u0434\u0430\u0432\u043D\u043E \u0437\u0430 \u043E\u0433\u0440\u0430\u0434\u043A\u0443
@@ -1966,12 +1966,12 @@ MonoBehaviour:
           \u0447\u0442\u043E \u0443 \u0441\u0435\u0431\u044F \u0432 \u0430\u0431\u0431\u0430\u0442\u0441\u0442\u0432\u0435
           \u0432\u0438\u043D\u043E \u0445\u043B\u0435\u0449\u0435\u0442\u0435."
         IsOpponentSpeaks: 1
-        textSpeed: 1
+        textSpeed: 2
         LeftSpeaker: {fileID: 0}
         RightSpeaker: {fileID: 0}
         NextDialogueLineItem:
-          rid: 8992705846906978311
-    - rid: 8992705846906978309
+          rid: 8992705846906978320
+    - rid: 8992705846906978318
       type: {class: ChatItem/DialogueLineItem, ns: TalkingHeads, asm: Assembly-CSharp}
       data:
         Text: "\u0415\u0434\u0438\u043D\u0441\u0442\u0432\u0435\u043D\u043D\u043E\u0435
@@ -1981,24 +1981,24 @@ MonoBehaviour:
           \u043C\u044B \u0441\u043C\u043E\u0436\u0435\u043C \u0447\u0430\u0441\u0442\u044C
           \u0435\u0451 \u043F\u0435\u0440\u0435\u0434\u0430\u0442\u044C \u0434\u0435\u0440\u0435\u0432\u043D\u0435"
         IsOpponentSpeaks: 0
-        textSpeed: 1
+        textSpeed: 2
         LeftSpeaker: {fileID: 0}
         RightSpeaker: {fileID: 0}
         NextDialogueLineItem:
           rid: -2
-    - rid: 8992705846906978310
+    - rid: 8992705846906978319
       type: {class: ChatItem/DialogueLineItem, ns: TalkingHeads, asm: Assembly-CSharp}
       data:
         Text: "\u042F \u0432\u0438\u0436\u0443, \u0442\u044B \u043D\u0435 \u0443\u0434\u043E\u0432\u043B\u0435\u0442\u0432\u043E\u0440\u0451\u043D
           \u043C\u043E\u0438\u043C \u043E\u0442\u0432\u0435\u0442\u043E\u043C, \u0442\u0430\u043A
           \u0447\u0442\u043E \u0436\u0435 "
         IsOpponentSpeaks: 0
-        textSpeed: 1
+        textSpeed: 2
         LeftSpeaker: {fileID: 0}
         RightSpeaker: {fileID: 0}
         NextDialogueLineItem:
           rid: -2
-    - rid: 8992705846906978311
+    - rid: 8992705846906978320
       type: {class: ChatItem/DialogueLineItem, ns: TalkingHeads, asm: Assembly-CSharp}
       data:
         Text: "\u0412 \u0436\u0438\u0437\u043D\u0438 \u0431\u044B\u0432\u0430\u044E\u0442
@@ -2008,12 +2008,12 @@ MonoBehaviour:
           \u0438\u0445 \u043F\u0440\u0435\u043E\u0434\u043E\u043B\u0435\u0442\u044C,
           \u0433\u043B\u0430\u0432\u043D\u043E\u0435 -- \u043D\u0435 \u0441\u0434\u0430\u0432\u0430\u0442\u044C\u0441\u044F "
         IsOpponentSpeaks: 0
-        textSpeed: 1
+        textSpeed: 2
         LeftSpeaker: {fileID: 0}
-        RightSpeaker: {fileID: 0}
+        RightSpeaker: {fileID: 11400000, guid: 45284cb5e18ab804c93a7a5fb554cc25, type: 2}
         NextDialogueLineItem:
-          rid: 8992705846906978312
-    - rid: 8992705846906978312
+          rid: 8992705846906978321
+    - rid: 8992705846906978321
       type: {class: ChatItem/DialogueLineItem, ns: TalkingHeads, asm: Assembly-CSharp}
       data:
         Text: "\u0410 \u0437\u0430\u0447\u0435\u043C \u0441\u0442\u0430\u0440\u0430\u0442\u044C\u0441\u044F?
@@ -2022,7 +2022,7 @@ MonoBehaviour:
           \u0443\u043C\u0438\u0440\u0430\u044E\u0442 \u0438\u043B\u0438 \u0441\u0445\u043E\u0434\u044F\u0442
           \u0441 \u0443\u043C\u0430? "
         IsOpponentSpeaks: 0
-        textSpeed: 1
+        textSpeed: 2
         LeftSpeaker: {fileID: 0}
         RightSpeaker: {fileID: 0}
         NextDialogueLineItem:
@@ -2042,6 +2042,7 @@ MonoBehaviour:
   _qteMap: {fileID: 11400000, guid: a0ca52019fa390341a5406ba9172196f, type: 2}
   _spritesMap: {fileID: 11400000, guid: 89407e7f03169394ab93936b28bb3ec7, type: 2}
   ChatItemsData: {fileID: 1669275556}
+  FilePath: "C:\\Users\\user\\Downloads\\Malenkiy plot - \u041B\u0438\u0441\u04421.csv"
 --- !u!1001 &1710222645
 PrefabInstance:
   m_ObjectHideFlags: 0

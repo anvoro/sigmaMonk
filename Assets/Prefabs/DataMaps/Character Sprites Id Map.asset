@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ae9fef6372542539568e4c67615d72b, type: 3}
+  m_Name: Character Sprites Id Map
+  m_EditorClassIdentifier: 
+  _items:
+  - Id: sin_base
+    CharacterSpriteContainer: {fileID: 11400000, guid: dc7d811d39358154e8226b9083cab7ac, type: 2}
+  - Id: sin_half
+    CharacterSpriteContainer: {fileID: 11400000, guid: 02f4ab6838f975c4599d77fcba3fff7a, type: 2}
+  - Id: sin_turtle
+    CharacterSpriteContainer: {fileID: 11400000, guid: a644874f2e355324dbfe54d90c478230, type: 2}
+  - Id: sin_grin
+    CharacterSpriteContainer: {fileID: 11400000, guid: 330c7b583dd6dfd4b8b2a46d180dd57f, type: 2}
+  - Id: monk_base
+    CharacterSpriteContainer: {fileID: 11400000, guid: 45284cb5e18ab804c93a7a5fb554cc25, type: 2}
+  - Id: monk_happy
+    CharacterSpriteContainer: {fileID: 11400000, guid: fa024034a49ccd64e9e344bdb3a698c5, type: 2}
+  - Id: monk_amazed
+    CharacterSpriteContainer: {fileID: 11400000, guid: 5cc1d5ee3c41a734886dadd1daf324e2, type: 2}
