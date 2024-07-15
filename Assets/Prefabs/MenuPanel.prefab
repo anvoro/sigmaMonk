@@ -219,7 +219,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "<color=\"red\">K</color> - \u0427\u0422\u041E\u0411\u042B \u0412\u042B\u0419\u0422\u0418"
+  m_text: "<color=#A61700>K</color> - \u0427\u0422\u041E\u0411\u042B \u0412\u042B\u0419\u0422\u0418"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 050889c5a9866f8458f707791f954174, type: 2}
   m_sharedMaterial: {fileID: 8848921545989080443, guid: 050889c5a9866f8458f707791f954174, type: 2}
@@ -429,7 +429,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "<color=\"red\">R</color> - \u0427\u0422\u041E\u0411\u042B \u041D\u0410\u0427\u0410\u0422\u042C
+  m_text: "<color=#A61700>R</color> - \u0427\u0422\u041E\u0411\u042B \u041D\u0410\u0427\u0410\u0422\u042C
     \u0417\u0410\u041D\u041E\u0412\u041E"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 050889c5a9866f8458f707791f954174, type: 2}
@@ -564,7 +564,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "<color=\"red\">ESC</color> -\u0427\u0422\u041E\u0411\u042B \u0412\u0415\u0420\u041D\u0423\u0422\u042C\u0421\u042F"
+  m_text: "<color=#A61700>ESC</color> - \u0427\u0422\u041E\u0411\u042B \u0412\u0415\u0420\u041D\u0423\u0422\u042C\u0421\u042F"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 050889c5a9866f8458f707791f954174, type: 2}
   m_sharedMaterial: {fileID: 8848921545989080443, guid: 050889c5a9866f8458f707791f954174, type: 2}
