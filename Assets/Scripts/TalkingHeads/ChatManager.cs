@@ -1,34 +1,54 @@
 ﻿using System;
 using System.Collections;
 using QTE;
+using TextManager;
 using UnityEngine;
 
 namespace TalkingHeads
 {
 	[Serializable]
-	public struct ChatItem
+	public class ChatItem
 	{
 		[Serializable]
-		public struct DialogueItem
+		public class DialogueLineItem
 		{
 			[TextArea] public string Text;
 			public bool IsOpponentSpeaks;
-			public TypeSpeed TypeSpeed;
-		}
-		
-		public CharacterSpriteContainer LeftSpeaker;
-		public CharacterSpriteContainer RightSpeaker;
+			public TextSpeed textSpeed;
+				
+			public CharacterSpriteContainer LeftSpeaker;
+			public CharacterSpriteContainer RightSpeaker;
+				
+			public DialogueLineItem NextDialogueLineItem;
 
-		public DialogueItem Main;
+			public void PushNextDialogueLine(DialogueLineItem lineItem)
+			{
+				var currentItem = this;
+				while (true)
+				{
+					if (currentItem.NextDialogueLineItem == null)
+					{
+						currentItem.NextDialogueLineItem = lineItem;
+						break;
+					}
+
+					currentItem = currentItem.NextDialogueLineItem;
+				}
+			}
+		}
+			
+		public DialogueLineItem Main;
 		
 		[Header("QTE")]
 		public GameObject QTEPrefab;
-		public DialogueItem Success;
-		public DialogueItem Fail;
+		public int SuccessKarmaValue;
+		public DialogueLineItem Success;
+		public DialogueLineItem Fail;
 	}
 
 	public class ChatManager : MonoBehaviour
 	{
+		[SerializeField] private ChatItemsData _chatData;
 		[SerializeField] private ChatItem[] _chatItems;
 
 		[SerializeField] private CharacterTalkView _leftHead;
@@ -57,7 +77,7 @@ namespace TalkingHeads
 		private float _postQTEFadeDuraion;
 
 		private ChatItem _currentChatItem;
-		private ChatItem.DialogueItem _currentDialogueItem;
+		private ChatItem.DialogueLineItem _currentDialogueItem;
 		private QTEHolder _currentQTE;
 		private Coroutine _nextDialogueMarkCoroutine;
 
@@ -75,19 +95,9 @@ namespace TalkingHeads
 
 			yield return new WaitForSeconds(_startDialogueDelay);
 			
-			for (var i = 0; i < _chatItems.Length; i++)
+			for (var i = 0; i < _chatData.ChatItems.Count; i++)
 			{
-				_currentChatItem = _chatItems[i];
-
-				if (_currentChatItem.LeftSpeaker != null)
-				{
-					_leftHead.SetSpriteContainer(_currentChatItem.LeftSpeaker);
-				}
-				
-				if (_currentChatItem.RightSpeaker != null)
-				{
-					_rightHead.SetSpriteContainer(_currentChatItem.RightSpeaker);
-				}
+				_currentChatItem = _chatData.ChatItems[i];
 				
 				ShowDialogueItem(_currentChatItem.Main);
 
@@ -114,8 +124,18 @@ namespace TalkingHeads
 				}
 			}
 
-			void ShowDialogueItem(ChatItem.DialogueItem item)
+			void ShowDialogueItem(ChatItem.DialogueLineItem item)
 			{
+				if (item.LeftSpeaker != null)
+				{
+					_leftHead.SetSpriteContainer(item.LeftSpeaker);
+				}
+				
+				if (item.RightSpeaker != null)
+				{
+					_rightHead.SetSpriteContainer(item.RightSpeaker);
+				}
+				
 				_currentDialogueItem = item;
 				
 				if (_currentDialogueItem.IsOpponentSpeaks == true)
@@ -129,7 +149,7 @@ namespace TalkingHeads
 					_rightHead.SetActiveAndTalking();
 				}
 				
-				_chatText.PlayText(_currentDialogueItem.Text, _currentDialogueItem.TypeSpeed);
+				_chatText.PlayText(_currentDialogueItem.Text, _currentDialogueItem.textSpeed);
 			}
 
 			IEnumerator processQTE(ChatItem currentChatItem)
@@ -138,6 +158,7 @@ namespace TalkingHeads
 				yield return new WaitForSeconds(_preQTEDelay);
 				
 				_currentQTE = Instantiate(currentChatItem.QTEPrefab).GetComponent<QTEHolder>();
+				_currentQTE.SuccessKarmaDeltaValue = currentChatItem.SuccessKarmaValue;
 
 				while (_currentQTE.IsComplete == false)
 				{
@@ -187,9 +208,9 @@ namespace TalkingHeads
 
 			void setInitialSprites()
 			{
-				if (_chatItems[0].LeftSpeaker != null)
+				if (_chatData.ChatItems[0].Main.LeftSpeaker != null)
 				{
-					_leftHead.SetSpriteContainer(_chatItems[0].LeftSpeaker);
+					_leftHead.SetSpriteContainer(_chatData.ChatItems[0].Main.LeftSpeaker);
 					_leftHead.Deactivate();
 				}
 				else
@@ -197,9 +218,9 @@ namespace TalkingHeads
 					_leftHead.SetEmpty();
 				}
 
-				if (_chatItems[0].RightSpeaker != null)
+				if (_chatData.ChatItems[0].Main.RightSpeaker != null)
 				{
-					_rightHead.SetSpriteContainer(_chatItems[0].RightSpeaker);
+					_rightHead.SetSpriteContainer(_chatData.ChatItems[0].Main.RightSpeaker);
 					_rightHead.Deactivate();
 				}
 				else

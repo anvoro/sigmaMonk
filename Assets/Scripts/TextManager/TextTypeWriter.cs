@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 
-public enum TypeSpeed
+public enum TextSpeed
 {
 	Slow = 0,
 	Medium = 1,
@@ -14,12 +14,12 @@ public enum TypeSpeed
 [RequireComponent(typeof(TMP_Text))]
 public class TextTypeWriter : MonoBehaviour
 {
-	private static readonly IReadOnlyDictionary<TypeSpeed, float> delayCache = new Dictionary<TypeSpeed, float>
+	private static readonly IReadOnlyDictionary<TextSpeed, float> delayCache = new Dictionary<TextSpeed, float>
 	{
-		{ TypeSpeed.Slow, .1f },
-		{ TypeSpeed.Medium, .05f },
-		{ TypeSpeed.Fast, .025f },
-		{ TypeSpeed.FF, .005f },
+		{ TextSpeed.Slow, .1f },
+		{ TextSpeed.Medium, .05f },
+		{ TextSpeed.Fast, .025f },
+		{ TextSpeed.FF, .005f },
 	};
 	
 	private TMP_Text _text;
@@ -36,12 +36,12 @@ public class TextTypeWriter : MonoBehaviour
 		_text.text = string.Empty;
 	}
 
-	public void PlayText(string text, TypeSpeed typeSpeed)
+	public void PlayText(string text, TextSpeed textSpeed)
 	{
-		StartCoroutine(ProcessText(text, typeSpeed));
+		StartCoroutine(ProcessText(text, textSpeed));
 	}
 
-	private IEnumerator ProcessText(string text, TypeSpeed typeSpeed)
+	private IEnumerator ProcessText(string text, TextSpeed textSpeed)
 	{
 		PlayComplete = false;
 
@@ -60,7 +60,7 @@ public class TextTypeWriter : MonoBehaviour
 
 			_text.text += text[i];
 			
-			yield return new WaitForSeconds(delayCache[typeSpeed]);
+			yield return new WaitForSeconds(delayCache[textSpeed]);
 		}
 		
 		PlayComplete = true;

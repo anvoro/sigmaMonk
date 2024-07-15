@@ -16,6 +16,8 @@ namespace QTE
 		private RingQTEModel _currentQte;
 		
 		public bool IsComplete { get; private set; }
+		
+		public int SuccessKarmaDeltaValue { get; set; }
 
 		public bool IsSuccessful()
 		{
@@ -67,7 +69,7 @@ namespace QTE
 			if (completeCounter == _qtes.Length)
 			{
 				IsComplete = true;
-				GameManager.I.ChangeKarma(IsSuccessful() == true ? 1 : -1);
+				GameManager.I.ChangeKarma(IsSuccessful() == true ? SuccessKarmaDeltaValue : -SuccessKarmaDeltaValue);
 			}
 		}
 
