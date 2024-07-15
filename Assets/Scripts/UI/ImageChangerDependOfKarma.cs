@@ -25,17 +25,24 @@ namespace UI
 
 		private void Start()
 		{
-			GameManager.OnKarmaChange += (k, d) =>
+			GameManager.OnKarmaChange += OnKarmaChange;
+		}
+
+		private void OnDestroy()
+		{
+			GameManager.OnKarmaChange -= OnKarmaChange;
+		}
+
+		private void OnKarmaChange(int value, int delta)
+		{
+			foreach (var item in _items)
 			{
-				foreach (var item in _items)
+				if (item.KarmaToShow == value)
 				{
-					if (item.KarmaToShow == k)
-					{
-						_image.sprite = item.Sprite;
-						break;
-					}
+					_image.sprite = item.Sprite;
+					break;
 				}
-			};
+			}
 		}
 	}
 }

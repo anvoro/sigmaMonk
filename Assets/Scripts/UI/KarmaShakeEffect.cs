@@ -11,15 +11,22 @@ namespace UI
 		
 		private void Start()
 		{
-			GameManager.OnKarmaChange += (k, d) =>
+			GameManager.OnKarmaChange += OnKarmaChange;
+		}
+		
+		private void OnDestroy()
+		{
+			GameManager.OnKarmaChange -= OnKarmaChange;
+		}
+
+		private void OnKarmaChange(int value, int delta)
+		{
+			if (delta < 0)
 			{
-				if (d < 0)
-				{
-					Tween.ShakeCamera(Camera.main, 2f);
-					Tween.ShakeLocalPosition(transform, PositionShake, Duration);
-					Tween.ShakeLocalRotation(transform, RotationShake, Duration);
-				}
-			};
+				Tween.ShakeCamera(Camera.main, 2f);
+				Tween.ShakeLocalPosition(transform, PositionShake, Duration);
+				Tween.ShakeLocalRotation(transform, RotationShake, Duration);
+			}
 		}
 	}
 }

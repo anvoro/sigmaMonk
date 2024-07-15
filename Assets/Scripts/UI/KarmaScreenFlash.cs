@@ -17,13 +17,20 @@ namespace UI
 
 		private void Start()
 		{
-			GameManager.OnKarmaChange += (k, d) =>
+			GameManager.OnKarmaChange += OnKarmaChange;
+		}
+		
+		private void OnDestroy()
+		{
+			GameManager.OnKarmaChange -= OnKarmaChange;
+		}
+
+		private void OnKarmaChange(int value, int delta)
+		{
+			if (delta > 0)
 			{
-				if (d > 0)
-				{
-					StartCoroutine(ProcessFlash());
-				}
-			};
+				StartCoroutine(ProcessFlash());
+			}
 		}
 
 		private IEnumerator ProcessFlash()

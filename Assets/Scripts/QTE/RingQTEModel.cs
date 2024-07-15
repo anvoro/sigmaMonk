@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using UnityEngine;
 
 namespace QTE
@@ -28,9 +29,19 @@ namespace QTE
 		private void Awake()
 		{
 			_ringView = GetComponent<RingQTEView>();
-			_ringView.OnQTEAnimationBegin += () => StartCoroutine(ProcessQTEInput());
+			_ringView.OnQTEAnimationBegin += QTEInput;
 		}
 
+		private void OnDestroy()
+		{
+			_ringView.OnQTEAnimationBegin -= QTEInput;
+		}
+
+		private void QTEInput()
+		{
+			StartCoroutine(ProcessQTEInput());
+		}
+		
 		public void ShowQTE()
 		{
 			IsProcessing = false;
