@@ -426,9 +426,9 @@ MonoBehaviour:
   _losePunch: {x: 0.25, y: 0.25, z: 0}
   _flashTime: 0.05
   _resultTime: 0.1
-  _winFlashColor: {r: 0, g: 0.88235295, b: 0, a: 1}
-  _winColor: {r: 0, g: 0.7254902, b: 0, a: 1}
-  _loseFlashColor: {r: 0.88235295, g: 0, b: 0, a: 1}
-  _loseColor: {r: 0.7254902, g: 0, b: 0, a: 1}
+  _winFlashColor: {r: 0.17663331, g: 0.3962264, b: 0.14578135, a: 1}
+  _winColor: {r: 0.18039216, g: 0.4, b: 0.14901961, a: 1}
+  _loseFlashColor: {r: 0.5245282, g: 0.1687232, b: 0.12173009, a: 1}
+  _loseColor: {r: 0.5254902, g: 0.17254902, b: 0.1254902, a: 1}
   _endingDelay: 0.15
   _endingScale: 0.15
