@@ -72,6 +72,8 @@ namespace yutokun
 			EditorUtility.SetDirty(this.ChatItemsData);
 #endif
 			
+			Debug.Log("Text Import: COMPLETE");
+			
 			void processBranchType(List<string> row, int rowIndex, ChatItem.DialogueLineItem currentDialogueLine)
 			{
 				switch (row[BRANCH_TYPE])
@@ -146,15 +148,17 @@ namespace yutokun
 			
 			void processText(List<string> row, ChatItem.DialogueLineItem currentDialogueLine)
 			{
+				string lineHeight = "<line-height=100%>";
+				
 				switch (row[TEXT])
 				{
 					case null:
 					case "":
-						currentDialogueLine.Text = "...";
+						currentDialogueLine.Text = lineHeight + "...";
 						break;
 
 					default:
-						currentDialogueLine.Text = row[TEXT];
+						currentDialogueLine.Text = lineHeight + row[TEXT];
 						break;
 				}
 			}
