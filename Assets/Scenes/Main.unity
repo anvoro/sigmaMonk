@@ -132,8 +132,9 @@ GameObject:
   m_Component:
   - component: {fileID: 277403821}
   - component: {fileID: 277403822}
+  - component: {fileID: 277403823}
   m_Layer: 0
-  m_Name: Background
+  m_Name: bg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -194,7 +195,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1083778313
   m_SortingLayer: 1
-  m_SortingOrder: 0
+  m_SortingOrder: 100
   m_Sprite: {fileID: 21300000, guid: cd196ac3bd0d413458e339059680b2ad, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -206,6 +207,33 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &277403823
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 277403820}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 75cc4d13f9824ee7aae679a1a51a9b60, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _items:
+  - Sprite: {fileID: 21300000, guid: fe4a5ff64bbd8ba48a53fa421d0b1a4a, type: 3}
+    KarmaToShow: 3
+  - Sprite: {fileID: 21300000, guid: 21dfd6336c14cb14ebf00f4ad9162e69, type: 3}
+    KarmaToShow: 2
+  - Sprite: {fileID: 21300000, guid: 3a5ad73411e5eb94fb1daf318ef546c5, type: 3}
+    KarmaToShow: 1
+  - Sprite: {fileID: 21300000, guid: cd196ac3bd0d413458e339059680b2ad, type: 3}
+    KarmaToShow: 0
+  - Sprite: {fileID: 21300000, guid: 0a970058ffcd6584489d32c9d1649a75, type: 3}
+    KarmaToShow: -1
+  - Sprite: {fileID: 21300000, guid: 0576dfbf9ef111a4b86bd1ff5c8ef1a1, type: 3}
+    KarmaToShow: -2
+  - Sprite: {fileID: 21300000, guid: 98c7f705faf62b74f9a4c27269efcc8b, type: 3}
+    KarmaToShow: -3
 --- !u!1 &367038754
 GameObject:
   m_ObjectHideFlags: 0
@@ -1810,7 +1838,7 @@ SpriteRenderer:
   m_Size: {x: 10.24, y: 10.24}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &1908028748
@@ -1844,8 +1872,8 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1817931630}
-  - {fileID: 277403821}
   - {fileID: 1018742633}
+  - {fileID: 277403821}
   - {fileID: 551678159}
   - {fileID: 1710222647}
   m_Father: {fileID: 0}
