@@ -11,6 +11,9 @@ namespace UI
 
 		[SerializeField]
 		private float _cycleDuration = .8f;
+
+		[SerializeField]
+		private float _newCycleDelay = .4f;
 		
 		private void Awake()
 		{
@@ -26,7 +29,7 @@ namespace UI
 		{
 			while (true)
 			{
-				yield return new WaitForSeconds(.6f);
+				yield return new WaitForSeconds(_newCycleDelay);
 				
 				float currentTime = 0f;
 				while (currentTime < _cycleDuration)
@@ -39,7 +42,7 @@ namespace UI
 					yield return GameManager.WaitEndOfFrame;
 				}
 
-				yield return new WaitForSeconds(.2f);
+				yield return new WaitForSeconds(_newCycleDelay / 2.5f);
 			
 				currentTime = 0f;
 				while (currentTime < _cycleDuration)

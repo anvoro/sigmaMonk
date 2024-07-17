@@ -16,7 +16,6 @@ namespace TalkingHeads
 
 		[SerializeField] private TextTypeWriter _chatText;
 		[SerializeField] private GameObject _nextDialogueMark;
-		[SerializeField] private float _markFlickerDelay;
 
 		[SerializeField] private CanvasGroup _chatCanvas;
 		
@@ -30,6 +29,8 @@ namespace TalkingHeads
 		[SerializeField]
 		private SpriteRenderer _qteFade;
 		[SerializeField]
+		private GameObject _qteAttentionMark;
+		[SerializeField]
 		private float _preQTEDelay;
 		[SerializeField]
 		private float _preQTEFadeDuraion;
@@ -41,7 +42,6 @@ namespace TalkingHeads
 		private ChatItem _currentChatItem;
 		private ChatItem.DialogueLineItem _currentDialogueItem;
 		private QTEHolder _currentQTE;
-		private Coroutine _nextDialogueMarkCoroutine;
 
 		public void StartChat()
 		{
@@ -66,24 +66,17 @@ namespace TalkingHeads
 				}
 			}
 
-			IEnumerator processNextDialogueMark()
-			{
-				yield return new WaitForSeconds(.5f);
-				
-				while (true)
-				{
-					_nextDialogueMark.SetActive(!_nextDialogueMark.activeSelf);
-
-					yield return new WaitForSeconds(_markFlickerDelay);
-				}
-			}
-
 			IEnumerator ShowDialogueItemRecursively(ChatItem.DialogueLineItem item)
 			{
 				var currentLineItem = item;
 				
 				while (currentLineItem != null)
 				{
+					if (currentLineItem.NextDialogueLineItem == null)
+					{
+						_qteAttentionMark.SetActive(true);
+					}
+					
 					if (currentLineItem.LeftSpeaker != null)
 					{
 						_leftHead.SetSpriteContainer(currentLineItem.LeftSpeaker);
@@ -109,7 +102,7 @@ namespace TalkingHeads
 				
 					_chatText.PlayText(_currentDialogueItem.Text, _currentDialogueItem.textSpeed);
 				
-					yield return processAwaitDialogue();
+					yield return processAwaitDialogue(currentLineItem.NextDialogueLineItem != null);
 
 					currentLineItem = currentLineItem.NextDialogueLineItem;
 				}
@@ -117,7 +110,7 @@ namespace TalkingHeads
 
 			IEnumerator processQTE(ChatItem currentChatItem)
 			{
-				yield return FadeHepler.FadeIn(_preQTEFadeDuraion, _qteFade, 0f, .7f);
+				yield return FadeHepler.FadeIn(_preQTEFadeDuraion, _qteFade);
 				yield return new WaitForSeconds(_preQTEDelay);
 				
 				_currentQTE = Instantiate(currentChatItem.QTEPrefab).GetComponent<QTEHolder>();
@@ -128,7 +121,9 @@ namespace TalkingHeads
 					yield return GameManager.WaitEndOfFrame;
 				}
 				
-				yield return FadeHepler.FadeOut(_postQTEFadeDuraion, _qteFade, .7f, 0f);
+				_qteAttentionMark.SetActive(false);
+				
+				yield return FadeHepler.FadeOut(_postQTEFadeDuraion, _qteFade);
 				yield return new WaitForSeconds(_postQTEDelay);
 
 				yield return ShowDialogueItemRecursively(_currentQTE.IsSuccessful() == true 
@@ -136,7 +131,7 @@ namespace TalkingHeads
 					: currentChatItem.Fail);
 			}
 
-			IEnumerator processAwaitDialogue()
+			IEnumerator processAwaitDialogue(bool showNextDialogueMark)
 			{
 				yield return new WaitForSeconds(_minDialogueDuration);
 				
@@ -153,15 +148,17 @@ namespace TalkingHeads
 				{
 					_rightHead.StopTalking();
 				}
-				
-				_nextDialogueMarkCoroutine = StartCoroutine(processNextDialogueMark());
+
+				if (showNextDialogueMark)
+				{
+					_nextDialogueMark.SetActive(true);
+				}
 				
 				while (GameManager.I.HasInput == false)
 				{
 					yield return GameManager.WaitEndOfFrame;
 				}
-					
-				StopCoroutine(_nextDialogueMarkCoroutine);
+				
 				_nextDialogueMark.SetActive(false);
 					
 				yield return new WaitForSeconds(.1f);
@@ -169,6 +166,12 @@ namespace TalkingHeads
 
 			void setInitialState()
 			{
+				_qteAttentionMark.SetActive(false);
+				
+				var fadeColor = _qteFade.color;
+				fadeColor.a = 0;
+				_qteFade.color = fadeColor;
+				
 				_chatCanvas.alpha = 0f;
 				_nextDialogueMark.SetActive(false);
 				_chatText.ClearText();

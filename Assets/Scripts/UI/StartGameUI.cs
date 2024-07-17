@@ -9,7 +9,7 @@ namespace UI
 		private CanvasGroup _canvasGroup;
 
 		[SerializeField]
-		private GameObject _text;
+		private GameObject[] _objectsToHideOnFade;
 		[SerializeField]
 		private float _fadeDuration = 3f;
 
@@ -29,8 +29,11 @@ namespace UI
 			{
 				yield return null;
 			}
-			
-			_text.gameObject.SetActive(false);
+
+			foreach (var go in _objectsToHideOnFade)
+			{
+				go.SetActive(false);
+			}
 			
 			GameManager.I.StartNewGame();
 

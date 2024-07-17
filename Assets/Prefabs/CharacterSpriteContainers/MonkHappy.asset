@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 449d19f6f5fd4e9cb42cc4c9acbdb716, type: 3}
   m_Name: MonkHappy
   m_EditorClassIdentifier: 
-  _silinceSprite: {fileID: 21300000, guid: 71303ab3d2962e14389fe309ff5d11e3, type: 3}
+  _silinceSprite: {fileID: 21300000, guid: 00751a53c2fa2684993a32ad7d5c321c, type: 3}
   _talkSprites:
-  - {fileID: 21300000, guid: 71303ab3d2962e14389fe309ff5d11e3, type: 3}
-  - {fileID: 21300000, guid: 6ddc82af7db1f2046b2c73ea2db9c4b8, type: 3}
-  - {fileID: 21300000, guid: 71303ab3d2962e14389fe309ff5d11e3, type: 3}
-  - {fileID: 21300000, guid: 255d4809056968446a670aab35d14921, type: 3}
+  - {fileID: 21300000, guid: 00751a53c2fa2684993a32ad7d5c321c, type: 3}
+  - {fileID: 21300000, guid: c79a087b0723a1f4bbe60602590c822e, type: 3}
+  - {fileID: 21300000, guid: 00751a53c2fa2684993a32ad7d5c321c, type: 3}
+  - {fileID: 21300000, guid: 7b64a9fff3d935441afa5ee5a32f9867, type: 3}
