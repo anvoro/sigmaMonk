@@ -29,8 +29,6 @@ namespace TalkingHeads
 		[SerializeField]
 		private SpriteRenderer _qteFade;
 		[SerializeField]
-		private GameObject _qteAttentionMark;
-		[SerializeField]
 		private float _preQTEDelay;
 		[SerializeField]
 		private float _preQTEFadeDuraion;
@@ -74,11 +72,6 @@ namespace TalkingHeads
 				
 				while (currentLineItem != null)
 				{
-					if (isMainBranch == true && currentLineItem.NextDialogueLineItem == null)
-					{
-						_qteAttentionMark.SetActive(true);
-					}
-					
 					if (currentLineItem.LeftSpeaker != null)
 					{
 						_leftHead.SetSpriteContainer(currentLineItem.LeftSpeaker);
@@ -104,7 +97,7 @@ namespace TalkingHeads
 				
 					_chatText.PlayText(_currentDialogueItem.Text, _currentDialogueItem.textSpeed);
 				
-					yield return processAwaitDialogue(currentLineItem.NextDialogueLineItem != null);
+					yield return processAwaitDialogue();
 
 					currentLineItem = currentLineItem.NextDialogueLineItem;
 				}
@@ -123,8 +116,6 @@ namespace TalkingHeads
 					yield return GameManager.WaitEndOfFrame;
 				}
 				
-				_qteAttentionMark.SetActive(false);
-				
 				yield return FadeHepler.FadeOut(_postQTEFadeDuraion, _qteFade);
 				yield return new WaitForSeconds(_postQTEDelay);
 
@@ -139,7 +130,7 @@ namespace TalkingHeads
 					,false);
 			}
 
-			IEnumerator processAwaitDialogue(bool showNextDialogueMark)
+			IEnumerator processAwaitDialogue()
 			{
 				bool showTextImmediately = false;
 				while (_chatText.PlayComplete == false)
@@ -173,10 +164,7 @@ namespace TalkingHeads
 					_rightHead.StopTalking();
 				}
 
-				if (showNextDialogueMark)
-				{
-					_nextDialogueMark.SetActive(true);
-				}
+				_nextDialogueMark.SetActive(true);
 				
 				while (GameManager.I.HasInput == false)
 				{
@@ -190,8 +178,6 @@ namespace TalkingHeads
 
 			void setInitialState()
 			{
-				_qteAttentionMark.SetActive(false);
-				
 				var fadeColor = _qteFade.color;
 				fadeColor.a = 0;
 				_qteFade.color = fadeColor;
