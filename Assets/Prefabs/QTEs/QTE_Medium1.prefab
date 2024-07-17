@@ -74,11 +74,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6782159378524390141, guid: abb15b565bce85e44963c644d30caa03, type: 3}
       propertyPath: _staticRingSize
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6782159378524390141, guid: abb15b565bce85e44963c644d30caa03, type: 3}
       propertyPath: _dynamicRingSize
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7713249824615177582, guid: abb15b565bce85e44963c644d30caa03, type: 3}
       propertyPath: m_LocalScale.x
@@ -171,11 +171,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6782159378524390141, guid: abb15b565bce85e44963c644d30caa03, type: 3}
       propertyPath: _staticRingSize
-      value: 0
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6782159378524390141, guid: abb15b565bce85e44963c644d30caa03, type: 3}
       propertyPath: _dynamicRingSize
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7713249824615177582, guid: abb15b565bce85e44963c644d30caa03, type: 3}
       propertyPath: m_LocalScale.x

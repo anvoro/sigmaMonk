@@ -171,7 +171,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6782159378524390141, guid: abb15b565bce85e44963c644d30caa03, type: 3}
       propertyPath: _staticRingSize
-      value: 0
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6782159378524390141, guid: abb15b565bce85e44963c644d30caa03, type: 3}
       propertyPath: _dynamicRingSize

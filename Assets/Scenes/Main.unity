@@ -1038,8 +1038,8 @@ MonoBehaviour:
   _inputDelay: 0.1
   _chatManager: {fileID: 1908028750}
   _menu: {fileID: 519397639}
-  _endGameUI: {fileID: 0}
-  _fade: {fileID: 0}
+  _endGameUI: {fileID: 1558434880}
+  _fade: {fileID: 765065387}
   _finalFadeDuration: 0
 --- !u!4 &798616618
 Transform:
