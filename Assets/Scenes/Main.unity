@@ -1051,7 +1051,7 @@ GameObject:
   - component: {fileID: 944925264}
   - component: {fileID: 944925267}
   m_Layer: 5
-  m_Name: Attention1
+  m_Name: AttentionMark
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2265,7 +2265,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1186823343887450725, guid: 194ed0ce3b83b7942a292ed9b17c666f, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.12
+      value: 1.42
       objectReference: {fileID: 0}
     - target: {fileID: 1186823343887450725, guid: 194ed0ce3b83b7942a292ed9b17c666f, type: 3}
       propertyPath: m_LocalPosition.y
@@ -2308,9 +2308,21 @@ PrefabInstance:
       value: CharacterTalkRight
       objectReference: {fileID: 0}
     - target: {fileID: 8876555627006182486, guid: 194ed0ce3b83b7942a292ed9b17c666f, type: 3}
+      propertyPath: m_Size.x
+      value: 5.12
+      objectReference: {fileID: 0}
+    - target: {fileID: 8876555627006182486, guid: 194ed0ce3b83b7942a292ed9b17c666f, type: 3}
+      propertyPath: m_Size.y
+      value: 15.68
+      objectReference: {fileID: 0}
+    - target: {fileID: 8876555627006182486, guid: 194ed0ce3b83b7942a292ed9b17c666f, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: b38e63bf640db7b49951b7b193258a64, type: 3}
+      objectReference: {fileID: 21300000, guid: 27908105b4d252541a002a0515eb7699, type: 3}
+    - target: {fileID: 8876555627006182486, guid: 194ed0ce3b83b7942a292ed9b17c666f, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2663,7 +2675,7 @@ MonoBehaviour:
   _nextDialogueMark: {fileID: 1910365420}
   _chatCanvas: {fileID: 1492425652}
   _startDialogueDelay: 2.4
-  _minDialogueDuration: 0.3
+  _afterSkipDelay: 0.4
   _qteFade: {fileID: 1817931631}
   _qteAttentionMark: {fileID: 944925262}
   _preQTEDelay: 0.5
@@ -3070,7 +3082,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1186823343887450725, guid: 194ed0ce3b83b7942a292ed9b17c666f, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -3.31
+      value: -1.77
       objectReference: {fileID: 0}
     - target: {fileID: 1186823343887450725, guid: 194ed0ce3b83b7942a292ed9b17c666f, type: 3}
       propertyPath: m_LocalPosition.y

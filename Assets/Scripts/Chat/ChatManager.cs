@@ -23,7 +23,7 @@ namespace TalkingHeads
 		[SerializeField]
 		private float _startDialogueDelay = 1f;
 		[SerializeField]
-		private float _minDialogueDuration;
+		private float _afterSkipDelay = .4f;
 
 		[Header("QTE Settings")] 
 		[SerializeField]
@@ -58,7 +58,7 @@ namespace TalkingHeads
 			{
 				_currentChatItem = _chatData.ChatItems[i];
 				
-				yield return ShowDialogueItemRecursively(_currentChatItem.Main);
+				yield return ShowDialogueItemRecursively(_currentChatItem.Main, true);
 
 				if (_currentChatItem.QTEPrefab != null)
 				{
@@ -66,13 +66,13 @@ namespace TalkingHeads
 				}
 			}
 
-			IEnumerator ShowDialogueItemRecursively(ChatItem.DialogueLineItem item)
+			IEnumerator ShowDialogueItemRecursively(ChatItem.DialogueLineItem item, bool isMainBranch)
 			{
 				var currentLineItem = item;
 				
 				while (currentLineItem != null)
 				{
-					if (currentLineItem.NextDialogueLineItem == null)
+					if (isMainBranch == true && currentLineItem.NextDialogueLineItem == null)
 					{
 						_qteAttentionMark.SetActive(true);
 					}
@@ -128,12 +128,29 @@ namespace TalkingHeads
 
 				yield return ShowDialogueItemRecursively(_currentQTE.IsSuccessful() == true 
 					? currentChatItem.Success 
-					: currentChatItem.Fail);
+					: currentChatItem.Fail
+					,false);
 			}
 
 			IEnumerator processAwaitDialogue(bool showNextDialogueMark)
 			{
-				yield return new WaitForSeconds(_minDialogueDuration);
+				bool showTextImmediately = false;
+				while (_chatText.PlayComplete == false)
+				{
+					if (GameManager.I.HasInput == true)
+					{
+						_chatText.SetMaxSpeed();
+						showTextImmediately = true;
+						break;
+					}
+					
+					yield return GameManager.WaitEndOfFrame;
+				}
+
+				if (showTextImmediately == true)
+				{
+					yield return new WaitForSeconds(_afterSkipDelay);
+				}
 				
 				while (_chatText.PlayComplete == false)
 				{

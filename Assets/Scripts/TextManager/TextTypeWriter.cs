@@ -15,12 +15,12 @@ public enum TextSpeed
 [RequireComponent(typeof(TMP_Text))]
 public class TextTypeWriter : MonoBehaviour
 {
-	private static readonly IReadOnlyDictionary<TextSpeed, float> delayCache = new Dictionary<TextSpeed, float>
+	private static readonly IReadOnlyDictionary<TextSpeed, WaitForSeconds> delayCache = new Dictionary<TextSpeed, WaitForSeconds>
 	{
-		{ TextSpeed.Slow, .1f },
-		{ TextSpeed.Medium, .05f },
-		{ TextSpeed.Fast, .025f },
-		{ TextSpeed.FF, .005f },
+		{ TextSpeed.Slow, new WaitForSeconds(.05f) },
+		{ TextSpeed.Medium, new WaitForSeconds(.025f) },
+		{ TextSpeed.Fast, new WaitForSeconds(.0125f) },
+		{ TextSpeed.FF, new WaitForSeconds(.001f) },
 	};
 	
 	private TMP_Text _text;
@@ -41,13 +41,21 @@ public class TextTypeWriter : MonoBehaviour
 		_text.text = string.Empty;
 	}
 
+	public void SetMaxSpeed()
+	{
+		_currentTextSpeed = TextSpeed.FF;
+	}
+
 	public void PlayText(string text, TextSpeed textSpeed)
 	{
 		StartCoroutine(ProcessText(text, textSpeed));
 	}
 
+	private TextSpeed _currentTextSpeed;
 	private IEnumerator ProcessText(string text, TextSpeed textSpeed)
 	{
+		_currentTextSpeed = textSpeed;
+		
 		PlayComplete = false;
 
 		ClearText();
@@ -65,7 +73,7 @@ public class TextTypeWriter : MonoBehaviour
 
 			_text.text += text[i];
 			
-			yield return new WaitForSeconds(delayCache[textSpeed]);
+			yield return delayCache[_currentTextSpeed];
 		}
 		
 		OnPlayComplete?.Invoke();
