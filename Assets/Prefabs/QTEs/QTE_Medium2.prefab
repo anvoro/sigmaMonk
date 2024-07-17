@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 470636239483680872}
   - component: {fileID: 3363405584613271320}
   m_Layer: 0
-  m_Name: QTE_Medium
+  m_Name: QTE_Medium2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -51,7 +51,7 @@ MonoBehaviour:
   - {fileID: 1500503730377285461}
   _apperanceDelay:
   - 0
-  - 1
+  - 1.2
 --- !u!1001 &1907612897477209952
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -62,15 +62,23 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1057202298374877237, guid: abb15b565bce85e44963c644d30caa03, type: 3}
       propertyPath: _qteTime
-      value: 1.6
+      value: 1.4
       objectReference: {fileID: 0}
     - target: {fileID: 1057202298374877237, guid: abb15b565bce85e44963c644d30caa03, type: 3}
       propertyPath: _qteSuccessOffsetBefore
-      value: 0.7
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 4441321900812218683, guid: abb15b565bce85e44963c644d30caa03, type: 3}
       propertyPath: m_Name
       value: RingQTE (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6782159378524390141, guid: abb15b565bce85e44963c644d30caa03, type: 3}
+      propertyPath: _staticRingSize
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6782159378524390141, guid: abb15b565bce85e44963c644d30caa03, type: 3}
+      propertyPath: _dynamicRingSize
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7713249824615177582, guid: abb15b565bce85e44963c644d30caa03, type: 3}
       propertyPath: m_LocalScale.x
@@ -82,11 +90,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7713249824615177582, guid: abb15b565bce85e44963c644d30caa03, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -3.61
+      value: -1.4
       objectReference: {fileID: 0}
     - target: {fileID: 7713249824615177582, guid: abb15b565bce85e44963c644d30caa03, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.12
+      value: 1.02
       objectReference: {fileID: 0}
     - target: {fileID: 7713249824615177582, guid: abb15b565bce85e44963c644d30caa03, type: 3}
       propertyPath: m_LocalPosition.z
@@ -151,31 +159,39 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1057202298374877237, guid: abb15b565bce85e44963c644d30caa03, type: 3}
       propertyPath: _qteTime
-      value: 1.6
+      value: 1.4
       objectReference: {fileID: 0}
     - target: {fileID: 1057202298374877237, guid: abb15b565bce85e44963c644d30caa03, type: 3}
       propertyPath: _qteSuccessOffsetBefore
-      value: 0.7
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 4441321900812218683, guid: abb15b565bce85e44963c644d30caa03, type: 3}
       propertyPath: m_Name
       value: RingQTE
       objectReference: {fileID: 0}
+    - target: {fileID: 6782159378524390141, guid: abb15b565bce85e44963c644d30caa03, type: 3}
+      propertyPath: _staticRingSize
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6782159378524390141, guid: abb15b565bce85e44963c644d30caa03, type: 3}
+      propertyPath: _dynamicRingSize
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7713249824615177582, guid: abb15b565bce85e44963c644d30caa03, type: 3}
       propertyPath: m_LocalScale.x
-      value: 4
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 7713249824615177582, guid: abb15b565bce85e44963c644d30caa03, type: 3}
       propertyPath: m_LocalScale.y
-      value: 4
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 7713249824615177582, guid: abb15b565bce85e44963c644d30caa03, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 4.87
+      value: 1.25
       objectReference: {fileID: 0}
     - target: {fileID: 7713249824615177582, guid: abb15b565bce85e44963c644d30caa03, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.6
+      value: 1.82
       objectReference: {fileID: 0}
     - target: {fileID: 7713249824615177582, guid: abb15b565bce85e44963c644d30caa03, type: 3}
       propertyPath: m_LocalPosition.z

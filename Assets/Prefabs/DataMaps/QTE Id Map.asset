@@ -13,9 +13,15 @@ MonoBehaviour:
   m_Name: QTE Id Map
   m_EditorClassIdentifier: 
   _items:
-  - Id: easy
+  - Id: tutor
     QTEPrefab: {fileID: 483872715056854214, guid: 52b2de6e5da378c46809975cda6924ef, type: 3}
-  - Id: medium
+  - Id: easy
+    QTEPrefab: {fileID: 483872715056854214, guid: 9f500da9c1c410146b60e3e12b511aa2, type: 3}
+  - Id: medium1
     QTEPrefab: {fileID: 483872715056854214, guid: 65b068c78c1f7d146adc8d933d21cc53, type: 3}
+  - Id: medium2
+    QTEPrefab: {fileID: 483872715056854214, guid: d1abb6d73a89f6244b1be95fee476efb, type: 3}
   - Id: hard
     QTEPrefab: {fileID: 483872715056854214, guid: 2242485fb7b1e5a4792bdc942e534e76, type: 3}
+  - Id: impossible
+    QTEPrefab: {fileID: 483872715056854214, guid: b9b125ba3faa392488f4f526b00590a7, type: 3}
