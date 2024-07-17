@@ -65,6 +65,8 @@ namespace TalkingHeads
 					yield return processQTE(_currentChatItem);
 				}
 			}
+			
+			yield return GameManager.I.EndGame();
 
 			IEnumerator ShowDialogueItemRecursively(ChatItem.DialogueLineItem item, bool isMainBranch)
 			{
@@ -126,8 +128,13 @@ namespace TalkingHeads
 				yield return FadeHepler.FadeOut(_postQTEFadeDuraion, _qteFade);
 				yield return new WaitForSeconds(_postQTEDelay);
 
+				if (currentChatItem.Success == null && currentChatItem.Fail == null)
+				{
+					yield break;
+				}
+				
 				yield return ShowDialogueItemRecursively(_currentQTE.IsSuccessful() == true 
-					? currentChatItem.Success 
+					? currentChatItem.Success
 					: currentChatItem.Fail
 					,false);
 			}

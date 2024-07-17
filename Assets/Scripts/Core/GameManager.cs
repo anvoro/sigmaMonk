@@ -1,6 +1,8 @@
 using System;
+using System.Collections;
 using Core;
 using TalkingHeads;
+using UI;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -13,6 +15,9 @@ public class GameManager : SingletonBase<GameManager>
 	[SerializeField] private float _inputDelay = 0.05f;
 	[SerializeField] private ChatManager _chatManager;
 	[SerializeField] private GameObject _menu;
+	[SerializeField] private EndGameUI _endGameUI;
+	[SerializeField] private CanvasGroup _fade;
+	[SerializeField] private float _finalFadeDuration;
 	
 	private float _timeSinceLastInput;
 	private int _karma = 0;
@@ -21,11 +26,22 @@ public class GameManager : SingletonBase<GameManager>
 
 	public bool HasInput { get; private set; }
 
+	public int KarmaValue => _karma;
+
 	private void Start()
 	{
 		_menu.SetActive(false);
 	}
 
+	public IEnumerator EndGame()
+	{
+		yield return FadeHepler.FadeIn(_finalFadeDuration, _fade);
+		
+		_endGameUI.ShowEnding();
+		
+		yield return FadeHepler.FadeOut(_finalFadeDuration, _fade);
+	}
+	
 	public void ChangeKarma(int value)
 	{
 		_karma += value;
