@@ -1,7 +1,6 @@
 ﻿using System.Collections.Generic;
-using TalkingHeads;
+using Chat;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 namespace TextManager
 {

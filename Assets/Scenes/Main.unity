@@ -382,7 +382,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\u041D\u0430\u0436\u043C\u0438\u0442\u0435 <color=#d23c3c><link=\"shake\">\u043F\u0440\u043E\u0431\u0435\u043B</link></color>,
+  m_text: "\u041D\u0430\u0436\u043C\u0438\u0442\u0435 <color=#d23c3c>\u043F\u0440\u043E\u0431\u0435\u043B</color>,
     \u0447\u0442\u043E\u0431\u044B \u043D\u0430\u0447\u0430\u0442\u044C \u043D\u043E\u0432\u044B\u0439
     \u0434\u0435\u043D\u044C"
   m_isRightToLeft: 0
@@ -473,7 +473,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c11799fa2e823244b293fd54c1a931c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Magnitude: 2
+  _textWriter: {fileID: 0}
+  AngleMultiplier: 1.2
+  CurveScale: 4
 --- !u!1 &517222667
 GameObject:
   m_ObjectHideFlags: 0
@@ -1131,7 +1133,7 @@ CanvasGroup:
   m_Alpha: 1
   m_Interactable: 1
   m_BlocksRaycasts: 1
-  m_IgnoreParentGroups: 0
+  m_IgnoreParentGroups: 1
 --- !u!1 &1492425646
 GameObject:
   m_ObjectHideFlags: 0
@@ -1145,6 +1147,7 @@ GameObject:
   - component: {fileID: 1492425648}
   - component: {fileID: 1492425650}
   - component: {fileID: 1492425651}
+  - component: {fileID: 1492425652}
   m_Layer: 5
   m_Name: ChatBG
   m_TagString: Untagged
@@ -1245,6 +1248,18 @@ MonoBehaviour:
   Duration: 1
   PositionShake: {x: 10, y: 10, z: 1}
   RotationShake: {x: 10, y: 10, z: 1}
+--- !u!225 &1492425652
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1492425646}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 0
+  m_BlocksRaycasts: 0
+  m_IgnoreParentGroups: 0
 --- !u!1 &1573989990
 GameObject:
   m_ObjectHideFlags: 0
@@ -1406,7 +1421,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c11799fa2e823244b293fd54c1a931c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Magnitude: 1
+  _textWriter: {fileID: 1573989994}
+  AngleMultiplier: 1.2
+  CurveScale: 4
 --- !u!1 &1669275553
 GameObject:
   m_ObjectHideFlags: 0
@@ -1416,8 +1433,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1669275555}
-  - component: {fileID: 1669275556}
   - component: {fileID: 1669275557}
+  - component: {fileID: 1669275558}
   m_Layer: 0
   m_Name: ChatData
   m_TagString: Untagged
@@ -1434,13 +1451,29 @@ Transform:
   m_GameObject: {fileID: 1669275553}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 287.3688, y: 230.17128, z: -37.57352}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1669275556
+--- !u!114 &1669275557
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1669275553}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 075804f9451b4f038b7c618d849f63b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _qteMap: {fileID: 11400000, guid: a0ca52019fa390341a5406ba9172196f, type: 2}
+  _spritesMap: {fileID: 11400000, guid: 89407e7f03169394ab93936b28bb3ec7, type: 2}
+  ChatItemsData: {fileID: 1669275558}
+  FilePath: "C:\\Users\\user\\Downloads\\Malenkiy plot - \u041B\u0438\u0441\u04421.csv"
+--- !u!114 &1669275558
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1460,7 +1493,7 @@ MonoBehaviour:
       LeftSpeaker: {fileID: 11400000, guid: dc7d811d39358154e8226b9083cab7ac, type: 2}
       RightSpeaker: {fileID: 11400000, guid: 45284cb5e18ab804c93a7a5fb554cc25, type: 2}
       NextDialogueLineItem:
-        rid: 8992705867310432318
+        rid: 8992705885996580864
     QTEPrefab: {fileID: 483872715056854214, guid: 52b2de6e5da378c46809975cda6924ef, type: 3}
     SuccessKarmaValue: 1
     Success:
@@ -1471,7 +1504,7 @@ MonoBehaviour:
       LeftSpeaker: {fileID: 11400000, guid: 02f4ab6838f975c4599d77fcba3fff7a, type: 2}
       RightSpeaker: {fileID: 0}
       NextDialogueLineItem:
-        rid: 8992705867310432319
+        rid: 8992705885996580865
     Fail:
       Text: "<line-height=100%><b><link=\"wobble\">\u041D\u0435 \u0433\u0440\u0443\u0441\u0442\u0438</link></b>"
       IsOpponentSpeaks: 0
@@ -1479,7 +1512,7 @@ MonoBehaviour:
       LeftSpeaker: {fileID: 0}
       RightSpeaker: {fileID: 0}
       NextDialogueLineItem:
-        rid: 8992705867310432320
+        rid: 8992705885996580866
   - Main:
       Text: "<line-height=100%>\u042F... \u043F\u044B\u0442\u0430\u044E\u0441\u044C."
       IsOpponentSpeaks: 1
@@ -1487,7 +1520,7 @@ MonoBehaviour:
       LeftSpeaker: {fileID: 0}
       RightSpeaker: {fileID: 0}
       NextDialogueLineItem:
-        rid: 8992705867310432321
+        rid: 8992705885996580867
     QTEPrefab: {fileID: 483872715056854214, guid: 65b068c78c1f7d146adc8d933d21cc53, type: 3}
     SuccessKarmaValue: 0
     Success:
@@ -1499,7 +1532,7 @@ MonoBehaviour:
       LeftSpeaker: {fileID: 11400000, guid: a644874f2e355324dbfe54d90c478230, type: 2}
       RightSpeaker: {fileID: 0}
       NextDialogueLineItem:
-        rid: 8992705867310432322
+        rid: 8992705885996580868
     Fail:
       Text: "<line-height=100%>\u0425\u043C, \u0442\u044B \u043F\u0440\u0430\u0432.
         \u0412\u043E\u0437\u043C\u043E\u0436\u043D\u043E, \u0442\u044B \u043F\u0440\u043E\u0441\u0442\u043E
@@ -1512,7 +1545,7 @@ MonoBehaviour:
       LeftSpeaker: {fileID: 0}
       RightSpeaker: {fileID: 0}
       NextDialogueLineItem:
-        rid: 8992705867310432323
+        rid: 8992705885996580869
   - Main:
       Text: "<line-height=100%>\u0418 \u043A\u0430\u043A\u043E\u0439 \u0441\u043C\u044B\u0441\u043B?"
       IsOpponentSpeaks: 1
@@ -1520,7 +1553,7 @@ MonoBehaviour:
       LeftSpeaker: {fileID: 0}
       RightSpeaker: {fileID: 0}
       NextDialogueLineItem:
-        rid: 8992705867310432324
+        rid: 8992705885996580870
     QTEPrefab: {fileID: 483872715056854214, guid: 2242485fb7b1e5a4792bdc942e534e76, type: 3}
     SuccessKarmaValue: 1
     Success:
@@ -1538,7 +1571,7 @@ MonoBehaviour:
       LeftSpeaker: {fileID: 0}
       RightSpeaker: {fileID: 11400000, guid: fa024034a49ccd64e9e344bdb3a698c5, type: 2}
       NextDialogueLineItem:
-        rid: 8992705867310432325
+        rid: 8992705885996580871
     Fail:
       Text: "<line-height=100%>\u042F... \u0442\u043E\u0436\u0435 \u0443\u0441\u0442\u0430\u044E.
         \u0418 \u0442\u044B \u0432 \u044D\u0442\u043E\u043C \u043F\u0440\u0430\u0432,
@@ -1550,14 +1583,14 @@ MonoBehaviour:
       LeftSpeaker: {fileID: 11400000, guid: a644874f2e355324dbfe54d90c478230, type: 2}
       RightSpeaker: {fileID: 0}
       NextDialogueLineItem:
-        rid: 8992705867310432326
+        rid: 8992705885996580872
   references:
     version: 2
     RefIds:
     - rid: -2
       type: {class: , ns: , asm: }
-    - rid: 8992705867310432318
-      type: {class: ChatItem/DialogueLineItem, ns: TalkingHeads, asm: Assembly-CSharp}
+    - rid: 8992705885996580864
+      type: {class: ChatItem/DialogueLineItem, ns: Chat, asm: Assembly-CSharp}
       data:
         Text: "<line-height=100%>\u0427\u0442\u043E \u0441\u0442\u0440\u0430\u043D\u043D\u043E?"
         IsOpponentSpeaks: 0
@@ -1565,9 +1598,9 @@ MonoBehaviour:
         LeftSpeaker: {fileID: 0}
         RightSpeaker: {fileID: 11400000, guid: 5cc1d5ee3c41a734886dadd1daf324e2, type: 2}
         NextDialogueLineItem:
-          rid: 8992705867310432327
-    - rid: 8992705867310432319
-      type: {class: ChatItem/DialogueLineItem, ns: TalkingHeads, asm: Assembly-CSharp}
+          rid: 8992705885996580873
+    - rid: 8992705885996580865
+      type: {class: ChatItem/DialogueLineItem, ns: Chat, asm: Assembly-CSharp}
       data:
         Text: "<line-height=100%>\u0414\u0430\u0432\u0430\u0439 \u0432\u043C\u0435\u0441\u0442\u0435
           \u043F\u043E\u0438\u0449\u0435\u043C \u0447\u0442\u043E-\u0442\u043E \u0432\u043E\u043A\u0440\u0443\u0433,
@@ -1580,9 +1613,9 @@ MonoBehaviour:
         LeftSpeaker: {fileID: 0}
         RightSpeaker: {fileID: 0}
         NextDialogueLineItem:
-          rid: 8992705867310432328
-    - rid: 8992705867310432320
-      type: {class: ChatItem/DialogueLineItem, ns: TalkingHeads, asm: Assembly-CSharp}
+          rid: 8992705885996580874
+    - rid: 8992705885996580866
+      type: {class: ChatItem/DialogueLineItem, ns: Chat, asm: Assembly-CSharp}
       data:
         Text: "<line-height=100%>\u0421\u044B\u043D \u043C\u043E\u0439, \u0442\u044B
           \u043F\u0440\u043E\u0441\u0442\u043E \u0441\u043B\u0438\u0448\u043A\u043E\u043C
@@ -1594,9 +1627,9 @@ MonoBehaviour:
         LeftSpeaker: {fileID: 0}
         RightSpeaker: {fileID: 0}
         NextDialogueLineItem:
-          rid: 8992705867310432329
-    - rid: 8992705867310432321
-      type: {class: ChatItem/DialogueLineItem, ns: TalkingHeads, asm: Assembly-CSharp}
+          rid: 8992705885996580875
+    - rid: 8992705885996580867
+      type: {class: ChatItem/DialogueLineItem, ns: Chat, asm: Assembly-CSharp}
       data:
         Text: "<line-height=100%>\u0418 \u0443 \u0442\u0435\u0431\u044F \u043F\u043E\u043B\u0443\u0447\u0430\u0435\u0442\u0441\u044F
           \u0438\u0434\u0442\u0438 \u0432\u044B\u0431\u0440\u0430\u043D\u043D\u044B\u043C
@@ -1609,9 +1642,9 @@ MonoBehaviour:
         LeftSpeaker: {fileID: 0}
         RightSpeaker: {fileID: 0}
         NextDialogueLineItem:
-          rid: 8992705867310432330
-    - rid: 8992705867310432322
-      type: {class: ChatItem/DialogueLineItem, ns: TalkingHeads, asm: Assembly-CSharp}
+          rid: 8992705885996580876
+    - rid: 8992705885996580868
+      type: {class: ChatItem/DialogueLineItem, ns: Chat, asm: Assembly-CSharp}
       data:
         Text: "<line-height=100%>\u0418\u043D\u043E\u0433\u0434\u0430 \u043D\u0430\u043C
           \u043D\u0443\u0436\u043D\u043E \u0431\u043E\u043B\u044C\u0448\u0435 \u0441\u0438\u043B
@@ -1627,8 +1660,8 @@ MonoBehaviour:
         RightSpeaker: {fileID: 0}
         NextDialogueLineItem:
           rid: -2
-    - rid: 8992705867310432323
-      type: {class: ChatItem/DialogueLineItem, ns: TalkingHeads, asm: Assembly-CSharp}
+    - rid: 8992705885996580869
+      type: {class: ChatItem/DialogueLineItem, ns: Chat, asm: Assembly-CSharp}
       data:
         Text: "<line-height=100%>\u041C\u043E\u0436\u0435\u0442, \u0442\u0435\u0431\u0435
           \u0441\u0442\u043E\u0438\u0442 \u0442\u0440\u0443\u0434\u0438\u0442\u044C\u0441\u044F
@@ -1639,8 +1672,8 @@ MonoBehaviour:
         RightSpeaker: {fileID: 0}
         NextDialogueLineItem:
           rid: -2
-    - rid: 8992705867310432324
-      type: {class: ChatItem/DialogueLineItem, ns: TalkingHeads, asm: Assembly-CSharp}
+    - rid: 8992705885996580870
+      type: {class: ChatItem/DialogueLineItem, ns: Chat, asm: Assembly-CSharp}
       data:
         Text: "<line-height=100%>\u041A\u0430\u0436\u0434\u0430\u044F \u0436\u0438\u0437\u043D\u044C
           \u0446\u0435\u043D\u043D\u0430 \u0438 \u043A\u0430\u0436\u0434\u044B\u0439
@@ -1651,9 +1684,9 @@ MonoBehaviour:
         LeftSpeaker: {fileID: 0}
         RightSpeaker: {fileID: 0}
         NextDialogueLineItem:
-          rid: 8992705867310432331
-    - rid: 8992705867310432325
-      type: {class: ChatItem/DialogueLineItem, ns: TalkingHeads, asm: Assembly-CSharp}
+          rid: 8992705885996580877
+    - rid: 8992705885996580871
+      type: {class: ChatItem/DialogueLineItem, ns: Chat, asm: Assembly-CSharp}
       data:
         Text: "<line-height=100%>\u041D\u0435 \u043F\u043E\u0442\u0432\u043E\u0440\u0441\u0442\u0432\u0443\u0439
           \u0437\u043B\u0443."
@@ -1662,9 +1695,9 @@ MonoBehaviour:
         LeftSpeaker: {fileID: 0}
         RightSpeaker: {fileID: 0}
         NextDialogueLineItem:
-          rid: 8992705867310432332
-    - rid: 8992705867310432326
-      type: {class: ChatItem/DialogueLineItem, ns: TalkingHeads, asm: Assembly-CSharp}
+          rid: 8992705885996580878
+    - rid: 8992705885996580872
+      type: {class: ChatItem/DialogueLineItem, ns: Chat, asm: Assembly-CSharp}
       data:
         Text: "<line-height=100%><link=\"shake\"><color=#d23c3c>\u0422\u044B \u0442\u0430\u043A\u043E\u0439
           \u0436\u0435 \u043A\u0430\u043A \u0438 \u0432\u0441\u0435.</color></link>"
@@ -1674,8 +1707,8 @@ MonoBehaviour:
         RightSpeaker: {fileID: 0}
         NextDialogueLineItem:
           rid: -2
-    - rid: 8992705867310432327
-      type: {class: ChatItem/DialogueLineItem, ns: TalkingHeads, asm: Assembly-CSharp}
+    - rid: 8992705885996580873
+      type: {class: ChatItem/DialogueLineItem, ns: Chat, asm: Assembly-CSharp}
       data:
         Text: "<line-height=100%>\u0412\u0441\u0451 \u044D\u0442\u043E..."
         IsOpponentSpeaks: 1
@@ -1683,9 +1716,9 @@ MonoBehaviour:
         LeftSpeaker: {fileID: 0}
         RightSpeaker: {fileID: 0}
         NextDialogueLineItem:
-          rid: 8992705867310432333
-    - rid: 8992705867310432328
-      type: {class: ChatItem/DialogueLineItem, ns: TalkingHeads, asm: Assembly-CSharp}
+          rid: 8992705885996580879
+    - rid: 8992705885996580874
+      type: {class: ChatItem/DialogueLineItem, ns: Chat, asm: Assembly-CSharp}
       data:
         Text: "<line-height=100%>\u041F\u0440\u043E\u0442\u044F\u0433\u0438\u0432\u0430\u043B
           \u0442\u044B \u0440\u0443\u043A\u0443 \u043F\u043E\u043C\u043E\u0449\u0438
@@ -1700,8 +1733,8 @@ MonoBehaviour:
         RightSpeaker: {fileID: 0}
         NextDialogueLineItem:
           rid: -2
-    - rid: 8992705867310432329
-      type: {class: ChatItem/DialogueLineItem, ns: TalkingHeads, asm: Assembly-CSharp}
+    - rid: 8992705885996580875
+      type: {class: ChatItem/DialogueLineItem, ns: Chat, asm: Assembly-CSharp}
       data:
         Text: "<line-height=100%>\u041F\u0440\u043E\u0434\u043E\u043B\u0436\u0430\u0439
           \u0440\u0430\u0431\u043E\u0442\u0430\u0442\u044C \u0438 \u0432\u0441\u0451
@@ -1713,8 +1746,8 @@ MonoBehaviour:
         RightSpeaker: {fileID: 0}
         NextDialogueLineItem:
           rid: -2
-    - rid: 8992705867310432330
-      type: {class: ChatItem/DialogueLineItem, ns: TalkingHeads, asm: Assembly-CSharp}
+    - rid: 8992705885996580876
+      type: {class: ChatItem/DialogueLineItem, ns: Chat, asm: Assembly-CSharp}
       data:
         Text: "<line-height=100%>\u041D\u043E \u0441\u043A\u043E\u043B\u044C\u043A\u043E
           \u0431\u044B \u044F \u043D\u0435 \u043F\u044B\u0442\u0430\u043B\u0441\u044F,
@@ -1731,9 +1764,9 @@ MonoBehaviour:
         LeftSpeaker: {fileID: 0}
         RightSpeaker: {fileID: 0}
         NextDialogueLineItem:
-          rid: 8992705867310432334
-    - rid: 8992705867310432331
-      type: {class: ChatItem/DialogueLineItem, ns: TalkingHeads, asm: Assembly-CSharp}
+          rid: 8992705885996580880
+    - rid: 8992705885996580877
+      type: {class: ChatItem/DialogueLineItem, ns: Chat, asm: Assembly-CSharp}
       data:
         Text: "<line-height=100%><b>\u041C\u0435\u043D\u044F \u0443\u0442\u043E\u043C\u0438\u043B\u0430
           \u0442\u0432\u043E\u044F \u0431\u043E\u043B\u0442\u043E\u0432\u043D\u044F!</b> "
@@ -1742,9 +1775,9 @@ MonoBehaviour:
         LeftSpeaker: {fileID: 0}
         RightSpeaker: {fileID: 0}
         NextDialogueLineItem:
-          rid: 8992705867310432335
-    - rid: 8992705867310432332
-      type: {class: ChatItem/DialogueLineItem, ns: TalkingHeads, asm: Assembly-CSharp}
+          rid: 8992705885996580881
+    - rid: 8992705885996580878
+      type: {class: ChatItem/DialogueLineItem, ns: Chat, asm: Assembly-CSharp}
       data:
         Text: "<line-height=100%>\u0415\u0441\u043B\u0438 \u043D\u0435 \u043C\u043E\u0436\u0435\u0448\u044C
           \u0431\u044B\u0442\u044C \u043F\u0440\u043E\u0442\u0438\u0432 \u0442\u044C\u043C\u044B,
@@ -1755,9 +1788,9 @@ MonoBehaviour:
         LeftSpeaker: {fileID: 0}
         RightSpeaker: {fileID: 0}
         NextDialogueLineItem:
-          rid: 8992705867310432336
-    - rid: 8992705867310432333
-      type: {class: ChatItem/DialogueLineItem, ns: TalkingHeads, asm: Assembly-CSharp}
+          rid: 8992705885996580882
+    - rid: 8992705885996580879
+      type: {class: ChatItem/DialogueLineItem, ns: Chat, asm: Assembly-CSharp}
       data:
         Text: "<line-height=100%>\u0418\u043D\u043E\u0433\u0434\u0430 \u043F\u0440\u043E\u0441\u0442\u043E
           \u0436\u0438\u0432\u0435\u0448\u044C, \u0438 \u0432\u0441\u0451, \u0430
@@ -1769,9 +1802,9 @@ MonoBehaviour:
         LeftSpeaker: {fileID: 0}
         RightSpeaker: {fileID: 11400000, guid: 45284cb5e18ab804c93a7a5fb554cc25, type: 2}
         NextDialogueLineItem:
-          rid: 8992705867310432337
-    - rid: 8992705867310432334
-      type: {class: ChatItem/DialogueLineItem, ns: TalkingHeads, asm: Assembly-CSharp}
+          rid: 8992705885996580883
+    - rid: 8992705885996580880
+      type: {class: ChatItem/DialogueLineItem, ns: Chat, asm: Assembly-CSharp}
       data:
         Text: "<line-height=100%>\u0410 \u044F \u0434\u0430\u0436\u0435 \u043D\u043E\u0432\u0443\u044E
           \u043A\u0443\u0440\u0438\u0446\u0443 \u043D\u0435 \u043C\u043E\u0433\u0443
@@ -1781,9 +1814,9 @@ MonoBehaviour:
         LeftSpeaker: {fileID: 0}
         RightSpeaker: {fileID: 0}
         NextDialogueLineItem:
-          rid: 8992705867310432338
-    - rid: 8992705867310432335
-      type: {class: ChatItem/DialogueLineItem, ns: TalkingHeads, asm: Assembly-CSharp}
+          rid: 8992705885996580884
+    - rid: 8992705885996580881
+      type: {class: ChatItem/DialogueLineItem, ns: Chat, asm: Assembly-CSharp}
       data:
         Text: "<line-height=100%>\u0412\u0441\u0451 \u0432\u043E\u043A\u0440\u0443\u0433
           \u0442\u043E\u043B\u044C\u043A\u043E \u0441\u0442\u0430\u043D\u043E\u0432\u0438\u0442\u0441\u044F
@@ -1795,9 +1828,9 @@ MonoBehaviour:
         LeftSpeaker: {fileID: 0}
         RightSpeaker: {fileID: 0}
         NextDialogueLineItem:
-          rid: 8992705867310432339
-    - rid: 8992705867310432336
-      type: {class: ChatItem/DialogueLineItem, ns: TalkingHeads, asm: Assembly-CSharp}
+          rid: 8992705885996580885
+    - rid: 8992705885996580882
+      type: {class: ChatItem/DialogueLineItem, ns: Chat, asm: Assembly-CSharp}
       data:
         Text: "<line-height=100%>\u0422\u044B \u043F\u0440\u043E\u0441\u0442\u043E
           \u043F\u043E\u0432\u0442\u043E\u0440\u044F\u0435\u0448\u044C \u043E\u0434\u043D\u043E
@@ -1807,9 +1840,9 @@ MonoBehaviour:
         LeftSpeaker: {fileID: 0}
         RightSpeaker: {fileID: 0}
         NextDialogueLineItem:
-          rid: 8992705867310432340
-    - rid: 8992705867310432337
-      type: {class: ChatItem/DialogueLineItem, ns: TalkingHeads, asm: Assembly-CSharp}
+          rid: 8992705885996580886
+    - rid: 8992705885996580883
+      type: {class: ChatItem/DialogueLineItem, ns: Chat, asm: Assembly-CSharp}
       data:
         Text: "<line-height=100%>\u0422\u044B \u0445\u043E\u0434\u0438\u0448\u044C,
           \u0442\u044B \u0441\u043C\u043E\u0442\u0440\u0438\u0448\u044C \u0437\u0430
@@ -1822,9 +1855,9 @@ MonoBehaviour:
         LeftSpeaker: {fileID: 0}
         RightSpeaker: {fileID: 0}
         NextDialogueLineItem:
-          rid: 8992705867310432341
-    - rid: 8992705867310432338
-      type: {class: ChatItem/DialogueLineItem, ns: TalkingHeads, asm: Assembly-CSharp}
+          rid: 8992705885996580887
+    - rid: 8992705885996580884
+      type: {class: ChatItem/DialogueLineItem, ns: Chat, asm: Assembly-CSharp}
       data:
         Text: "<line-height=100%><b>\u042F \u043D\u0438\u0447\u0435\u0433\u043E \u043D\u0435
           \u043C\u043E\u0433\u0443!</b>"
@@ -1833,9 +1866,9 @@ MonoBehaviour:
         LeftSpeaker: {fileID: 0}
         RightSpeaker: {fileID: 0}
         NextDialogueLineItem:
-          rid: 8992705867310432342
-    - rid: 8992705867310432339
-      type: {class: ChatItem/DialogueLineItem, ns: TalkingHeads, asm: Assembly-CSharp}
+          rid: 8992705885996580888
+    - rid: 8992705885996580885
+      type: {class: ChatItem/DialogueLineItem, ns: Chat, asm: Assembly-CSharp}
       data:
         Text: "<line-height=100%>\u0418 \u043D\u0438\u043A\u0442\u043E \u043D\u0435
           \u043C\u043E\u0436\u0435\u0442."
@@ -1844,9 +1877,9 @@ MonoBehaviour:
         LeftSpeaker: {fileID: 0}
         RightSpeaker: {fileID: 0}
         NextDialogueLineItem:
-          rid: 8992705867310432343
-    - rid: 8992705867310432340
-      type: {class: ChatItem/DialogueLineItem, ns: TalkingHeads, asm: Assembly-CSharp}
+          rid: 8992705885996580889
+    - rid: 8992705885996580886
+      type: {class: ChatItem/DialogueLineItem, ns: Chat, asm: Assembly-CSharp}
       data:
         Text: "<line-height=100%>\u0418\u043D\u043E\u0433\u0434\u0430 \u0432\u0441\u0451,
           \u0447\u0442\u043E \u0442\u044B \u043C\u043E\u0436\u0435\u0448\u044C \u2014
@@ -1859,9 +1892,9 @@ MonoBehaviour:
         LeftSpeaker: {fileID: 0}
         RightSpeaker: {fileID: 0}
         NextDialogueLineItem:
-          rid: 8992705867310432344
-    - rid: 8992705867310432341
-      type: {class: ChatItem/DialogueLineItem, ns: TalkingHeads, asm: Assembly-CSharp}
+          rid: 8992705885996580890
+    - rid: 8992705885996580887
+      type: {class: ChatItem/DialogueLineItem, ns: Chat, asm: Assembly-CSharp}
       data:
         Text: "<line-height=100%>\u042F \u043D\u0435 \u0437\u043D\u0430\u044E, \u043A\u0430\u043A
           \u043F\u0440\u043E \u044D\u0442\u043E \u0441\u043A\u0430\u0437\u0430\u0442\u044C\u2026 "
@@ -1870,9 +1903,9 @@ MonoBehaviour:
         LeftSpeaker: {fileID: 0}
         RightSpeaker: {fileID: 0}
         NextDialogueLineItem:
-          rid: 8992705867310432345
-    - rid: 8992705867310432342
-      type: {class: ChatItem/DialogueLineItem, ns: TalkingHeads, asm: Assembly-CSharp}
+          rid: 8992705885996580891
+    - rid: 8992705885996580888
+      type: {class: ChatItem/DialogueLineItem, ns: Chat, asm: Assembly-CSharp}
       data:
         Text: "<line-height=100%>\u0421\u043C\u043E\u0442\u0440\u044F \u043D\u0430
           \u0434\u0440\u0443\u0433\u0438\u0445, \u0442\u044B \u043D\u0435 \u0441\u043C\u043E\u0436\u0435\u0448\u044C
@@ -1882,9 +1915,9 @@ MonoBehaviour:
         LeftSpeaker: {fileID: 0}
         RightSpeaker: {fileID: 0}
         NextDialogueLineItem:
-          rid: 8992705867310432346
-    - rid: 8992705867310432343
-      type: {class: ChatItem/DialogueLineItem, ns: TalkingHeads, asm: Assembly-CSharp}
+          rid: 8992705885996580892
+    - rid: 8992705885996580889
+      type: {class: ChatItem/DialogueLineItem, ns: Chat, asm: Assembly-CSharp}
       data:
         Text: "<line-height=100%>\u0418 \u0442\u044B \u0442\u0432\u043E\u044F \u0432\u0435\u0440\u0430
           \u0432\u043E \u0447\u0442\u043E-\u0442\u043E \u0445\u043E\u0440\u043E\u0448\u0435\u0435
@@ -1894,9 +1927,9 @@ MonoBehaviour:
         LeftSpeaker: {fileID: 0}
         RightSpeaker: {fileID: 0}
         NextDialogueLineItem:
-          rid: 8992705867310432347
-    - rid: 8992705867310432344
-      type: {class: ChatItem/DialogueLineItem, ns: TalkingHeads, asm: Assembly-CSharp}
+          rid: 8992705885996580893
+    - rid: 8992705885996580890
+      type: {class: ChatItem/DialogueLineItem, ns: Chat, asm: Assembly-CSharp}
       data:
         Text: "<line-height=100%>\u042F..."
         IsOpponentSpeaks: 0
@@ -1904,9 +1937,9 @@ MonoBehaviour:
         LeftSpeaker: {fileID: 0}
         RightSpeaker: {fileID: 0}
         NextDialogueLineItem:
-          rid: 8992705867310432348
-    - rid: 8992705867310432345
-      type: {class: ChatItem/DialogueLineItem, ns: TalkingHeads, asm: Assembly-CSharp}
+          rid: 8992705885996580894
+    - rid: 8992705885996580891
+      type: {class: ChatItem/DialogueLineItem, ns: Chat, asm: Assembly-CSharp}
       data:
         Text: <line-height=100%>...
         IsOpponentSpeaks: 0
@@ -1914,9 +1947,9 @@ MonoBehaviour:
         LeftSpeaker: {fileID: 0}
         RightSpeaker: {fileID: 0}
         NextDialogueLineItem:
-          rid: 8992705867310432349
-    - rid: 8992705867310432346
-      type: {class: ChatItem/DialogueLineItem, ns: TalkingHeads, asm: Assembly-CSharp}
+          rid: 8992705885996580895
+    - rid: 8992705885996580892
+      type: {class: ChatItem/DialogueLineItem, ns: Chat, asm: Assembly-CSharp}
       data:
         Text: "<line-height=100%>\u041D\u043E \u043F\u043E\u0447\u0435\u043C\u0443
           \u043C\u043D\u0435 \u0432\u0441\u0435\u0433\u0434\u0430 \u0442\u0430\u043A
@@ -1928,9 +1961,9 @@ MonoBehaviour:
         LeftSpeaker: {fileID: 0}
         RightSpeaker: {fileID: 0}
         NextDialogueLineItem:
-          rid: 8992705867310432350
-    - rid: 8992705867310432347
-      type: {class: ChatItem/DialogueLineItem, ns: TalkingHeads, asm: Assembly-CSharp}
+          rid: 8992705885996580896
+    - rid: 8992705885996580893
+      type: {class: ChatItem/DialogueLineItem, ns: Chat, asm: Assembly-CSharp}
       data:
         Text: "<line-height=100%>\u0423 \u043A\u0430\u0436\u0434\u043E\u0433\u043E
           \u0438\u0437 \u043D\u0430\u0441 \u0435\u0441\u0442\u044C \u0441\u0432\u043E\u044F
@@ -1942,9 +1975,9 @@ MonoBehaviour:
         LeftSpeaker: {fileID: 0}
         RightSpeaker: {fileID: 0}
         NextDialogueLineItem:
-          rid: 8992705867310432351
-    - rid: 8992705867310432348
-      type: {class: ChatItem/DialogueLineItem, ns: TalkingHeads, asm: Assembly-CSharp}
+          rid: 8992705885996580897
+    - rid: 8992705885996580894
+      type: {class: ChatItem/DialogueLineItem, ns: Chat, asm: Assembly-CSharp}
       data:
         Text: "<line-height=100%>\u041C\u043E\u044F \u0432\u0435\u0440\u0430..."
         IsOpponentSpeaks: 0
@@ -1952,9 +1985,9 @@ MonoBehaviour:
         LeftSpeaker: {fileID: 0}
         RightSpeaker: {fileID: 0}
         NextDialogueLineItem:
-          rid: 8992705867310432352
-    - rid: 8992705867310432349
-      type: {class: ChatItem/DialogueLineItem, ns: TalkingHeads, asm: Assembly-CSharp}
+          rid: 8992705885996580898
+    - rid: 8992705885996580895
+      type: {class: ChatItem/DialogueLineItem, ns: Chat, asm: Assembly-CSharp}
       data:
         Text: "<line-height=100%>\u0422\u0435\u0431\u044F \u0447\u0442\u043E-\u0442\u043E
           \u0431\u0435\u0441\u043F\u043E\u043A\u043E\u0438\u0442 \u0441\u044B\u043D
@@ -1964,9 +1997,9 @@ MonoBehaviour:
         LeftSpeaker: {fileID: 0}
         RightSpeaker: {fileID: 0}
         NextDialogueLineItem:
-          rid: 8992705867310432353
-    - rid: 8992705867310432350
-      type: {class: ChatItem/DialogueLineItem, ns: TalkingHeads, asm: Assembly-CSharp}
+          rid: 8992705885996580899
+    - rid: 8992705885996580896
+      type: {class: ChatItem/DialogueLineItem, ns: Chat, asm: Assembly-CSharp}
       data:
         Text: <line-height=100%>...
         IsOpponentSpeaks: 1
@@ -1975,8 +2008,8 @@ MonoBehaviour:
         RightSpeaker: {fileID: 0}
         NextDialogueLineItem:
           rid: -2
-    - rid: 8992705867310432351
-      type: {class: ChatItem/DialogueLineItem, ns: TalkingHeads, asm: Assembly-CSharp}
+    - rid: 8992705885996580897
+      type: {class: ChatItem/DialogueLineItem, ns: Chat, asm: Assembly-CSharp}
       data:
         Text: "<line-height=100%>\u0414\u0430\u0436\u0435 \u0435\u0441\u043B\u0438
           \u044D\u0442\u043E \u043F\u0440\u043E\u0441\u0442\u043E \u0432\u044B\u0436\u0438\u0432\u0430\u043D\u0438\u0435?"
@@ -1985,9 +2018,9 @@ MonoBehaviour:
         LeftSpeaker: {fileID: 0}
         RightSpeaker: {fileID: 0}
         NextDialogueLineItem:
-          rid: 8992705867310432354
-    - rid: 8992705867310432352
-      type: {class: ChatItem/DialogueLineItem, ns: TalkingHeads, asm: Assembly-CSharp}
+          rid: 8992705885996580900
+    - rid: 8992705885996580898
+      type: {class: ChatItem/DialogueLineItem, ns: Chat, asm: Assembly-CSharp}
       data:
         Text: "<line-height=100%>\u041C\u044B \u043C\u043E\u0436\u0435\u043C \u043F\u0440\u0435\u0434\u043B\u043E\u0436\u0438\u0442\u044C
           \u0442\u0435\u0431\u0435 \u0432\u0430\u0440\u0438\u0430\u043D\u0442, \u043A\u0430\u043A
@@ -1997,9 +2030,9 @@ MonoBehaviour:
         LeftSpeaker: {fileID: 0}
         RightSpeaker: {fileID: 0}
         NextDialogueLineItem:
-          rid: 8992705867310432355
-    - rid: 8992705867310432353
-      type: {class: ChatItem/DialogueLineItem, ns: TalkingHeads, asm: Assembly-CSharp}
+          rid: 8992705885996580901
+    - rid: 8992705885996580899
+      type: {class: ChatItem/DialogueLineItem, ns: Chat, asm: Assembly-CSharp}
       data:
         Text: "<line-height=100%>\u0414\u0430! \u0411\u0435\u0441\u043F\u043E\u043A\u043E\u0438\u0442!
           \u0422\u0435\u0431\u0435 \u043D\u0435 \u0431\u044B\u0432\u0430\u0435\u0442
@@ -2009,9 +2042,9 @@ MonoBehaviour:
         LeftSpeaker: {fileID: 0}
         RightSpeaker: {fileID: 0}
         NextDialogueLineItem:
-          rid: 8992705867310432356
-    - rid: 8992705867310432354
-      type: {class: ChatItem/DialogueLineItem, ns: TalkingHeads, asm: Assembly-CSharp}
+          rid: 8992705885996580902
+    - rid: 8992705885996580900
+      type: {class: ChatItem/DialogueLineItem, ns: Chat, asm: Assembly-CSharp}
       data:
         Text: "<line-height=100%>\u0427\u0442\u043E?"
         IsOpponentSpeaks: 0
@@ -2019,9 +2052,9 @@ MonoBehaviour:
         LeftSpeaker: {fileID: 0}
         RightSpeaker: {fileID: 0}
         NextDialogueLineItem:
-          rid: 8992705867310432357
-    - rid: 8992705867310432355
-      type: {class: ChatItem/DialogueLineItem, ns: TalkingHeads, asm: Assembly-CSharp}
+          rid: 8992705885996580903
+    - rid: 8992705885996580901
+      type: {class: ChatItem/DialogueLineItem, ns: Chat, asm: Assembly-CSharp}
       data:
         Text: "<line-height=100%>\u0418 \u043A\u0430\u043A\u043E\u0439?"
         IsOpponentSpeaks: 1
@@ -2029,9 +2062,9 @@ MonoBehaviour:
         LeftSpeaker: {fileID: 0}
         RightSpeaker: {fileID: 0}
         NextDialogueLineItem:
-          rid: 8992705867310432358
-    - rid: 8992705867310432356
-      type: {class: ChatItem/DialogueLineItem, ns: TalkingHeads, asm: Assembly-CSharp}
+          rid: 8992705885996580904
+    - rid: 8992705885996580902
+      type: {class: ChatItem/DialogueLineItem, ns: Chat, asm: Assembly-CSharp}
       data:
         Text: "<line-height=100%>\u0417\u0430 \u0447\u0442\u043E \u044F \u0434\u043E\u043B\u0436\u0435\u043D
           \u0443\u0441\u0442\u044B\u0434\u0438\u0442\u044C\u0441\u044F, \u0441\u044B\u043D
@@ -2041,9 +2074,9 @@ MonoBehaviour:
         LeftSpeaker: {fileID: 0}
         RightSpeaker: {fileID: 0}
         NextDialogueLineItem:
-          rid: 8992705867310432359
-    - rid: 8992705867310432357
-      type: {class: ChatItem/DialogueLineItem, ns: TalkingHeads, asm: Assembly-CSharp}
+          rid: 8992705885996580905
+    - rid: 8992705885996580903
+      type: {class: ChatItem/DialogueLineItem, ns: Chat, asm: Assembly-CSharp}
       data:
         Text: "<line-height=100%>\u041F\u043E\u0441\u043C\u043E\u0442\u0440\u0438
           \u043D\u0430 \u0441\u0432\u043E\u044E \u0446\u0435\u0440\u043A\u043E\u0432\u044C!\r\n\u041E\u043D\u0430
@@ -2053,9 +2086,9 @@ MonoBehaviour:
         LeftSpeaker: {fileID: 0}
         RightSpeaker: {fileID: 0}
         NextDialogueLineItem:
-          rid: 8992705867310432360
-    - rid: 8992705867310432358
-      type: {class: ChatItem/DialogueLineItem, ns: TalkingHeads, asm: Assembly-CSharp}
+          rid: 8992705885996580906
+    - rid: 8992705885996580904
+      type: {class: ChatItem/DialogueLineItem, ns: Chat, asm: Assembly-CSharp}
       data:
         Text: "<line-height=100%>\u041F\u043E\u043F\u0440\u043E\u0431\u0443\u0439
           \u043F\u043E\u0440\u0430\u0431\u043E\u0442\u0430\u0442\u044C \u0443 \u043D\u0430\u0441
@@ -2066,8 +2099,8 @@ MonoBehaviour:
         RightSpeaker: {fileID: 0}
         NextDialogueLineItem:
           rid: -2
-    - rid: 8992705867310432359
-      type: {class: ChatItem/DialogueLineItem, ns: TalkingHeads, asm: Assembly-CSharp}
+    - rid: 8992705885996580905
+      type: {class: ChatItem/DialogueLineItem, ns: Chat, asm: Assembly-CSharp}
       data:
         Text: "<line-height=100%>\u0410 \u0434\u0430\u0432\u043D\u043E \u0442\u044B
           \u0432\u044B\u0445\u043E\u0434\u0438\u043B \u0437\u0430 \u0441\u0442\u0435\u043D\u044B
@@ -2077,9 +2110,9 @@ MonoBehaviour:
         LeftSpeaker: {fileID: 0}
         RightSpeaker: {fileID: 0}
         NextDialogueLineItem:
-          rid: 8992705867310432361
-    - rid: 8992705867310432360
-      type: {class: ChatItem/DialogueLineItem, ns: TalkingHeads, asm: Assembly-CSharp}
+          rid: 8992705885996580907
+    - rid: 8992705885996580906
+      type: {class: ChatItem/DialogueLineItem, ns: Chat, asm: Assembly-CSharp}
       data:
         Text: "<line-height=100%>\u0421\u044B\u043D \u043C\u043E\u0439, \u0442\u044B
           \u0441\u043B\u0438\u0448\u043A\u043E\u043C..."
@@ -2088,9 +2121,9 @@ MonoBehaviour:
         LeftSpeaker: {fileID: 0}
         RightSpeaker: {fileID: 0}
         NextDialogueLineItem:
-          rid: 8992705867310432362
-    - rid: 8992705867310432361
-      type: {class: ChatItem/DialogueLineItem, ns: TalkingHeads, asm: Assembly-CSharp}
+          rid: 8992705885996580908
+    - rid: 8992705885996580907
+      type: {class: ChatItem/DialogueLineItem, ns: Chat, asm: Assembly-CSharp}
       data:
         Text: "<line-height=100%>\u0417\u0435\u043C\u043B\u044F \u0443\u043C\u0438\u0440\u0430\u0435\u0442,
           \u0436\u0438\u0432\u043D\u043E\u0441\u0442\u044C \u043C\u0440\u0451\u0442
@@ -2101,9 +2134,9 @@ MonoBehaviour:
         LeftSpeaker: {fileID: 0}
         RightSpeaker: {fileID: 0}
         NextDialogueLineItem:
-          rid: 8992705867310432363
-    - rid: 8992705867310432362
-      type: {class: ChatItem/DialogueLineItem, ns: TalkingHeads, asm: Assembly-CSharp}
+          rid: 8992705885996580909
+    - rid: 8992705885996580908
+      type: {class: ChatItem/DialogueLineItem, ns: Chat, asm: Assembly-CSharp}
       data:
         Text: "<line-height=100%><link=\"shake\"><b><color=#d23c3c>\u0417\u0410\u0427\u0415\u041C
           \u0421\u0422\u0410\u0420\u0410\u0415\u0428\u042C\u0421\u042F \u0422\u042B?!!</color></link></b>"
@@ -2113,8 +2146,8 @@ MonoBehaviour:
         RightSpeaker: {fileID: 0}
         NextDialogueLineItem:
           rid: -2
-    - rid: 8992705867310432363
-      type: {class: ChatItem/DialogueLineItem, ns: TalkingHeads, asm: Assembly-CSharp}
+    - rid: 8992705885996580909
+      type: {class: ChatItem/DialogueLineItem, ns: Chat, asm: Assembly-CSharp}
       data:
         Text: "<line-height=100%>\u0410 \u0442\u044B \u0442\u043E\u043B\u044C\u043A\u043E
           \u0438 \u0434\u0435\u043B\u0430\u0435\u0448\u044C, \u0447\u0442\u043E \u0447\u0438\u0442\u0430\u0435\u0448\u044C
@@ -2125,9 +2158,9 @@ MonoBehaviour:
         LeftSpeaker: {fileID: 0}
         RightSpeaker: {fileID: 0}
         NextDialogueLineItem:
-          rid: 8992705867310432364
-    - rid: 8992705867310432364
-      type: {class: ChatItem/DialogueLineItem, ns: TalkingHeads, asm: Assembly-CSharp}
+          rid: 8992705885996580910
+    - rid: 8992705885996580910
+      type: {class: ChatItem/DialogueLineItem, ns: Chat, asm: Assembly-CSharp}
       data:
         Text: "<line-height=100%>\u0422\u044B \u0432\u0438\u0434\u0438\u0448\u044C
           \u0442\u043E\u043B\u044C\u043A\u043E \u043F\u043B\u043E\u0445\u043E\u0435.\r\n\u042F
@@ -2140,9 +2173,9 @@ MonoBehaviour:
         LeftSpeaker: {fileID: 0}
         RightSpeaker: {fileID: 0}
         NextDialogueLineItem:
-          rid: 8992705867310432365
-    - rid: 8992705867310432365
-      type: {class: ChatItem/DialogueLineItem, ns: TalkingHeads, asm: Assembly-CSharp}
+          rid: 8992705885996580911
+    - rid: 8992705885996580911
+      type: {class: ChatItem/DialogueLineItem, ns: Chat, asm: Assembly-CSharp}
       data:
         Text: "<line-height=100%>\u0427\u0442\u043E \u0436\u0435 \u043F\u043E \u043F\u0440\u0430\u0432\u0434\u0435
           \u0442\u044F\u0433\u043E\u0442\u0438\u0442 \u0442\u0432\u043E\u0451 \u0441\u0435\u0440\u0434\u0446\u0435."
@@ -2151,9 +2184,9 @@ MonoBehaviour:
         LeftSpeaker: {fileID: 0}
         RightSpeaker: {fileID: 0}
         NextDialogueLineItem:
-          rid: 8992705867310432366
-    - rid: 8992705867310432366
-      type: {class: ChatItem/DialogueLineItem, ns: TalkingHeads, asm: Assembly-CSharp}
+          rid: 8992705885996580912
+    - rid: 8992705885996580912
+      type: {class: ChatItem/DialogueLineItem, ns: Chat, asm: Assembly-CSharp}
       data:
         Text: "<line-height=100%>\u0427\u0442\u043E \u0442\u044B\u2026 \u041D\u0435\u0442,
           \u044F \u0443\u0441\u0442\u0430\u043B, \u044F \u0431\u043E\u043B\u044C\u0448\u0435
@@ -2163,9 +2196,9 @@ MonoBehaviour:
         LeftSpeaker: {fileID: 0}
         RightSpeaker: {fileID: 0}
         NextDialogueLineItem:
-          rid: 8992705867310432367
-    - rid: 8992705867310432367
-      type: {class: ChatItem/DialogueLineItem, ns: TalkingHeads, asm: Assembly-CSharp}
+          rid: 8992705885996580913
+    - rid: 8992705885996580913
+      type: {class: ChatItem/DialogueLineItem, ns: Chat, asm: Assembly-CSharp}
       data:
         Text: "<line-height=100%>\u0412 \u0436\u0438\u0437\u043D\u0438 \u0431\u044B\u0432\u0430\u044E\u0442
           \u0442\u0440\u0443\u0434\u043D\u043E\u0441\u0442\u0438, \u0441\u044B\u043D
@@ -2179,9 +2212,9 @@ MonoBehaviour:
         LeftSpeaker: {fileID: 0}
         RightSpeaker: {fileID: 0}
         NextDialogueLineItem:
-          rid: 8992705867310432368
-    - rid: 8992705867310432368
-      type: {class: ChatItem/DialogueLineItem, ns: TalkingHeads, asm: Assembly-CSharp}
+          rid: 8992705885996580914
+    - rid: 8992705885996580914
+      type: {class: ChatItem/DialogueLineItem, ns: Chat, asm: Assembly-CSharp}
       data:
         Text: "<line-height=100%>\u0413\u043B\u0430\u0432\u043D\u043E\u0435 \u2014
           \u043D\u0435 \u0441\u0434\u0430\u0432\u0430\u0442\u044C\u0441\u044F!"
@@ -2190,9 +2223,9 @@ MonoBehaviour:
         LeftSpeaker: {fileID: 0}
         RightSpeaker: {fileID: 0}
         NextDialogueLineItem:
-          rid: 8992705867310432369
-    - rid: 8992705867310432369
-      type: {class: ChatItem/DialogueLineItem, ns: TalkingHeads, asm: Assembly-CSharp}
+          rid: 8992705885996580915
+    - rid: 8992705885996580915
+      type: {class: ChatItem/DialogueLineItem, ns: Chat, asm: Assembly-CSharp}
       data:
         Text: "<line-height=100%>\u0410 \u0437\u0430\u0447\u0435\u043C \u044D\u0442\u043E?
           \u0420\u0430\u0434\u0438 \u0447\u0435\u0433\u043E?\r\n\u0427\u0442\u043E\u0431\u044B
@@ -2204,9 +2237,9 @@ MonoBehaviour:
         LeftSpeaker: {fileID: 0}
         RightSpeaker: {fileID: 0}
         NextDialogueLineItem:
-          rid: 8992705867310432370
-    - rid: 8992705867310432370
-      type: {class: ChatItem/DialogueLineItem, ns: TalkingHeads, asm: Assembly-CSharp}
+          rid: 8992705885996580916
+    - rid: 8992705885996580916
+      type: {class: ChatItem/DialogueLineItem, ns: Chat, asm: Assembly-CSharp}
       data:
         Text: "<line-height=100%>\u042F \u0431\u043E\u043B\u044C\u0448\u0435 \u043D\u0438\u0447\u0435\u0433\u043E
           \u043D\u0435 \u0445\u043E\u0447\u0443, \u043D\u0438\u0447\u0435\u0433\u043E
@@ -2216,9 +2249,9 @@ MonoBehaviour:
         LeftSpeaker: {fileID: 0}
         RightSpeaker: {fileID: 0}
         NextDialogueLineItem:
-          rid: 8992705867310432371
-    - rid: 8992705867310432371
-      type: {class: ChatItem/DialogueLineItem, ns: TalkingHeads, asm: Assembly-CSharp}
+          rid: 8992705885996580917
+    - rid: 8992705885996580917
+      type: {class: ChatItem/DialogueLineItem, ns: Chat, asm: Assembly-CSharp}
       data:
         Text: "<line-height=100%>\u042F \u043F\u0440\u043E\u0441\u0442\u043E \u0445\u043E\u0447\u0443
           \u0437\u0430\u0441\u043D\u0443\u0442\u044C \u0438 \u043D\u0438\u043A\u043E\u0433\u0434\u0430
@@ -2228,9 +2261,9 @@ MonoBehaviour:
         LeftSpeaker: {fileID: 0}
         RightSpeaker: {fileID: 0}
         NextDialogueLineItem:
-          rid: 8992705867310432372
-    - rid: 8992705867310432372
-      type: {class: ChatItem/DialogueLineItem, ns: TalkingHeads, asm: Assembly-CSharp}
+          rid: 8992705885996580918
+    - rid: 8992705885996580918
+      type: {class: ChatItem/DialogueLineItem, ns: Chat, asm: Assembly-CSharp}
       data:
         Text: "<line-height=100%>\u042F \u043F\u0440\u043E\u0441\u0442\u043E \u0445\u043E\u0447\u0443
           <i><link=\"shake\">\u043D\u0435 \u0441\u0443\u0449\u0435\u0441\u0442\u0432\u043E\u0432\u0430\u0442\u044C</link></i>."
@@ -2239,9 +2272,9 @@ MonoBehaviour:
         LeftSpeaker: {fileID: 0}
         RightSpeaker: {fileID: 0}
         NextDialogueLineItem:
-          rid: 8992705867310432373
-    - rid: 8992705867310432373
-      type: {class: ChatItem/DialogueLineItem, ns: TalkingHeads, asm: Assembly-CSharp}
+          rid: 8992705885996580919
+    - rid: 8992705885996580919
+      type: {class: ChatItem/DialogueLineItem, ns: Chat, asm: Assembly-CSharp}
       data:
         Text: "<line-height=100%>\u0421\u0435\u0439\u0447\u0430\u0441 \u0432\u0430\u0448\u0430
           \u0432\u0435\u0440\u0430 \u0432\u043F\u0435\u0440\u0432\u044B\u0435 \u0441\u0442\u043E\u043B\u043A\u043D\u0451\u0442\u0441\u044F
@@ -2256,22 +2289,6 @@ MonoBehaviour:
         RightSpeaker: {fileID: 0}
         NextDialogueLineItem:
           rid: -2
---- !u!114 &1669275557
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1669275553}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 075804f9451b4f038b7c618d849f63b9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _qteMap: {fileID: 11400000, guid: a0ca52019fa390341a5406ba9172196f, type: 2}
-  _spritesMap: {fileID: 11400000, guid: 89407e7f03169394ab93936b28bb3ec7, type: 2}
-  ChatItemsData: {fileID: 1669275556}
-  FilePath: "C:\\Users\\user\\Downloads\\Malenkiy plot - \u041B\u0438\u0441\u04421.csv"
 --- !u!1001 &1710222645
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2494,7 +2511,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 03d042f0aad941beb060c2058c8bdb41, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _chatData: {fileID: 1669275556}
+  _chatData: {fileID: 1669275558}
   _chatItems:
   - Main:
       Text: "<link=\"shake\">\u0414\u044F\u0434\u044F! \u0414\u044F\u0434\u044F!</link>\n\u041D\u0430\u0436\u0438\u043C\u0430\u0439
@@ -2691,8 +2708,9 @@ MonoBehaviour:
   _chatText: {fileID: 1573989994}
   _nextDialogueMark: {fileID: 1910365420}
   _markFlickerDelay: 0.4
-  _startDialogueDelay: 2
-  _minDialogueDuration: 0.2
+  _chatCanvas: {fileID: 1492425652}
+  _startDialogueDelay: 3
+  _minDialogueDuration: 0.3
   _qteFade: {fileID: 1817931631}
   _preQTEDelay: 0.5
   _preQTEFadeDuraion: 1.5
@@ -2753,7 +2771,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.6301887, g: 0.31326833, b: 0.1082022, a: 1}
+  m_Color: {r: 0.8235294, g: 0.23529412, b: 0.23529412, a: 1}
   m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 0

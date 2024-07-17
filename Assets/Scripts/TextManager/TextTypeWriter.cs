@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
@@ -25,9 +26,13 @@ public class TextTypeWriter : MonoBehaviour
 	private TMP_Text _text;
 
 	public bool PlayComplete { get; private set; }
+
+	public event Action OnPlayComplete;
 	
 	private void Awake()
 	{
+		PlayComplete = true;
+		
 		_text = GetComponent<TMP_Text>();
 	}
 
@@ -63,6 +68,7 @@ public class TextTypeWriter : MonoBehaviour
 			yield return new WaitForSeconds(delayCache[textSpeed]);
 		}
 		
+		OnPlayComplete?.Invoke();
 		PlayComplete = true;
 	}
 }

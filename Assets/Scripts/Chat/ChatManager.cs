@@ -1,52 +1,11 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
+using Chat;
 using QTE;
 using TextManager;
 using UnityEngine;
 
 namespace TalkingHeads
 {
-	[Serializable]
-	public class ChatItem
-	{
-		[Serializable]
-		public class DialogueLineItem
-		{
-			[TextArea] public string Text;
-			public bool IsOpponentSpeaks;
-			public TextSpeed textSpeed;
-			
-			public CharacterSpriteContainer LeftSpeaker;
-			public CharacterSpriteContainer RightSpeaker;
-			
-			[SerializeReference]
-			public DialogueLineItem NextDialogueLineItem;
-
-			public void PushNextDialogueLine(DialogueLineItem lineItem)
-			{
-				var currentItem = this;
-				while (true)
-				{
-					if (currentItem.NextDialogueLineItem == null)
-					{
-						currentItem.NextDialogueLineItem = lineItem;
-						break;
-					}
-
-					currentItem = currentItem.NextDialogueLineItem;
-				}
-			}
-		}
-			
-		public DialogueLineItem Main;
-		
-		[Header("QTE")]
-		public GameObject QTEPrefab;
-		public int SuccessKarmaValue;
-		public DialogueLineItem Success;
-		public DialogueLineItem Fail;
-	}
-
 	public class ChatManager : MonoBehaviour
 	{
 		[SerializeField] private ChatItemsData _chatData;
@@ -59,6 +18,8 @@ namespace TalkingHeads
 		[SerializeField] private GameObject _nextDialogueMark;
 		[SerializeField] private float _markFlickerDelay;
 
+		[SerializeField] private CanvasGroup _chatCanvas;
+		
 		[Header("Dialogue Timings")]
 		[SerializeField]
 		private float _startDialogueDelay = 1f;
@@ -89,12 +50,9 @@ namespace TalkingHeads
 		
 		private IEnumerator PlayChat()
 		{
-			setInitialSprites();
-
-			_nextDialogueMark.SetActive(false);
-			_chatText.ClearText();
-
-			yield return new WaitForSeconds(_startDialogueDelay);
+			setInitialState();
+			
+			yield return FadeHepler.FadeIn(_startDialogueDelay, _chatCanvas);
 			
 			for (var i = 0; i < _chatData.ChatItems.Count; i++)
 			{
@@ -209,8 +167,12 @@ namespace TalkingHeads
 				yield return new WaitForSeconds(.1f);
 			}
 
-			void setInitialSprites()
+			void setInitialState()
 			{
+				_chatCanvas.alpha = 0f;
+				_nextDialogueMark.SetActive(false);
+				_chatText.ClearText();
+				
 				if (_chatData.ChatItems[0].Main.LeftSpeaker != null)
 				{
 					_leftHead.SetSpriteContainer(_chatData.ChatItems[0].Main.LeftSpeaker);

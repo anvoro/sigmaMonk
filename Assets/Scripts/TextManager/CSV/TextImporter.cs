@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using Chat;
 using QTE;
 using TalkingHeads;
 using TextManager;
