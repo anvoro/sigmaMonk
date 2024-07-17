@@ -20,6 +20,8 @@ namespace UI
 
 		public void ShowEnding()
 		{
+			_image.gameObject.SetActive(true);
+			
 			if (GameManager.I.KarmaValue > 0)
 			{
 				_image.sprite = _goodEnd;
