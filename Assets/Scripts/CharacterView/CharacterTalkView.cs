@@ -39,11 +39,6 @@ namespace TalkingHeads
 				throw new NullReferenceException(nameof(spriteContainer));
 			}
 			
-			if (spriteContainer.TalkSprites.Count <= 1)
-			{
-				throw new ArgumentOutOfRangeException($"{nameof(spriteContainer.TalkSprites.Count)} must be > 1");
-			}
-			
 			_spriteContainer = spriteContainer;
 		}
 		
@@ -130,6 +125,11 @@ namespace TalkingHeads
 
 		private IEnumerator ProcessTalkSprites()
 		{
+			if (_spriteContainer.TalkSprites == null || _spriteContainer.TalkSprites.Count == 0)
+			{
+				yield break;
+			}
+			
 			var spriteIndex = 0;
 			while (true)
 			{
