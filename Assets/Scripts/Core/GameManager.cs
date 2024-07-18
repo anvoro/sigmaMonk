@@ -34,11 +34,11 @@ public class GameManager : SingletonBase<GameManager>
 
 	public IEnumerator EndGame()
 	{
-		yield return FadeHepler.FadeIn(_finalFadeDuration, _fade);
+		yield return FadeHelper.FadeIn(_finalFadeDuration, _fade);
 		
 		_endGameUI.ShowEnding();
 		
-		yield return FadeHepler.FadeOut(_finalFadeDuration, _fade);
+		yield return FadeHelper.FadeOut(_finalFadeDuration, _fade);
 	}
 	
 	public void ChangeKarma(int value)

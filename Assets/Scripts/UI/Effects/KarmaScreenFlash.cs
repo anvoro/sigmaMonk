@@ -35,8 +35,8 @@ namespace UI
 
 		private IEnumerator ProcessFlash()
 		{
-			yield return FadeHepler.FadeIn(Duration / 2f, _canvasGroup);
-			yield return FadeHepler.FadeOut(Duration / 2f, _canvasGroup);
+			yield return FadeHelper.FadeIn(Duration / 2f, _canvasGroup);
+			yield return FadeHelper.FadeOut(Duration / 2f, _canvasGroup);
 		}
 	}
 }

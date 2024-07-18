@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
-public static class FadeHepler
+public static class FadeHelper
 {
     public static IEnumerator FadeIn(float duration, SpriteRenderer sprite, float from = 0f, float to = 1f)
     {

@@ -50,7 +50,7 @@ namespace TalkingHeads
 		{
 			setInitialState();
 			
-			yield return FadeHepler.FadeIn(_startDialogueDelay, _chatCanvas);
+			yield return FadeHelper.FadeIn(_startDialogueDelay, _chatCanvas);
 			
 			for (var i = 0; i < _chatData.ChatItems.Count; i++)
 			{
@@ -105,7 +105,7 @@ namespace TalkingHeads
 
 			IEnumerator processQTE(ChatItem currentChatItem)
 			{
-				yield return FadeHepler.FadeIn(_preQTEFadeDuraion, _qteFade);
+				yield return FadeHelper.FadeIn(_preQTEFadeDuraion, _qteFade);
 				yield return new WaitForSeconds(_preQTEDelay);
 				
 				_currentQTE = Instantiate(currentChatItem.QTEPrefab).GetComponent<QTEHolder>();
@@ -116,7 +116,7 @@ namespace TalkingHeads
 					yield return GameManager.WaitEndOfFrame;
 				}
 				
-				yield return FadeHepler.FadeOut(_postQTEFadeDuraion, _qteFade);
+				yield return FadeHelper.FadeOut(_postQTEFadeDuraion, _qteFade);
 				yield return new WaitForSeconds(_postQTEDelay);
 
 				if (currentChatItem.Success == null && currentChatItem.Fail == null)

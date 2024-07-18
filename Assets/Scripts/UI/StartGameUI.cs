@@ -37,7 +37,7 @@ namespace UI
 			
 			GameManager.I.StartNewGame();
 
-			yield return FadeHepler.FadeOut(_fadeDuration, _canvasGroup);
+			yield return FadeHelper.FadeOut(_fadeDuration, _canvasGroup);
 			
 			Destroy(gameObject);
 		}
