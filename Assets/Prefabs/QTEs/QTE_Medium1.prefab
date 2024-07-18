@@ -51,7 +51,7 @@ MonoBehaviour:
   - {fileID: 1500503730377285461}
   _apperanceDelay:
   - 0
-  - 1.2
+  - 0.8
 --- !u!1001 &1907612897477209952
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -62,7 +62,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1057202298374877237, guid: abb15b565bce85e44963c644d30caa03, type: 3}
       propertyPath: _qteTime
-      value: 1.5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1057202298374877237, guid: abb15b565bce85e44963c644d30caa03, type: 3}
       propertyPath: _qteSuccessOffsetBefore
@@ -159,7 +159,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1057202298374877237, guid: abb15b565bce85e44963c644d30caa03, type: 3}
       propertyPath: _qteTime
-      value: 1.5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1057202298374877237, guid: abb15b565bce85e44963c644d30caa03, type: 3}
       propertyPath: _qteSuccessOffsetBefore

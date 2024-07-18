@@ -12,7 +12,6 @@ public class GameManager : SingletonBase<GameManager>
 
 	public static event Action<int, int> OnKarmaChange;
 	
-	[SerializeField] private float _inputDelay = 0.05f;
 	[SerializeField] private ChatManager _chatManager;
 	[SerializeField] private GameObject _menu;
 	[SerializeField] private EndGameUI _endGameUI;
@@ -45,7 +44,7 @@ public class GameManager : SingletonBase<GameManager>
 	public void ChangeKarma(int value)
 	{
 		_karma += value;
-		
+		Debug.Log(_karma);
 		OnKarmaChange?.Invoke(_karma, value);
 	}
 
@@ -68,6 +67,15 @@ public class GameManager : SingletonBase<GameManager>
 	
 	private void Update()
 	{
+		if (Input.GetMouseButtonDown(0))
+		{
+			ChangeKarma(1);
+		}
+		else if (Input.GetMouseButtonDown(1))
+		{
+			ChangeKarma(-1);
+		}
+		
 		if (Input.GetKeyDown(KeyCode.Escape))
 		{
 			if (_inMenuState == false)
@@ -88,8 +96,7 @@ public class GameManager : SingletonBase<GameManager>
 		{
 			_timeSinceLastInput += Time.deltaTime;
 
-			if (_timeSinceLastInput > _inputDelay
-			    && Input.GetKeyDown(KeyCode.Space) == true)
+			if (Input.GetKeyDown(KeyCode.Space) == true)
 			{
 				_timeSinceLastInput = 0f;
 

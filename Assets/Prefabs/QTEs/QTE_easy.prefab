@@ -58,7 +58,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1057202298374877237, guid: abb15b565bce85e44963c644d30caa03, type: 3}
       propertyPath: _qteTime
-      value: 1.2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1057202298374877237, guid: abb15b565bce85e44963c644d30caa03, type: 3}
       propertyPath: _qteSuccessOffsetBefore

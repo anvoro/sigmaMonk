@@ -1,25 +1,27 @@
 ﻿using System;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace UI
 {
-	[RequireComponent(typeof(SpriteRenderer))]
-	public class SpriteChangerDependOfKarma : MonoBehaviour
+	[RequireComponent(typeof(Image))]
+	public class ImageChangerDependOfKarma : MonoBehaviour
 	{
 		[Serializable]
 		private struct KarmaImageItem
 		{
 			public Sprite Sprite;
-			public int KarmaToShow;
+			public int MaxKarmaToShow;
+			public int MinKarmaToShow;
 		}
 
-		private SpriteRenderer _sprite;
+		private Image _image;
 
 		[SerializeField] private KarmaImageItem[] _items;
 
 		private void Awake()
 		{
-			_sprite = GetComponent<SpriteRenderer>();
+			_image = GetComponent<Image>();
 		}
 
 		private void Start()
@@ -34,13 +36,12 @@ namespace UI
 
 		private void OnKarmaChange(int value, int delta)
 		{
+			Sprite result = null;
 			foreach (var item in _items)
 			{
-				if (item.KarmaToShow == value)
+				if (value >= item.MinKarmaToShow && value <= item.MaxKarmaToShow)
 				{
-					Debug.Log(value);
-					
-					_sprite.sprite = item.Sprite;
+					_image.sprite = item.Sprite;
 					break;
 				}
 			}
